@@ -1,46 +1,6 @@
 <div id="map-canvas"></div>
-  <div class="button">
-    <div id="submit-button">
-      <%= button_to "Mark Location", new_requests_pothole_path, method: 'get', id: 'submit-button' %>
-    </div>
+<div class="button">
+  <div id="submit-button">
+    <%= button_to "Mark Location", requests_potholes_new_form_path, method: 'get', id: 'submit-button' %>
   </div>
-
-<table>
-  <%= form_for @pothole, url: requests_potholes_path, multipart: true do |f| %>
-    <tr>
-      <td><%= f.label :Picture %>: </td>
-      <td><%= f.file_field :picture %></td>
-    </tr>
-    <tr>
-      <td><%= f.label :description %>: </td>
-      <td><%= f.text_area :description %></td>
-    </tr>
-    <tr>
-      <td><%= f.label :where_located %>: </td>
-      <td><%= select_tag(:where_located, options_for_select([['', 0], ['Crosswalk', 1], ['Curb Lane', 2], ['Intersection', 3], ['Traffic Lane', 4]])) %></td>
-    </tr>
-    <!-- use different partial for logged in? -->
-    <!-- format this as optional -->
-    <tr>
-      <td><%= label_tag(:first_name) %></td>
-      <td><%= text_field_tag(:first_name) %></td>
-    </tr>
-    <tr>
-      <td><%= label_tag(:last_name) %></td>
-      <td><%= text_field_tag(:last_name) %></td>
-    </tr>
-    <tr>
-      <td><%= label_tag(:email) %></td>
-      <td><%= text_field_tag(:email) %></td>
-    </tr>
-    <tr>
-      <td><%= label_tag(:phone) %></td>
-      <td><%= text_field_tag(:phone) %></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><%= f.submit %></td>
-    </tr>
-  <% end %>
-</table>
-
+</div>
