@@ -4,7 +4,18 @@ var geocoder;
 function codeLatLng(input) {
   geocoder.geocode({'latLng': input}, function(results) {
     console.log("You've marked: " + results[0].formatted_address);
+    var formatted = results[0].formatted_address
+    var lat = results[0].geometry.location.A
+    var lng = results[0].geometry.location.F
+    // $.ajax({
+    //   url: "/request/map",
+    //   method: "post",
+    //   data: {lat: null,
+    //         lng: null,
+    //         formatted: results[0].formatted_address}
+    // });
   });
+  console.log("returned result: " + results[0].formatted_address);
 }
 
 function initialize() {
@@ -65,7 +76,7 @@ $(document).ready(function(){
   initialize();
   $('#submit-button').submit(function(event){
     // debugger;
-    // event.preventDefault();
+    event.preventDefault();
     center = map.getCenter();
     codeLatLng(center);
   });
