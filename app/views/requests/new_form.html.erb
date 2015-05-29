@@ -1,5 +1,5 @@
 <table>
-  <%= form_for @pothole, url: requests_potholes_path, multipart: true do |f| %>
+  <%= form_for @request, url: requests_path, multipart: true do |f| %>
     <tr>
       <td><%= f.label :Picture %>: </td>
       <td><%= f.file_field :picture %></td>

@@ -8,7 +8,7 @@ function codeLatLng(input) {
     var lat = results[0].geometry.location.A
     var lng = results[0].geometry.location.F
     $.ajax({
-      url: "/requests/potholes",
+      url: "/requests",
       method: "post",
       data: {lat: lat,
             lng: lng,
