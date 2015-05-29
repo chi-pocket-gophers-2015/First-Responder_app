@@ -11,10 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150529162313) do
+
+ActiveRecord::Schema.define(version: 20150529183723) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
 
   create_table "potholes", force: :cascade do |t|
     t.text     "description"
@@ -28,8 +31,16 @@ ActiveRecord::Schema.define(version: 20150529162313) do
   end
 
   create_table "requests", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "Creation Date"
+    t.string "Status"
+    t.string "Completion Date"
+    t.string "Service Request Number"
+    t.string "Type of Service Request"
+    t.string "Street Address"
+    t.string "ZIP Code"
+    t.string "Latitude"
+    t.string "Longitude"
+    t.string "Location"
   end
 
 end
