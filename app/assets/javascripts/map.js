@@ -18,7 +18,8 @@ function codeLatLng(input) {
     });
 
     request.done(function(response){
-      console.log(response);
+      $('.body-container').html(response);
+      console.log('hi');
     });
 
   });
@@ -83,7 +84,7 @@ $(document).ready(function(){
   initialize();
   $('#submit-button').submit(function(event){
     // debugger;
-    event.preventDefault();
+    // event.preventDefault();
     center = map.getCenter();
     codeLatLng(center);
   });
