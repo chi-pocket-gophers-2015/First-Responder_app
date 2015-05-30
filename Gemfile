@@ -14,7 +14,6 @@ gem 'rake'
 gem 'bootstrap-sass'
 gem 'pry'
 
-
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
@@ -23,6 +22,7 @@ group :development, :test do
   gem 'simplecov'
   gem "factory_girl_rails", "~> 4.0"
   gem 'capybara'
+  gem 'dotenv-rails'
 end
 
 group :development do
