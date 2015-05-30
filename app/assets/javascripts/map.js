@@ -4,16 +4,23 @@ var geocoder;
 function codeLatLng(input) {
   geocoder.geocode({'latLng': input}, function(results) {
     console.log("You've marked: " + results[0].formatted_address);
-    var formatted = results[0].formatted_address
+    var address_part = results[0].address_components
     var lat = results[0].geometry.location.A
     var lng = results[0].geometry.location.F
-    $.ajax({
+    var request = $.ajax({
       url: "/requests",
       method: "post",
       data: {lat: lat,
             lng: lng,
-            formatted: results[0].formatted_address}
+            address: address_part[0].short_name + " " + address_part[1].short_name,
+            zip: address_part[7].short_name
+          }
     });
+
+    request.done(function(response){
+      console.log(response);
+    });
+
   });
   console.log("returned result: " + results[0].formatted_address);
 }
@@ -76,7 +83,7 @@ $(document).ready(function(){
   initialize();
   $('#submit-button').submit(function(event){
     // debugger;
-    // event.preventDefault();
+    event.preventDefault();
     center = map.getCenter();
     codeLatLng(center);
   });

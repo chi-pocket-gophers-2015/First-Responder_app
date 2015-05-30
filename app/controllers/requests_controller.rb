@@ -15,7 +15,7 @@ class RequestsController < ApplicationController
   end
 
   def pothole_form
-    @request = Request.new
+    # @request = Request.new
   end
 
   def rodent_form
@@ -40,14 +40,17 @@ class RequestsController < ApplicationController
 
   def create
     p params
-    request = Request.new
-    request.party_time
-    p request
+    @request = Request.create('Latitude' => params['lat'], 'Longitude' => params['lng'], 'Street Address' => params['address'], 'ZIP Code' => params['zip'])
+    @request
+    render :pothole_form, layout: false
+    # request = Request.new
+    # request.party_time
+    # p request
   end
 
   private
 
    def request_params
-
+    params.permit('Latitude', 'Longitude', 'Street Address')
   end
 end
