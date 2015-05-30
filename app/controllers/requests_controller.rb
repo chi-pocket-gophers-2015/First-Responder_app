@@ -39,9 +39,9 @@ class RequestsController < ApplicationController
   end
 
   def create
+    p params
     request = Request.new
     request.party_time
-    request.test
     p request
   end
 
