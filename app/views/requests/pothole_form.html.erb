@@ -1,5 +1,6 @@
 <table>
   <%= form_for @request, url: requests_path, multipart: true do |f| %>
+    <input type="hidden" name="request-id" value="<%= @request.id %>">
     <tr>
       <td><%= f.label :Picture %>: </td>
       <td><%= f.file_field :picture %></td>

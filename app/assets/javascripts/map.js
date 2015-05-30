@@ -19,11 +19,8 @@ function codeLatLng(input) {
 
     request.done(function(response){
       $('.body-container').html(response);
-      console.log('hi');
     });
-
   });
-  console.log("returned result: " + results[0].formatted_address);
 }
 
 function initialize() {
@@ -79,12 +76,10 @@ function handleNoGeolocation(errorFlag) {
   map.setCenter(options.position);
 }
 
-
 $(document).ready(function(){
   initialize();
   $('#submit-button').submit(function(event){
-    // debugger;
-    // event.preventDefault();
+    event.preventDefault();
     center = map.getCenter();
     codeLatLng(center);
   });
