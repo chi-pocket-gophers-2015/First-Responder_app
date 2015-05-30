@@ -10,35 +10,35 @@ class RequestsController < ApplicationController
     @request = Request.new
   end
 
-  def graffiti_form 
-    @request = Request.new   
+  def graffiti_form
+    @request = Request.new
   end
 
-  def pothole_form 
-    @request = Request.new   
+  def pothole_form
+    @request = Request.new
   end
 
-  def rodent_form 
-    @request = Request.new   
+  def rodent_form
+    @request = Request.new
   end
 
-  def street_light_form 
-    @request = Request.new   
+  def street_light_form
+    @request = Request.new
   end
 
-  def tree_debris_form 
-    @request = Request.new   
+  def tree_debris_form
+    @request = Request.new
   end
 
-  def tree_trim_form 
-    @request = Request.new   
+  def tree_trim_form
+    @request = Request.new
   end
 
-  def abandoned_vehicle_form 
-    @request = Request.new   
+  def abandoned_vehicle_form
+    @request = Request.new
   end
 
   def create
-    binding.pry
+    # binding.pry
   end
 end

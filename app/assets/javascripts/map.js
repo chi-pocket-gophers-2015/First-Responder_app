@@ -76,7 +76,7 @@ $(document).ready(function(){
   initialize();
   $('#submit-button').submit(function(event){
     // debugger;
-    event.preventDefault();
+    // event.preventDefault();
     center = map.getCenter();
     codeLatLng(center);
   });
