@@ -39,17 +39,17 @@ class RequestsController < ApplicationController
   end
 
   def create
-    if request.xhr?
-      @request = Request.create('Latitude' => params['lat'], 'Longitude' => params['lng'], 'Street Address' => params['address'], 'ZIP Code' => params['zip'])
-      puts "============="
-      p @request.id
-      # redirect_to(requests_pothole_form_path)
-      render :pothole_form, layout: false
-    else
-      # p @request
-      puts '~~~~~~~~~~~~~~'
-      p params
-    end
+    # if request.xhr?
+    @request = Request.create('Latitude' => params['lat'], 'Longitude' => params['lng'], 'Street Address' => params['address'], 'ZIP Code' => params['zip'])
+    puts "============="
+    p @request.id
+    # redirect_to(requests_pothole_form_path)
+    render :pothole_form, layout: false
+    # else
+    #   # p @request
+    #   puts '~~~~~~~~~~~~~~'
+    #   p params
+    # end
     # request = Request.new
     # request.party_time
     # p request

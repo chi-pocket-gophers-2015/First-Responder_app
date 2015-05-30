@@ -83,4 +83,17 @@ $(document).ready(function(){
     center = map.getCenter();
     codeLatLng(center);
   });
+
+  // $('body').on('click', '.form-submit', function() {
+  //   console.log("hello");
+  //   console.log($(this))
+  //    // var request = $.ajax({
+  //    //  url: "/requests",
+  //    //  method: "post",
+  //    //  data: {lat: lat,
+  //    //        lng: lng,
+  //    //        address: address_part[0].short_name + " " + address_part[1].short_name,
+  //    //        zip: address_part[7].short_name
+  //    //      }
+  // });
 });
