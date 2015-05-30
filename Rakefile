@@ -40,6 +40,7 @@ extension_hash = {
  # traffic_light: 'vfmv-4fbs',
 }
 
+#Pull the below method into a separate file
 def json_parse(url, header_type)
 
  raw_data = open(url)
@@ -67,12 +68,19 @@ def json_parse(url, header_type)
  end
  # binding.pry
  data = parsed['data']
- data.each do |row|
+ # sliced_hash_holder = []
+
+ data[0..99].each do |row|
    data_hash = Hash[headers.zip(row)]
    slice_hash = data_hash.slice("Creation Date", "Status", "Completion Date", "Service Request Number", "Type of Service Request", "Street Address", "ZIP Code", "Latitude", "Longitude", "Location")
+   p slice_hash
+   Request.create(slice_hash)
+   # sliced_hash_holder << slice_hash
    # binding.pry
-   # Request.create(slice_hash)
  end
+ # 100.times do |i|
+ #    Request.create(sliced_hash_holder[i])
+ # end
 end
 
 namespace :import_request do
