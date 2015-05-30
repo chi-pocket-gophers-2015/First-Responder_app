@@ -39,6 +39,15 @@ class RequestsController < ApplicationController
   end
 
   def create
-    # binding.pry
+    request = Request.new
+    request.party_time
+    request.test
+    p request
+  end
+
+  private
+
+   def request_params
+
   end
 end
