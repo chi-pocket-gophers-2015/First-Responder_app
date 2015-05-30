@@ -8,9 +8,9 @@ class Request < ActiveRecord::Base
   def party_time()
     @options = {service_code: '4fd3b656e750846c53000004',
                 'description' => 'hedssdflo',
-                "address" => "2925 W COYLE AVE, CHICAGO, IL, 60645",
-                "lat" => 47.00749494401174,
-               "long" => -84.70276666645528,
+                "address" => "295 W COYLE AVE, CHICAGO, IL, 60645",
+                "lat" => 41.00749494401174,
+               "long" => -94.70276666645528,
                'attribute[WHEREIST]' => 'Crosswalk'}
     self.class.post("/open311/v2/requests.json", query: @options, headers: {'api_key' => ENV['API_KEY']})
 
