@@ -1,4 +1,4 @@
-class TreeDebrisController < ApplicationController
+class GraffitiController < ApplicationController
   def new
   end
 
