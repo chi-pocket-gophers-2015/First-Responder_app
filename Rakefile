@@ -26,6 +26,8 @@ require 'open-uri'
 
 BASE_URL = 'https://data.cityofchicago.org/api/views/'
 JSON_SUFFIX = '/rows.json'
+BASE_RECENT = 'http://311api.cityofchicago.org/open311/v2/requests.json?start_date='
+# @last_time = @last_time || 2015-05-30T00:00:00Z. not sure if this works
 
 extension_hash = {
  potholes: '7as2-ds3y',
@@ -46,25 +48,12 @@ def json_parse(url, header_type)
  raw_data = open(url)
  parsed = JSON.parse(raw_data.read)
  columns = parsed['meta']['view']['columns']
- # headers = columns.map{ |column| column['name'].gsub(/(\s){1}(the){1}/," The").gsub(/(\s){1}(as){1}/," As").gsub(/(\s){1}(of){1}/," Of").gsub(/\s+/,"").gsub(/\?/,"_").underscore }
  if header_type == 1
    headers = columns.map{|column| column['name']}
  ########################
  # for potholes:
  elsif header_type == 2
   headers = ["sid","id","position","created_at","created_meta","updated_at","updated_meta","meta","Creation Date","Status","Completion Date","Service Request Number","Type of Service Request","CURRENT ACTIVITY","MOST RECENT ACTION","NUMBER OF POTHOLES FILLED ON BLOCK","Street Address","ZIP Code","X COORDINATE","Y COORDINATE","Ward","Police District","Community Area","SSA","Latitude","Longitude", "Location"]
-  # binding.pry
-  # headers = columns.map{|column| column['name'].split(' ')}
-  # headers.each do |row|
-  #   if row.length > 1
-  #     row.each {|word| word.downcase!.capitalize!}
-  #   else
-  #     row[0].downcase!.capitalize!
-  #   end
-  # end
-  # headers = headers.map{|row| row.join(' ')}
-  # binding.pry
- ########################
  end
  # binding.pry
  data = parsed['data']
@@ -73,7 +62,7 @@ def json_parse(url, header_type)
  data[0..99].each do |row|
    data_hash = Hash[headers.zip(row)]
    slice_hash = data_hash.slice("Creation Date", "Status", "Completion Date", "Service Request Number", "Type of Service Request", "Street Address", "ZIP Code", "Latitude", "Longitude", "Location")
-   p slice_hash
+   # p slice_hash
    Request.create(slice_hash)
    # sliced_hash_holder << slice_hash
    # binding.pry
@@ -82,6 +71,22 @@ def json_parse(url, header_type)
  #    Request.create(sliced_hash_holder[i])
  # end
 end
+
+def get_recent(url, time)
+
+  raw_data = open(url)
+  parsed = JSON.parse(raw_data.read)
+  slice_hash = data_hash.slice("Creation Date", "Status", "Completion Date", "Service Request Number", "Type of Service Request", "Street Address", "ZIP Code", "Latitude", "Longitude", "Location")
+  #need to fix the above line but the idea is the same
+  Request.create(slice_hash)
+  @last_time = time
+end
+
+# def last_time
+#   @last_time
+# end
+
+# "http://311api.cityofchicago.org/open311/v2/requests.json?start_date=2011-05-25&end_date=2011-05-30"
 
 namespace :import_request do
   task :create_request => :environment do
@@ -97,6 +102,11 @@ namespace :import_request do
       end
     end
     # json_parse('https://data.cityofchicago.org/api/views/3c9v-pnva/rows.json',2)
+  end
+  task :create_recent => :environment do
+    #variable for time/now
+    url = BASE_RECENT + @last_time.strftime("%FT%T%:z") + "&" + Time.now.strftime("%FT%T%:z")
+    get_recent(url, Time.now)
   end
 end
 
