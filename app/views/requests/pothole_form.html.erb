@@ -1,6 +1,5 @@
 <table>
-  <%= form_tag(controller: 'potholes', action: 'update', multipart: true) do %>
-    <input type="hidden" name="_method" value="put">
+  <%= form_tag action: '/potholes', method: '' multipart: true do |f| %>
     <tr>
       <td><%= label_tag :Picture %>: </td>
       <td><%= file_field_tag :picture %></td>
@@ -11,8 +10,7 @@
     </tr>
     <tr>
       <td><%= label_tag :where_located %>: </td>
-
-      <td><%= select_tag(:where_located, options_for_select(Pothole::POTHOLE_LOCATION_OPTIONS)) %></td>
+      <td><%= select_tag(:where_located, options_for_select([['', 0], ['Crosswalk', 1], ['Curb Lane', 2], ['Intersection', 3], ['Traffic Lane', 4]])) %></td>
     </tr>
     <!-- use different partial for logged in? -->
     <!-- format this as optional -->
@@ -34,7 +32,7 @@
     </tr>
     <tr>
       <td></td>
-      <td><%= submit_tag "Submit", class: "form-submit" %></td>
+      <td><%= f.submit class: "form-submit" %></td>
     </tr>
   <% end %>
 </table>

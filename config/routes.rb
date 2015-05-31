@@ -4,7 +4,9 @@ Rails.application.routes.draw do
     # get '/map', to: 'requests#map'
   end
 
-  resource :potholes, only: [:new, :create, :update]
+  resource :potholes, only: [:new, :create, :update] do
+    get '/form', to: 'potholes#form'
+  end
   resource :tree_debris, only: [:new, :create, :update]
   resource :street_lights, only: [:new, :create, :update]
   resource :graffiti, only: [:new, :create, :update]
