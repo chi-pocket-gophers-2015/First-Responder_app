@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   resource :requests, only: [:new, :create, :update] do
-    # get '/new_form', to: 'requests#new_form'
-    # get '/map', to: 'requests#map'
+    get '/create', to: 'requests#create'
   end
 
   resource :potholes, only: [:new, :create, :update] do

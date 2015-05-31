@@ -30,10 +30,8 @@ class RodentsController < ApplicationController
       'attribute[DOYOUWA1]'=> params[:backyard_baited]
     }
     request = Request.new.party_time(rodent_params)
-    binding.pry
-    # params = params.merge{'lat': session['lat'], blah blah}
-    # HTTParty(pothole_params)
-    # Request.new(params)
-    # render '/requests/success'
+    token = request[0]['token']
+    session.clear
+    redirect_to controller: 'requests', action: 'create', token: token
   end
 end

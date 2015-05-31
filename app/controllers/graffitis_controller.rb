@@ -30,6 +30,8 @@ class GraffitisController < ApplicationController
       'attribute[OVER6FEE]'=> params[:height]
     }
     request = Request.new.party_time(graffiti_params)
-
+    token = request[0]['token']
+    session.clear
+    redirect_to controller: 'requests', action: 'create', token: token
   end
 end

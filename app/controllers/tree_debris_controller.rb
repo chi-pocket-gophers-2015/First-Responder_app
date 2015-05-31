@@ -30,11 +30,9 @@ class TreeDebrisController < ApplicationController
       'attribute[IFYES,WH]' => params[:debris_location]
     }
     request = Request.new.party_time(tree_debris_params)
-    binding.pry
-    # params = params.merge{'lat': session['lat'], blah blah}
-    # HTTParty(pothole_params)
-    # Request.new(params)
-    # render '/requests/success'
+    token = request[0]['token']
+    session.clear
+    redirect_to controller: 'requests', action: 'create', token: token
   end
 
 end
