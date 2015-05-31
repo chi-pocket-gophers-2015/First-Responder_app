@@ -11,11 +11,11 @@
     </tr>
     <tr>
       <td><%= label_tag :vehicle_make_model %>: </td>
-      <td><%= select_tag(:vehicle_make_model, options_for_select(Request::VEHICLE_MAKE_MODEL_OPTIONS)) %></td>
+      <td><%= select_tag(:vehicle_make_model, options_for_select(AbandonedVehicle::VEHICLE_MAKE_MODEL_OPTIONS)) %></td>
     </tr>
     <tr>
       <td><%= label_tag :vehicle_color %>: </td>
-      <td><%= select_tag(:vehicle_color, options_for_select(Request::VEHICLE_COLOR_OPTIONS)) %></td>
+      <td><%= select_tag(:vehicle_color, options_for_select(AbandonedVehicle::VEHICLE_COLOR_OPTIONS)) %></td>
     </tr>
     <tr>
       <td><%= label_tag :vehicle_license %>: </td>
@@ -23,7 +23,7 @@
     </tr>
     <tr>
       <td><%= label_tag :vehicle_body_style %>: </td>
-      <td><%= select_tag(:vehicle_body_style, options_for_select(Request::VEHICLE_BODY_STYLE_OPTIONS)) %></td>
+      <td><%= select_tag(:vehicle_body_style, options_for_select(AbandonedVehicle::VEHICLE_BODY_STYLE_OPTIONS)) %></td>
     </tr>
      <tr>
       <td><%= label_tag :vehicle_days_parked %>: </td>
