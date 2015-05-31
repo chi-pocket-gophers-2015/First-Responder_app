@@ -5,6 +5,7 @@ class RequestsController < ApplicationController
   end
 
   def create
+    binding.pry
     @request = Request.new(request_params)
     if @request.save
       render :success
