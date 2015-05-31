@@ -1,6 +1,6 @@
 class Request < ActiveRecord::Base
 
-  POTHOLE_LOCATION_OPTIONS = ['Crosswalk', 'Curb Lane', 'Intersection', 'Traffic Lane')
+  POTHOLE_LOCATION_OPTIONS = ['Crosswalk', 'Curb Lane', 'Intersection', 'Traffic Lane']
 
   GRAFFITI_LOCATION_OPTIONS = ['Alley', 'Bench', 'Door', 'Dumpster', 'Express Way Job', 'Fence', 'Front', 'Garage', 'Garbage Cart', 'Hydrant', 'Mailbox',
   'Newspaper Box', 'Phone', 'Pole', 'Rear', 'Side', 'Sign', 'Traffic Control Box']
@@ -36,6 +36,8 @@ class Request < ActiveRecord::Base
   RODENT_INSPECTION_OPTIONS = ["Inspect Back Yard", "No"]
 
   RODENT_BAIT_OPTIONS = ["Bait Back Yard", "No"]
+
+  STREET_LIGHT_OUT_OPTIONS = ["Completely Out", "On and Off"]
 
 	validates "Service Request Number", :presence => true, :uniqueness => true
 
