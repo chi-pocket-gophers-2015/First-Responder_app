@@ -13,6 +13,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rake'
 gem 'bootstrap-sass'
 gem 'pry'
+gem 'httparty'
 
 
 group :development, :test do
