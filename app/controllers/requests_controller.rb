@@ -50,7 +50,7 @@ class RequestsController < ApplicationController
   end
 
   def update
-    @request(params).party_time(params)
+    # @request(params).party_time(params)
   end
 
   private
