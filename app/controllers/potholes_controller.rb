@@ -20,7 +20,7 @@ class PotholesController < ApplicationController
   def update
     pothole_params = {
       "service_code"=> "4fd3b656e750846c53000004",
-      "service_name": "Pothole in Street",
+      "service_name"=> "Pothole in Street",
       'description'=> params[:description],
       'address'=> session[:street_address] +
         ", Chicago, IL, " + session[:zip],

@@ -19,6 +19,7 @@ class GraffitiController < ApplicationController
   def update
     graffiti_params = {
       "service_code"=> "4fd3b167e750846744000005",
+      "service_name"=> "Graffiti Removal",
       'description'=> params[:description],
       'address'=> session[:street_address] +
         ", Chicago, IL, " + session[:zip],

@@ -20,7 +20,7 @@ class StreetLightsController < ApplicationController
   def update
     street_light_params = {
       "service_code"=> "4ffa9f2d6018277d400000c8",
-      "service_name": "Street Light Out",
+      "service_name"=> "Street Light Out",
       'description'=> params[:description],
       'address'=> session[:street_address] +
         ", Chicago, IL, " + session[:zip],

@@ -20,7 +20,7 @@ class AbandonedVehiclesController < ApplicationController
   def update
     abandoned_vehicle_params = {
       "service_code"=> "4ffa4c69601827691b000018",
-      "service_name": "Abandoned Vehicle",
+      "service_name"=> "Abandoned Vehicle",
       'description'=> params[:description],
       'address'=> session[:street_address] +
         ", Chicago, IL, " + session[:zip],
