@@ -15,8 +15,8 @@ Rails.application.routes.draw do
     get '/form', to: 'street_lights#form'
   end
 
-  resource :graffiti, only: [:new, :create, :update] do
-    get '/form', to: 'graffiti#form'
+  resource :graffitis, only: [:new, :create, :update] do
+    get '/form', to: 'graffitis#form'
   end
 
   resource :rodents, only: [:new, :create, :update] do

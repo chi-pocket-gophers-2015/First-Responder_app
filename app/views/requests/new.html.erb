@@ -11,8 +11,8 @@
     <%= hidden_field_tag :category, "street_light" %>
     <%= submit_tag("Street Light Out", class: "btn btn-lg btn-default")%>
   <% end %>
-  <%= form_tag("/graffiti/new", method: 'get') do %>
-    <%= hidden_field_tag :category, "graffiti" %>
+  <%= form_tag("/graffitis/new", method: 'get') do %>
+    <%= hidden_field_tag :category, "graffitis" %>
     <%= submit_tag("Graffiti", class: "btn btn-lg btn-default")%>
   <% end %>
   <%= form_tag("/rodents/new", method: 'get') do %>

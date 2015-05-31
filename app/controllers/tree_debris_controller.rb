@@ -20,14 +20,14 @@ class TreeDebrisController < ApplicationController
   def update
     tree_debris_params = {
       "service_code"=> "4fd3bbf8e750846c53000069",
-      "service_name"=> "Tree Debris",
-      'description'=> params[:description],
-      'address'=> session[:street_address] +
+      "service_name" => "Tree Debris",
+      'description' => params[:description],
+      'address' => session[:street_address] +
         ", Chicago, IL, " + session[:zip],
-      'lat'=> session[:lat],
-      'long'=> session[:lng],
-      'attribute[ISTHEAMO]'=> params[:debris_size]
-      'attribute[IFYES,WH]'=> params[:debris_location]
+      'lat' => session[:lat],
+      'long' => session[:lng],
+      'attribute[ISTHEAMO]' => params[:debris_size],
+      'attribute[IFYES,WH]' => params[:debris_location]
     }
     request = Request.new.party_time(tree_debris_params)
     token = request[0]['token']

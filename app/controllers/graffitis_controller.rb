@@ -1,7 +1,7 @@
-class GraffitiController < ApplicationController
+class GraffitisController < ApplicationController
   def new
     session.clear
-    @category = 'graffiti'
+    @category = 'graffitis'
   end
 
   def create
@@ -10,7 +10,7 @@ class GraffitiController < ApplicationController
     session[:street_address] = params['address']
     session[:zip] = params['zip']
     @request = Request.new
-    render '/graffiti/form'
+    render '/graffitis/form'
   end
 
   def form
