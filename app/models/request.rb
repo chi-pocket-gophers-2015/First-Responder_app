@@ -37,6 +37,8 @@ class Request < ActiveRecord::Base
 
   RODENT_BAIT_OPTIONS = ["Bait Back Yard", "No"]
 
+  STREET_LIGHT_OUT_OPTIONS = ["Completely Out", "On and Off"]
+
 	validates "Service Request Number", :presence => true, :uniqueness => true
 
   private
