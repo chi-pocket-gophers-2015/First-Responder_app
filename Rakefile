@@ -8,6 +8,7 @@ Rails.application.load_tasks
 require 'csv'
 require 'json'
 require 'open-uri'
+require 'active_support'
 
 # Code for pushing CSV to the DB
 # namespace :import_request do
@@ -79,7 +80,8 @@ def get_recent(url)
     slice_hash = hash.slice("requested_datetime", "status", "updated_datetime", "service_request_id", "service_name", "address", "lat", "long")
   
     Request.create(slice_hash)
-    @last_time = Time.now
+  end
+
 end
 
 # def last_time
