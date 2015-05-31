@@ -17,6 +17,7 @@ function codeLatLng(input) {
           }
     });
     request.done(function(response){
+      debugger;
       window.location.replace("/" + $('.map-page').attr('data-category') +
         "/form");
     });
