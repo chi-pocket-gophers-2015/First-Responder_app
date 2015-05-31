@@ -16,9 +16,9 @@ function codeLatLng(input) {
             zip: address_part[7].short_name
           }
     });
-
     request.done(function(response){
-      window.location.replace("/requests/pothole_form");
+      window.location.replace("/requests/" + $('.button').attr('data-category') +
+        "_form");
     });
   });
 }
@@ -78,7 +78,7 @@ function handleNoGeolocation(errorFlag) {
 
 $(document).ready(function(){
   initialize();
-  $('#submit-button').submit(function(event){
+  $(document).on('submit',$('#submit-button'),function(event){
     event.preventDefault();
     center = map.getCenter();
     codeLatLng(center);
