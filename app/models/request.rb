@@ -23,7 +23,7 @@ class Request < ActiveRecord::Base
   VEHICLE_BODY_STYLE_OPTIONS = ["Ambulance", "Bus", "Carryall", "Coach", "Dump Truck", "Fire Truck", "Flatbed Truck", "Garage Truck", "Hatchback 2 Door", "Hatchback 4 Door",
     "Legacy Unknown", "Limousine", "Motor Bike"]
 
-	validates "Service Request Number" :presence => true, :uniqueness => true
+	#validates "Service Request Number" :presence => true, :uniqueness => true
 
   private
 
@@ -40,7 +40,6 @@ class Request < ActiveRecord::Base
                "long" => -34.70276666645528,
                'attribute[WHEREIST]' => 'Crosswalk'}
     self.class.post("/open311/v2/requests.json", query: @options, headers: {'api_key' => ENV['API_KEY']})
-
   end
   # go here to see test post:
   #http://dev.cityofchicago.org/docs/api/service_request
