@@ -1,22 +1,44 @@
 class RequestsController < ApplicationController
   def new
-  end
-
-  def map
-
+    session.clear
+    @request = Request.new
   end
 
   def new_form
-    @request = Request.new
+    session[:category] = params[:category]
+    redirect_to(map_requests_path)
   end
+
+  def map
+    @category = session[:category]
+  end
+
+  def create
+    # @request = Request.create('Latitude' => params['lat'],
+    #   'Longitude' => params['lng'], 'Street Address' => params['address'],
+    #   'ZIP Code' => params['zip'])
+    @request = Request.new
+    session[:lat] = params['lat']
+    session[:lng] = params['lng']
+    session[:street_address] = params['street_address']
+    session[:zip] = params['zip']
+    redirect_to "/requests/#{session[:category]}_form"
+  end
+
+  def update
+    # request = Request.create(request_params)
+    # request.party_time(params)
+    # @request(params).party_time(params)
+  end
+
+
 
   def graffiti_form
     @request = Request.new
   end
 
   def pothole_form
-    @request = Request.find_by_id(session[:request_id])
-    render :pothole_form
+    @request = Request.new
   end
 
   def rodent_form
@@ -39,23 +61,10 @@ class RequestsController < ApplicationController
     @request = Request.new
   end
 
-  def create
-    @request = Request.create('Latitude' => params['lat'], 'Longitude' => params['lng'], 'Street Address' => params['address'], 'ZIP Code' => params['zip'])
-    puts "============="
-    p @request.id
-    session[:request_id] = @request.id
-    redirect_to(requests_pothole_form_path)
-    #render :pothole_form#, layout: false
-
-  end
-
-  def update
-    @request(params).party_time(params)
-  end
-
   private
 
-   def request_params
+  def self.request_params
     params.permit('Latitude', 'Longitude', 'Street Address')
   end
+
 end

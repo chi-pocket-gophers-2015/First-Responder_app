@@ -1,6 +1,8 @@
+<div id="big-map-div">
 <div id="map-canvas"></div>
-<div class="button">
+<div class="button" data-category=<%=@category%>>
   <div id="submit-button">
-    <%= button_to "Mark Location", requests_pothole_form_path, method: 'get', id: 'submit-button' %>
+    <%= button_to "Mark Location", requests_path, method: 'post', id: 'submit-button' %>
   </div>
+</div>
 </div>
