@@ -11,7 +11,7 @@
     </tr>
     <tr>
       <td><%= label_tag :light_status %>: </td>
-      <td><%= select_tag(:light_status, options_for_select(Request::STREET_LIGHT_OUT_OPTIONS)) %></td>
+      <td><%= select_tag(:light_status, options_for_select(StreetLight::STREET_LIGHT_OUT_OPTIONS)) %></td>
     </tr>
     <!-- use different partial for logged in? -->
     <!-- format this as optional -->

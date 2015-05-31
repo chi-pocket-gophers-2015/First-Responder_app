@@ -11,11 +11,11 @@
     </tr>
     <tr>
       <td><%= label_tag :backyard_inspected %>: </td>
-      <td><%= select_tag(:backyard_inspected, options_for_select(Request::RODENT_INSPECTION_OPTIONS)) %></td>
+      <td><%= select_tag(:backyard_inspected, options_for_select(Rodent::RODENT_INSPECTION_OPTIONS)) %></td>
     </tr>
     <tr>
       <td><%= label_tag :backyard_baited %>: </td>
-      <td><%= select_tag(:backyard_baited, options_for_select(Request::RODENT_BAIT_OPTIONS)) %></td>
+      <td><%= select_tag(:backyard_baited, options_for_select(Rodent::RODENT_BAIT_OPTIONS)) %></td>
     </tr>
     <!-- use different partial for logged in? -->
     <!-- format this as optional -->

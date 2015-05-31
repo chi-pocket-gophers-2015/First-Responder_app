@@ -11,15 +11,15 @@
     </tr>
     <tr>
       <td><%= label_tag :where_located %>: </td>
-      <td><%= select_tag(:where_located, options_for_select(Request::GRAFFITI_LOCATION_OPTIONS)) %></td>
+      <td><%= select_tag(:where_located, options_for_select(Graffiti::GRAFFITI_LOCATION_OPTIONS)) %></td>
     </tr>
     <tr>
       <td><%= label_tag :surface_type %>: </td>
-      <td><%= select_tag(:surface_type, options_for_select(Request::GRAFFITI_SURFACE_OPTIONS)) %></td>
+      <td><%= select_tag(:surface_type, options_for_select(Graffiti::GRAFFITI_SURFACE_OPTIONS)) %></td>
     </tr>
     <tr>
       <td><%= label_tag :height %>: </td>
-      <td><%= select_tag(:height, options_for_select(Request::GRAFFITI_HEIGHT_OPTIONS)) %></td>
+      <td><%= select_tag(:height, options_for_select(Graffiti::GRAFFITI_HEIGHT_OPTIONS)) %></td>
     </tr>
     <!-- use different partial for logged in? -->
     <!-- format this as optional -->

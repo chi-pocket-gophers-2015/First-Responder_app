@@ -12,7 +12,7 @@
     <tr>
       <td><%= label_tag :where_located %>: </td>
 
-      <td><%= select_tag(:where_located, options_for_select(Request::POTHOLE_LOCATION_OPTIONS)) %></td>
+      <td><%= select_tag(:where_located, options_for_select(Pothole::POTHOLE_LOCATION_OPTIONS)) %></td>
     </tr>
     <!-- use different partial for logged in? -->
     <!-- format this as optional -->

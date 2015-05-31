@@ -11,11 +11,11 @@
     </tr>
     <tr>
       <td><%= label_tag :debris_size %>: </td>
-      <td><%= select_tag(:debris_size, options_for_select(Request::TREE_DEBRIS_SIZE_OPTIONS)) %></td>
+      <td><%= select_tag(:debris_size, options_for_select(TreeDebris::TREE_DEBRIS_SIZE_OPTIONS)) %></td>
     </tr>
     <tr>
       <td><%= label_tag :debris_location %>: </td>
-      <td><%= select_tag(:debris_location, options_for_select(Request::TREE_DEBRIS_LOCATION_OPTIONS)) %></td>
+      <td><%= select_tag(:debris_location, options_for_select(TreeDebris::TREE_DEBRIS_LOCATION_OPTIONS)) %></td>
     </tr>
     <!-- use different partial for logged in? -->
     <!-- format this as optional -->
