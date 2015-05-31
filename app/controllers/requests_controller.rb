@@ -33,7 +33,6 @@ class RequestsController < ApplicationController
   end
 
 
-
   def graffiti_form
     @request = Request.new
   end

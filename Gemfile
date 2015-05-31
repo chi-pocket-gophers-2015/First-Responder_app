@@ -15,6 +15,7 @@ gem 'bootstrap-sass'
 gem 'pry'
 gem 'httparty'
 
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
