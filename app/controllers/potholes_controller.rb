@@ -21,6 +21,7 @@ class PotholesController < ApplicationController
   def update
     pothole_params = {
       "service_code"=> "4fd3b656e750846c53000004",
+      "service_name": "Pothole in Street",
       'description'=> params[:description],
       'address'=> session[:street_address] +
         ", Chicago, IL, " + session[:zip],
@@ -36,17 +37,4 @@ class PotholesController < ApplicationController
     # render '/requests/success'
   end
 
-  def success
-
-  end
-
-  def pothole_params(params)
-    # return {
-    #   "service_code": "4fd3b656e750846c53000004",
-    #   "service_name": "Pothole in Street",
-    #   WHEREIST: nil,
-    #   lat: session['lat'],
-    #   lng: session['lng']
-    # }
-  end
 end
