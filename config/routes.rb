@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   end
 
   resource :potholes, only: [:new, :create, :update] do
-    get '/form', to: 'potholes#update'
+    get '/form', to: 'potholes#form'
   end
   resource :tree_debris, only: [:new, :create, :update]
   resource :street_lights, only: [:new, :create, :update]
