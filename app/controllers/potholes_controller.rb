@@ -25,10 +25,10 @@ class PotholesController < ApplicationController
       'address'=> session[:street_address] +
         ", Chicago, IL, " + session[:zip],
       'lat'=> session[:lat],
-      'lng'=> session[:lng],
+      'long'=> session[:lng],
       'attribute[WHEREIST]'=> params[:where_located]
     }
-    request = Request.new.party_time(pothole_params)
+    request = Request.new.party_time
     binding.pry
     # params = params.merge{'lat': session['lat'], blah blah}
     # HTTParty(pothole_params)
