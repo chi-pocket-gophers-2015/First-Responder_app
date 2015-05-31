@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get '/requests/street_light_form', to: 'requests#street_light_form'
   get '/requests/tree_debris_form', to: 'requests#tree_debris_form'
   get '/requests/tree_trim_form', to: 'requests#tree_trim_form'
-  get '/requests/abandoned_vehicle_form', to: 'requests#graffiti_form'
+  get '/requests/abandoned_vehicle_form', to: 'requests#abandoned_vehicle_form'
 
   root to: 'requests#new'
 
