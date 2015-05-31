@@ -1,0 +1,2 @@
+class AbandonedVehiclesController < ApplicationController
+end

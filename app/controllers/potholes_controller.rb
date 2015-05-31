@@ -1,0 +1,2 @@
+class PotholesController < ApplicationController
+end

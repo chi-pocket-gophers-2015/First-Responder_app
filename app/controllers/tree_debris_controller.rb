@@ -1,0 +1,2 @@
+class TreeDebrisController < ApplicationController
+end

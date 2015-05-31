@@ -1,0 +1,2 @@
+class StreetLightsController < ApplicationController
+end

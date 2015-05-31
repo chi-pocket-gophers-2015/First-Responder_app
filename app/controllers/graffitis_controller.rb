@@ -1,0 +1,2 @@
+class GraffitisController < ApplicationController
+end
