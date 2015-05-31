@@ -27,7 +27,7 @@ require 'open-uri'
 BASE_URL = 'https://data.cityofchicago.org/api/views/'
 JSON_SUFFIX = '/rows.json'
 BASE_RECENT = 'http://311api.cityofchicago.org/open311/v2/requests.json?start_date='
-# @last_time = @last_time || 2015-05-30T00:00:00Z. not sure if this works
+@last_time = @last_time || Time.new(2015,05,30)
 
 extension_hash = {
  potholes: '7as2-ds3y',
@@ -72,14 +72,13 @@ def json_parse(url, header_type)
  # end
 end
 
-def get_recent(url, time)
-
+def get_recent(url)
   raw_data = open(url)
   parsed = JSON.parse(raw_data.read)
   slice_hash = data_hash.slice("Creation Date", "Status", "Completion Date", "Service Request Number", "Type of Service Request", "Street Address", "ZIP Code", "Latitude", "Longitude", "Location")
   #need to fix the above line but the idea is the same
   Request.create(slice_hash)
-  @last_time = time
+  @last_time = Time.now
 end
 
 # def last_time
@@ -104,9 +103,8 @@ namespace :import_request do
     # json_parse('https://data.cityofchicago.org/api/views/3c9v-pnva/rows.json',2)
   end
   task :create_recent => :environment do
-    #variable for time/now
     url = BASE_RECENT + @last_time.strftime("%FT%T%:z") + "&" + Time.now.strftime("%FT%T%:z")
-    get_recent(url, Time.now)
+    get_recent(url)
   end
 end
 
