@@ -16,9 +16,7 @@ class RequestsController < ApplicationController
 
   def pothole_form
     @request = Request.find_by_id(session[:request_id])
-    #binding.pry
     render :pothole_form
-    # @request = Request.new
   end
 
   def rodent_form
