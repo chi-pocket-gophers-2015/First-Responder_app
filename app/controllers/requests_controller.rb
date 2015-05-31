@@ -26,6 +26,7 @@ class RequestsController < ApplicationController
   end
 
   def update
+    binding.pry
     # request = Request.create(request_params)
     # request.party_time(params)
     # @request(params).party_time(params)
