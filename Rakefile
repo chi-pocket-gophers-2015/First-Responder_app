@@ -72,7 +72,7 @@ def json_parse(url, header_type)
  # end
 end
 
-def get_recent(url, time)
+def get_recent(url)
   end_time = Time.now#get last record from database and ask for "Creation Date"
   
   end_time.strftime("%FT%T%:z")
@@ -110,7 +110,7 @@ namespace :import_request do
   task :create_recent => :environment do
     #variable for time/now
     url = BASE_RECENT + @last_time.strftime("%FT%T%:z") + "&" + Time.now.strftime("%FT%T%:z")
-    get_recent(url, Time.now)
+    get_recent(url, @last_time)
   end
 end
 
