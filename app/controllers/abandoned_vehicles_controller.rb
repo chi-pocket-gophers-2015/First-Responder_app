@@ -33,10 +33,8 @@ class AbandonedVehiclesController < ApplicationController
       'attribute[HOWMANYD]'=> params[:vehicle_days_parked],
     }
     request = Request.new.party_time(abandoned_vehicle_params)
-    binding.pry
-    # params = params.merge{'lat': session['lat'], blah blah}
-    # HTTParty(pothole_params)
-    # Request.new(params)
-    # render '/requests/success'
+    token = request[0]['token']
+    session.clear
+    redirect_to controller: 'requests', action: 'create', token: token
   end
 end

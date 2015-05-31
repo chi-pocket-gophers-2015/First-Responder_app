@@ -1,6 +1,6 @@
 class Request < ActiveRecord::Base
 
-	validates "Service Request Number", :presence => true, :uniqueness => true
+	# validates "Service Request Number", :presence => true, :uniqueness => true
 
 
   include HTTParty
@@ -18,6 +18,25 @@ class Request < ActiveRecord::Base
   # def test
   #   self.class.post("/open311/v2/requests.json", query: @options, headers: {'api_key' => 'b6efeac2fae7c79b3258b82f2ed82eab'})
   # end
+
+  def self.official_city_data(token)
+    HTTParty.get("http://test311api.cityofchicago.org/open311/v2/requests/#{token}.json")[0]
+  end
+
+  def self.filter_params(params)
+    return {
+      'Creation Date'=> params['updated_datetime'],
+      'Status'=> params["status"],
+      'Completion Date'=> nil,
+      'Service Request Number'=> params["service_request_id"],
+      'Type of Service Request'=> params["service_name"],
+      'Street Address'=> params[ "address"],
+      'ZIP Code'=> nil,
+      'Latitude'=> params['lat'],
+      'Longitude'=> params['long'],
+      'Location'=> nil
+    }
+  end
 
 end
 
