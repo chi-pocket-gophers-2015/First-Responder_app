@@ -5,8 +5,10 @@ class RequestsController < ApplicationController
   end
 
   def create
+    token = params[:token]
+    city_params = Request.official_city_data(token)
+    @request = Request.new(Request.filter_params(city_params))
     binding.pry
-    @request = Request.new(request_params)
     if @request.save
       render :success
     end

@@ -1,4 +1,4 @@
-class StreetLightsController < ApplicationController
+class StreetLightsController < RequestsController
   def new
     session.clear
     @category = 'street_lights'
@@ -29,10 +29,8 @@ class StreetLightsController < ApplicationController
       'attribute[ISTHELI2]'=> params[:light_status]
     }
     request = Request.new.party_time(street_light_params)
-    binding.pry
-    # params = params.merge{'lat': session['lat'], blah blah}
-    # HTTParty(pothole_params)
-    # Request.new(params)
-    # render '/requests/success'
+    token = request[0]['token']
+    session.clear
+    redirect_to controller: 'requests', action: 'create', token: token
   end
 end
