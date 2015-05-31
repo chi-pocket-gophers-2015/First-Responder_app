@@ -1,0 +1,55 @@
+<table>
+  <%= form_for @request, url: requests_path do |f| %>
+    <input type="hidden" name="request-id" value="<%= @request.id %>">
+    <tr>
+      <td><%= label_tag :Picture %>: </td>
+      <td><%= file_field_tag :picture %></td>
+    </tr>
+    <tr>
+      <td><%= label_tag :description %>: </td>
+      <td><%= text_area_tag :description %></td>
+    </tr>
+    <tr>
+      <td><%= label_tag :vehicle_make_model %>: </td>
+      <td><%= select_tag(:vehicle_make_model, options_for_select(Request::VEHICLE_MAKE_MODEL_OPTIONS)) %></td>
+    </tr>
+    <tr>
+      <td><%= label_tag :vehicle_color %>: </td>
+      <td><%= select_tag(:vehicle_color, options_for_select(Request::VEHICLE_COLOR_OPTIONS)) %></td>
+    </tr>
+    <tr>
+      <td><%= label_tag :vehicle_license %>: </td>
+      <td><%= text_area_tag :vehicle_license %></td>
+    </tr>
+    <tr>
+      <td><%= label_tag :vehicle_body_style %>: </td>
+      <td><%= select_tag(:vehicle_body_style, options_for_select(Request::VEHICLE_BODY_STYLE_OPTIONS)) %></td>
+    </tr>
+     <tr>
+      <td><%= label_tag :vehicle_days_parked %>: </td>
+      <td><%= text_area_tag :vehicle_days_parked %></td>
+    </tr>
+    <!-- use different partial for logged in? -->
+    <!-- format this as optional -->
+    <tr>
+      <td><%= label_tag(:first_name) %></td>
+      <td><%= text_field_tag(:first_name) %></td>
+    </tr>
+    <tr>
+      <td><%= label_tag(:last_name) %></td>
+      <td><%= text_field_tag(:last_name) %></td>
+    </tr>
+    <tr>
+      <td><%= label_tag(:email) %></td>
+      <td><%= text_field_tag(:email) %></td>
+    </tr>
+    <tr>
+      <td><%= label_tag(:phone) %></td>
+      <td><%= text_field_tag(:phone) %></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><%= f.submit class: "form-submit" %></td>
+    </tr>
+  <% end %>
+</table>

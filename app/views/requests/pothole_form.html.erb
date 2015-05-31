@@ -11,7 +11,7 @@
     </tr>
     <tr>
       <td><%= label_tag :where_located %>: </td>
-      <td><%= select_tag(:where_located, options_for_select([['', 0], ['Crosswalk', 1], ['Curb Lane', 2], ['Intersection', 3], ['Traffic Lane', 4]])) %></td>
+      <td><%= select_tag(:where_located, options_for_select(Request::POTHOLE_LOCATION_OPTIONS)) %></td>
     </tr>
     <!-- use different partial for logged in? -->
     <!-- format this as optional -->
