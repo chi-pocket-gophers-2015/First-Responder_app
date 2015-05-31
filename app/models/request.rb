@@ -8,14 +8,18 @@ class Request < ActiveRecord::Base
   attr_reader :options
   base_uri 'http://test311api.cityofchicago.org'
 
-  def party_time()
-    @options = {"service_code"=>"4fd3b656e750846c53000004",
- "description"=>"4",
- "address"=>"351 W Hubbard St, Chicago, IL, 60654",
- "lat"=>"41.8896848",
- "long"=>"-87.63775020000003",
- "attribute[WHEREIST]"=>"Crosswalk"}
-    self.class.post("/open311/v2/requests.json", query: @options, headers: {'api_key' => ENV['API_KEY']})
+  def initialize
+
+  end
+
+  def party_time(options)
+ #    @options = {"service_code"=>"4fd3b656e750846c53000004",
+ # "description"=>"4",
+ # "address"=>"351 W Hubbard St, Chicago, IL, 60654",
+ # "lat"=>"41.8896848",
+ # "long"=>"-87.63775020000003",
+ # "attribute[WHEREIST]"=>"Crosswalk"}
+    self.class.post("/open311/v2/requests.json", query: options, headers: {'api_key' => ENV['API_KEY']})
   end
   # go here to see test post:
   #http://dev.cityofchicago.org/docs/api/service_request
