@@ -1,6 +1,6 @@
 class Request < ActiveRecord::Base
 
-  POTHOLE_LOCATION_OPTIONS = ['Crosswalk', 'Curb Lane', 'Intersection', 'Traffic Lane')
+  POTHOLE_LOCATION_OPTIONS = ['Crosswalk', 'Curb Lane', 'Intersection', 'Traffic Lane']
 
   GRAFFITI_LOCATION_OPTIONS = ['Alley', 'Bench', 'Door', 'Dumpster', 'Express Way Job', 'Fence', 'Front', 'Garage', 'Garbage Cart', 'Hydrant', 'Mailbox',
   'Newspaper Box', 'Phone', 'Pole', 'Rear', 'Side', 'Sign', 'Traffic Control Box']
