@@ -5,3 +5,4 @@ class Rodent < ActiveRecord::Base
   RODENT_BAIT_OPTIONS = ["Bait Back Yard", "No"]
 
 end
+

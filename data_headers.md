@@ -89,3 +89,42 @@ trees -
 abandoned vehicle view - https://data.cityofchicago.org/Service-Requests/311-Service-Requests-Abandoned-Vehicles/3c9v-pnva
 abandoned vehicle DL CSV - https://data.cityofchicago.org/api/views/3c9v-pnva/rows.csv?accessType=DOWNLOAD
 abandoned vehicle JSON - https://data.cityofchicago.org/api/views/3c9v-pnva/rows.json
+
+===============================
+
+Service Codes
+
+"service_code": "4fd3bbf8e750846c53000069",
+"service_name": "Tree Debris",
+ISTHEAMO - larger than garbage car?
+IFYES,WH - where located
+
+
+"service_code": "4ffa9f2d6018277d400000c8",
+"service_name": "Street Light Out",
+ISTHELI2
+
+"service_code": "4fd3b9bce750846c5300004a",
+"service_name": "Rodent Baiting / Rat Complaint",
+DOYOUWAN - backyard inspected
+DOYOUWA1 - backyard baited?
+
+
+"service_code": "4fd3b656e750846c53000004",
+"service_name": "Pothole in Street",
+WHEREIST
+
+"service_code": "4fd3b167e750846744000005",
+"service_name": "Graffiti Removal",
+WHEREIS1 - where
+WHATTYP2 - surface
+OVER6FEE - over 6ft
+
+
+"service_code": "4ffa4c69601827691b000018",
+"service_name": "Abandoned Vehicle",
+FQSKA1 - Make model
+FQSKA3 - Color
+FQSKA4 - License plate
+FQSKA11 - body style
+HOWMANYD - How many days

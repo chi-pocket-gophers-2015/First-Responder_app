@@ -23,3 +23,4 @@ class AbandonedVehicle < ActiveRecord::Base
     "Legacy Unknown", "Limousine", "Motor Bike"]
 
 end
+

@@ -9,3 +9,4 @@ class Graffiti < ActiveRecord::Base
 
   GRAFFITI_HEIGHT_OPTIONS = ['No', 'Over 6 ft']
 end
+
