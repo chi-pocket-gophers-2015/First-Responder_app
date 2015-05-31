@@ -1,6 +1,6 @@
 class Request < ActiveRecord::Base
 
-  POTHOLE_LOCATION_OPTIONS = ['', 'Crosswalk', 'Curb Lane', 'Intersection', 'Traffic Lane')
+  POTHOLE_LOCATION_OPTIONS = ['Crosswalk', 'Curb Lane', 'Intersection', 'Traffic Lane')
 
   GRAFFITI_LOCATION_OPTIONS = ['Alley', 'Bench', 'Door', 'Dumpster', 'Express Way Job', 'Fence', 'Front', 'Garage', 'Garbage Cart', 'Hydrant', 'Mailbox',
   'Newspaper Box', 'Phone', 'Pole', 'Rear', 'Side', 'Sign', 'Traffic Control Box']
@@ -32,6 +32,10 @@ class Request < ActiveRecord::Base
 
   VEHICLE_BODY_STYLE_OPTIONS = ["Ambulance", "Bus", "Carryall", "Coach", "Dump Truck", "Fire Truck", "Flatbed Truck", "Garage Truck", "Hatchback 2 Door", "Hatchback 4 Door",
     "Legacy Unknown", "Limousine", "Motor Bike"]
+
+  RODENT_INSPECTION_OPTIONS = ["Inspect Back Yard", "No"]
+
+  RODENT_BAIT_OPTIONS = ["Bait Back Yard", "No"]
 
 	validates "Service Request Number", :presence => true, :uniqueness => true
 

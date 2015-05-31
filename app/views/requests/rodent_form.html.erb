@@ -10,24 +10,12 @@
       <td><%= text_area_tag :description %></td>
     </tr>
     <tr>
-      <td><%= label_tag :vehicle_make_model %>: </td>
-      <td><%= select_tag(:vehicle_make_model, options_for_select(Request::VEHICLE_MAKE_MODEL_OPTIONS)) %></td>
+      <td><%= label_tag :backyard_inspected %>: </td>
+      <td><%= select_tag(:backyard_inspected, options_for_select(Request::RODENT_INSPECTION_OPTIONS)) %></td>
     </tr>
     <tr>
-      <td><%= label_tag :vehicle_color %>: </td>
-      <td><%= select_tag(:vehicle_color, options_for_select(Request::VEHICLE_COLOR_OPTIONS)) %></td>
-    </tr>
-    <tr>
-      <td><%= label_tag :vehicle_license %>: </td>
-      <td><%= text_area_tag :vehicle_license %></td>
-    </tr>
-    <tr>
-      <td><%= label_tag :vehicle_body_style %>: </td>
-      <td><%= select_tag(:vehicle_body_style, options_for_select(Request::VEHICLE_BODY_STYLE_OPTIONS)) %></td>
-    </tr>
-     <tr>
-      <td><%= label_tag :vehicle_days_parked %>: </td>
-      <td><%= text_area_tag :vehicle_days_parked %></td>
+      <td><%= label_tag :backyard_baited %>: </td>
+      <td><%= select_tag(:backyard_baited, options_for_select(Request::RODENT_BAIT_OPTIONS)) %></td>
     </tr>
     <!-- use different partial for logged in? -->
     <!-- format this as optional -->
@@ -53,3 +41,4 @@
     </tr>
   <% end %>
 </table>
+

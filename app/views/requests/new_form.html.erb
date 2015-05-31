@@ -1,5 +1,5 @@
 <table>
-  <%= form_for @request, url: requests_path, multipart: true do |f| %>
+  <%= form_for @request, url: requests_path do |f| %>
     <tr>
       <td><%= label_tag :Picture %>: </td>
       <td><%= file_field_tag :picture %></td>
