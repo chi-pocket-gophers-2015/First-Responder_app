@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  resource :requests, only: [:new, :create] do
+  resource :requests, only: [:new, :create, :update] do
     get '/map', action: :map
   end
 
 
-
+  post '/requests/send', to: 'requests#send'
   get '/requests/new_form', to: 'requests#new_form'
   get '/requests/graffiti_form', to: 'requests#graffiti_form'
   get '/requests/pothole_form', to: 'requests#pothole_form'
