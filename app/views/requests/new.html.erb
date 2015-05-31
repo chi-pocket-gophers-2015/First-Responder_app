@@ -1,5 +1,5 @@
 <div id="report-new">
-  <%= form_tag("/requests/new_form", method: 'get') do %>
+  <%= form_tag("/potholes/new", method: 'get') do %>
     <%= hidden_field_tag :category, "pothole" %>
     <%= submit_tag("Potholes", class: "btn btn-lg btn-default") %>
   <% end %>

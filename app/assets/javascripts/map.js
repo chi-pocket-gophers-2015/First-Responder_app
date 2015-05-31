@@ -8,7 +8,7 @@ function codeLatLng(input) {
     var lat = results[0].geometry.location.A
     var lng = results[0].geometry.location.F
     var request = $.ajax({
-      url: "/requests",
+      url: "/" + $('.map-page').attr('data-category'),
       method: "post",
       data: {lat: lat,
             lng: lng,
@@ -17,8 +17,8 @@ function codeLatLng(input) {
           }
     });
     request.done(function(response){
-      window.location.replace("/requests/" + $('.button').attr('data-category') +
-        "_form");
+      window.location.replace("/" + $('.map-page').attr('data-category') +
+        "/form");
     });
   });
 }
