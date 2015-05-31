@@ -1,5 +1,15 @@
 class Request < ActiveRecord::Base
 
+  POTHOLE_LOCATION_OPTIONS = ['Crosswalk', 'Curb Lane', 'Intersection', 'Traffic Lane')
+
+  GRAFFITI_LOCATION_OPTIONS = ['Alley', 'Bench', 'Door', 'Dumpster', 'Express Way Job', 'Fence', 'Front', 'Garage', 'Garbage Cart', 'Hydrant', 'Mailbox',
+  'Newspaper Box', 'Phone', 'Pole', 'Rear', 'Side', 'Sign', 'Traffic Control Box']
+
+  GRAFFITI_SURFACE_OPTIONS = ['Aluminum Siding', 'Asphalt', 'Brick - Painted', 'Brick - Unpainted', 'Cement (Sidewalk, Alley, Wall, or Curb)', 'Glass', 'Limestone',
+  'Marble/Granite','Metal - Painted', 'Metal - Unpainted', 'Other/Unknown Surface', 'Stucco', 'Tree', 'Vinyl Siding', 'Wood - Painted',
+  'Wood - Unpainted']
+
+  GRAFFITI_HEIGHT_OPTIONS = ['No', 'Over 6 ft']
 
   VEHICLE_MAKE_MODEL_OPTIONS = ["(Assembled From Parts, Homemade)","(Homemade Motorcycle, Moped.Etc)","(Homemade Trailer)","(Reconstructed Motor Home)",
     "(Reconstructed Trailers)","See Lancia Make)", "(Unlisted Construction Equipment Make)","(Unlisted Farm/Garden Equipment Make)","(Unlisted Make)",
@@ -22,6 +32,10 @@ class Request < ActiveRecord::Base
 
   VEHICLE_BODY_STYLE_OPTIONS = ["Ambulance", "Bus", "Carryall", "Coach", "Dump Truck", "Fire Truck", "Flatbed Truck", "Garage Truck", "Hatchback 2 Door", "Hatchback 4 Door",
     "Legacy Unknown", "Limousine", "Motor Bike"]
+
+  RODENT_INSPECTION_OPTIONS = ["Inspect Back Yard", "No"]
+
+  RODENT_BAIT_OPTIONS = ["Bait Back Yard", "No"]
 
 	validates "Service Request Number", :presence => true, :uniqueness => true
 
