@@ -1,0 +1,44 @@
+<table>
+  <%= form_for @request, url: requests_path do |f| %>
+    <input type="hidden" name="request-id" value="<%= @request.id %>">
+    <tr>
+      <td><%= label_tag :Picture %>: </td>
+      <td><%= file_field_tag :picture %></td>
+    </tr>
+    <tr>
+      <td><%= label_tag :description %>: </td>
+      <td><%= text_area_tag :description %></td>
+    </tr>
+    <tr>
+      <td><%= label_tag :backyard_inspected %>: </td>
+      <td><%= select_tag(:backyard_inspected, options_for_select(Request::RODENT_INSPECTION_OPTIONS)) %></td>
+    </tr>
+    <tr>
+      <td><%= label_tag :backyard_baited %>: </td>
+      <td><%= select_tag(:backyard_baited, options_for_select(Request::RODENT_BAIT_OPTIONS)) %></td>
+    </tr>
+    <!-- use different partial for logged in? -->
+    <!-- format this as optional -->
+    <tr>
+      <td><%= label_tag(:first_name) %></td>
+      <td><%= text_field_tag(:first_name) %></td>
+    </tr>
+    <tr>
+      <td><%= label_tag(:last_name) %></td>
+      <td><%= text_field_tag(:last_name) %></td>
+    </tr>
+    <tr>
+      <td><%= label_tag(:email) %></td>
+      <td><%= text_field_tag(:email) %></td>
+    </tr>
+    <tr>
+      <td><%= label_tag(:phone) %></td>
+      <td><%= text_field_tag(:phone) %></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><%= f.submit class: "form-submit" %></td>
+    </tr>
+  <% end %>
+</table>
+
