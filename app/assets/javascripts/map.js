@@ -18,7 +18,7 @@ function codeLatLng(input) {
     });
 
     request.done(function(response){
-      $('.body-container').html(response);
+      window.location.replace("/requests/pothole_form");
     });
   });
 }

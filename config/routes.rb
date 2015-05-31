@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resource :requests, only: [:new, :create] do
+  resource :requests, only: [:new, :create, :update] do
     get '/map', action: :map
   end
 
