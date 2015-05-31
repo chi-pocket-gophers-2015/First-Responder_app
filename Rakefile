@@ -78,8 +78,10 @@ def get_recent(url)
   parsed = JSON.parse(raw_data.read)
   parsed.each do |hash|
     slice_hash = hash.slice("requested_datetime", "status", "updated_datetime", "service_request_id", "service_name", "address", "lat", "long")
+    mappings = {"requested_datetime" => "Creation Date", "status" => "Status", "updated_datetime" => "Completion Date", "service_request_id" => "Service Request Number", "service_name" => "Type of Service Request", "address" => "Street Address", "lat" => "Latitude", "long" => "Longitude"}
     #I think the only field missing here is the location
-    Request.create(slice_hash)
+    Request.create(Hash[slice_hash.map {|k, v| [mappings[k], v] }])
+    # Request.create(slice_hash)
   end
 
 end

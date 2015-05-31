@@ -1,6 +1,6 @@
 class Request < ActiveRecord::Base
 
-	validates "Service Request Number" :presence => true, :uniqueness => true
+	# validates "Service Request Number" :presence => true, :uniqueness => true
 
   private
 
