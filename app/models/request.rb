@@ -1,5 +1,6 @@
 class Request < ActiveRecord::Base
 
+	# validates "Service Request Number" :presence => true, :uniqueness => true
 
   VEHICLE_MAKE_MODEL_OPTIONS = ["(Assembled From Parts, Homemade)","(Homemade Motorcycle, Moped.Etc)","(Homemade Trailer)","(Reconstructed Motor Home)",
     "(Reconstructed Trailers)","See Lancia Make)", "(Unlisted Construction Equipment Make)","(Unlisted Farm/Garden Equipment Make)","(Unlisted Make)",
@@ -23,7 +24,6 @@ class Request < ActiveRecord::Base
   VEHICLE_BODY_STYLE_OPTIONS = ["Ambulance", "Bus", "Carryall", "Coach", "Dump Truck", "Fire Truck", "Flatbed Truck", "Garage Truck", "Hatchback 2 Door", "Hatchback 4 Door",
     "Legacy Unknown", "Limousine", "Motor Bike"]
 
-	validates "Service Request Number", :presence => true, :uniqueness => true
 
   private
 
