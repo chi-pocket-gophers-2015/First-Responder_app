@@ -39,6 +39,10 @@ class Request < ActiveRecord::Base
 
   STREET_LIGHT_OUT_OPTIONS = ["Completely Out", "On and Off"]
 
+  TREE_DEBRIS_SIZE_OPTIONS = ["Yes", "No"]
+
+  TREE_DEBRIS_LOCATION_OPTIONS = ["Alley", "Parkway", "Vacant Lot"]
+
 	validates "Service Request Number", :presence => true, :uniqueness => true
 
   private
