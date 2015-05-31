@@ -1,23 +1,23 @@
 <table>
   <%= form_for @request, url: requests_path, do |f| %>
     <tr>
-      <td><%= f.label :Picture %>: </td>
-      <td><%= f.file_field :picture %></td>
+      <td><%= label_tag :Picture %>: </td>
+      <td><%= file_field_tag :picture %></td>
     </tr>
     <tr>
-      <td><%= f.label :description %>: </td>
-      <td><%= f.text_area :description %></td>
+      <td><%= label_tag :description %>: </td>
+      <td><%= text_area_tag :description %></td>
     </tr>
     <tr>
-      <td><%= f.label :where_located %>: </td>
+      <td><%= label_tag :where_located %>: </td>
       <td><%= select_tag(:where_located, options_for_select([['Alley', 0], ['Bench', 1], ['Door', 2], ['Dumpster', 3], ['Express Way Job', 4], ['Fence', 5], ['Front', 6], ['Garage', 7], ['Garbage Cart'], ['Hydrant', 8], ['Mailbox', 9], ['Newspaper Box', 10], ['Phone', 11], ['Pole', 12], ['Rear', 13], ['Side', 14], ['Sign', 15], ['Traffic Control Box', 16]])) %></td>
     </tr>
     <tr>
-      <td><%= f.label :surface_type %>: </td>
+      <td><%= label_tag :surface_type %>: </td>
       <td><%= select_tag(:surface_type, options_for_select([['Aluminum Siding', 0], ['Asphalt', 1], ['Brick - Painted', 2], ['Brick - Unpainted', 3], ['Cement (Sidewalk, Alley, Wall, or Curb)', 4], ['Glass', 5], ['Limestone', 6], ['Marble/Granite', 7], ['Metal - Painted'], ['Metal - Unpainted', 8], ['Other/Unknown Surface', 9], ['Stucco', 10], ['Tree', 11], ['Vinyl Siding', 12], ['Wood - Painted', 13], ['Wood - Unpainted', 14]])) %></td>
     </tr>
     <tr>
-      <td><%= f.label :height %>: </td>
+      <td><%= label_tag :height %>: </td>
       <td><%= select_tag(:height, options_for_select([['No', 0], ['Over 6 ft', 1]])) %></td>
     </tr>
     <!-- use different partial for logged in? -->
