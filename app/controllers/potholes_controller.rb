@@ -6,7 +6,6 @@ class PotholesController < ApplicationController
   end
 
   def create
-    binding.pry
     session[:lat] = params['lat']
     session[:lng] = params['lng']
     session[:street_address] = params['street_address']
