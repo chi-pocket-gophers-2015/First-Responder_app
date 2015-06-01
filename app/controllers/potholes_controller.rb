@@ -1,7 +1,6 @@
 class PotholesController < ApplicationController
   def new
     session.clear
-    # session[:category] = 'potholes'
     @category = 'potholes'
   end
 
@@ -21,6 +20,7 @@ class PotholesController < ApplicationController
   def update
     pothole_params = {
       "service_code"=> "4fd3b656e750846c53000004",
+      "service_name"=> "Pothole in Street",
       'description'=> params[:description],
       'address'=> session[:street_address] +
         ", Chicago, IL, " + session[:zip],
@@ -28,12 +28,12 @@ class PotholesController < ApplicationController
       'long'=> session[:lng],
       'attribute[WHEREIST]'=> params[:where_located]
     }
-    request = Request.new.party_time(pothole_params)
     binding.pry
-    # params = params.merge{'lat': session['lat'], blah blah}
-    # HTTParty(pothole_params)
-    # Request.new(params)
-    # render '/requests/success'
+    request = Request.new.party_time(pothole_params)
+    token = request[0]['token']
+    RequestRecord.create(image: params['image'], token: token)
+    session.clear
+    redirect_to controller: 'requests', action: 'create', token: token
   end
 
 

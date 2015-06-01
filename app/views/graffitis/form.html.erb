@@ -1,16 +1,25 @@
 <table>
-  <%= form_for @request, url: requests_path do |f| %>
+  <%= form_tag(controller: 'graffitis', action: 'update', multipart: true) do %>
+    <input type="hidden" name="_method" value="put">
     <tr>
       <td><%= label_tag :Picture %>: </td>
       <td><%= file_field_tag :picture %></td>
     </tr>
     <tr>
       <td><%= label_tag :description %>: </td>
-      <td><%= text_field_tag :description %></td>
+      <td><%= text_area_tag :description %></td>
     </tr>
     <tr>
       <td><%= label_tag :where_located %>: </td>
-      <td><%= select_tag(:where_located, options_for_select([['', 0], ['Crosswalk', 1], ['Curb Lane', 2], ['Intersection', 3], ['Traffic Lane', 4]])) %></td>
+      <td><%= select_tag(:where_located, options_for_select(Graffiti::GRAFFITI_LOCATION_OPTIONS)) %></td>
+    </tr>
+    <tr>
+      <td><%= label_tag :surface_type %>: </td>
+      <td><%= select_tag(:surface_type, options_for_select(Graffiti::GRAFFITI_SURFACE_OPTIONS)) %></td>
+    </tr>
+    <tr>
+      <td><%= label_tag :height %>: </td>
+      <td><%= select_tag(:height, options_for_select(Graffiti::GRAFFITI_HEIGHT_OPTIONS)) %></td>
     </tr>
     <!-- use different partial for logged in? -->
     <!-- format this as optional -->
@@ -32,7 +41,7 @@
     </tr>
     <tr>
       <td></td>
-      <td><%= f.submit class: "form-submit" %></td>
+      <td><%= submit_tag "Submit", class: "form-submit" %></td>
     </tr>
   <% end %>
 </table>

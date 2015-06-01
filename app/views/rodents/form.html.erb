@@ -1,6 +1,6 @@
 <table>
-  <%= form_for @request, url: requests_path do |f| %>
-    <input type="hidden" name="request-id" value="<%= @request.id %>">
+  <%= form_tag(controller: 'rodents', action: 'update', multipart: true) do %>
+    <input type="hidden" name="_method" value="put">
     <tr>
       <td><%= label_tag :Picture %>: </td>
       <td><%= file_field_tag :picture %></td>
@@ -37,7 +37,7 @@
     </tr>
     <tr>
       <td></td>
-      <td><%= f.submit class: "form-submit" %></td>
+      <td><%= submit_tag "Submit", class: "form-submit" %></td>
     </tr>
   <% end %>
 </table>
