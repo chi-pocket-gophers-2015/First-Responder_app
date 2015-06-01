@@ -18,7 +18,6 @@ class AbandonedVehiclesController < ApplicationController
 
 
   def update
-    binding.pry
     abandoned_vehicle_params = {
       "service_code"=> "4ffa4c69601827691b000018",
       "service_name"=> "Abandoned Vehicle",
