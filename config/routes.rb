@@ -29,6 +29,6 @@ Rails.application.routes.draw do
     get '/form', to: 'abandoned_vehicles#form'
   end
 
-  root to: 'requests#new'
+  root to: 'welcome#index'
 
 end
