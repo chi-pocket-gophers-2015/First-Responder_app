@@ -18,8 +18,11 @@ class PotholesController < ApplicationController
   end
 
   def update
-    #need to add in control flow for if user is signed in and assign to the record below
-    record = RequestRecord.create(token: token, image: params['image'])
+    if logged_in?
+      record = RequestRecord.new(image: params['image'], user_id: current_user.id)
+    else
+      record = RequestRecord.new(image: params['image'])
+    end
     #need to find out what the route is for pic on heroku
     #Sample url below
     #View image <%= image_tag(@record.image.url(:thumb)) %>
@@ -38,9 +41,8 @@ class PotholesController < ApplicationController
       'email' => params[:email],
       'phone' => params[:phone]
     }
-    token = request[0]['token']
     request = Request.new.party_time(pothole_params)
-    session.clear
+
     redirect_to controller: 'requests', action: 'create', token: token
   end
 
