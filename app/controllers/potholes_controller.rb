@@ -28,9 +28,9 @@ class PotholesController < ApplicationController
       'long'=> session[:lng],
       'attribute[WHEREIST]'=> params[:where_located]
     }
-    request = Request.new.party_time(pothole_params)
+    request = Request.new.party_time(pothole_params.merge({street_address: session[:street_address],
+      zip_code: session[:zip]}))
     token = request[0]['token']
-    session.clear
     redirect_to controller: 'requests', action: 'create', token: token
   end
 

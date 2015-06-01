@@ -29,9 +29,9 @@ class TreeDebrisController < ApplicationController
       'attribute[ISTHEAMO]' => params[:debris_size],
       'attribute[IFYES,WH]' => params[:debris_location]
     }
-    request = Request.new.party_time(tree_debris_params)
+    request = Request.new.party_time(tree_debris_params.merge({street_address: session[:street_address],
+      zip_code: session[:zip]}))
     token = request[0]['token']
-    session.clear
     redirect_to controller: 'requests', action: 'create', token: token
   end
 

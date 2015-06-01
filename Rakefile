@@ -1,5 +1,3 @@
-# Add your own tasks in files placed in lib/tasks ending in .rake,
-# for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
 
 require File.expand_path('../config/application', __FILE__)
 
@@ -59,12 +57,16 @@ def json_parse(url, header_type)
  # binding.pry
  data = parsed['data']
  # sliced_hash_holder = []
-
  data[0..99].each do |row|
    data_hash = Hash[headers.zip(row)]
-   slice_hash = data_hash.slice("Creation Date", "Status", "Completion Date", "Service Request Number", "Type of Service Request", "Street Address", "ZIP Code", "Latitude", "Longitude", "Location")
+   slice_hash = data_hash.slice("Creation Date", "Status", "Completion Date", "Service Request Number", "Type of Service Request",
+    "Street Address", "ZIP Code", "Latitude", "Longitude", "Location")
+   mappings = {"Creation Date" => :creation_date, "Status" => :status, "Completion Date" => :completion_date,
+    "Service Request Number" => :service_request_number, "Type of Service Request" => :type_of_service_request,
+    "Street Address" => :street_address, "ZIP Code" => :zip_code, "Latitude" => :latitude, "Longitude" => :longitude, "Location" => :location}
    # p slice_hash
-   Request.create(slice_hash)
+   Request.create(Hash[slice_hash.map {|k, v| [mappings[k], v] }])
+   #Request.create(slice_hash)
    # sliced_hash_holder << slice_hash
    # binding.pry
  end
@@ -77,8 +79,11 @@ def get_recent(url)
   raw_data = open(url)
   parsed = JSON.parse(raw_data.read)
   parsed.each do |hash|
-    slice_hash = hash.slice("requested_datetime", "status", "updated_datetime", "service_request_id", "service_name", "address", "lat", "long")
-    mappings = {"requested_datetime" => "Creation Date", "status" => "Status", "updated_datetime" => "Completion Date", "service_request_id" => "Service Request Number", "service_name" => "Type of Service Request", "address" => "Street Address", "lat" => "Latitude", "long" => "Longitude"}
+    slice_hash = hash.slice("requested_datetime", "status", "updated_datetime", "service_request_id", "service_name",
+      "address", "lat", "long")
+    mappings = {"requested_datetime" => :creation_date, "status" => :status, #"updated_datetime" => :completion_date,
+      "service_request_id" => :service_request_number, "service_name" => :type_of_service_request,
+      "address" => :street_address, "lat" => :latitude, "long" => :longitude}
     #I think the only field missing here is the location
     Request.create(Hash[slice_hash.map {|k, v| [mappings[k], v] }])
     # Request.create(slice_hash)
