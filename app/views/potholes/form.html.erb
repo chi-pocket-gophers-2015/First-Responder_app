@@ -1,9 +1,11 @@
 <table>
-  <%= form_tag(controller: 'potholes', action: 'update', :html => {:multipart => true}) do %>
+  <%= form_tag({controller: 'potholes', action: 'update'}, {:multipart => true}) do %>
     <input type="hidden" name="_method" value="put">
     <tr>
-      <td><%= label_tag :Image %>: </td>
+      <td><%= label_tag :image %>: </td>
       <td><%= file_field_tag :image %></td>
+      <input type="file" name="file" />
+      <!-- input name=request_record[:image] -->
     </tr>
     <tr>
       <td><%= label_tag :description %>: </td>
