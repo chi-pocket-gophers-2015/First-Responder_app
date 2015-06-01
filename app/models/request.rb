@@ -2,11 +2,36 @@ class Request < ActiveRecord::Base
 
 	# validates "Service Request Number", :presence => true, :uniqueness => true
 
-
   include HTTParty
 
   attr_reader :options
   base_uri 'http://test311api.cityofchicago.org'
+
+  def to_s
+    output = "#{self.type_of_service_request} - " +
+    "#{self.street_address}, Chicago, IL. " +
+    "#{self.zip_code}.  " +
+    "Created on: " + "#{self.creation_date}.  " +
+    "Status: #{self.status}."
+    if self.status == "Completed"
+      output = output + "  Completion Date: #{self.completion_date}"
+    end
+    output
+  end
+
+  def creation_date=(val)
+    write_attribute(:creation_date, val.to_datetime)
+  end
+
+  def completion_date=(val)
+    if !val.nil?
+      write_attribute(:completion_date, val.to_datetime)
+    end
+  end
+
+  # def zip_code=(val)
+  #   write_attribute(:zip_code, val.to_i)
+  # end
 
   def party_time(options)
     self.class.post("/open311/v2/requests.json", query: options, headers: {'api_key' => ENV['API_KEY']})
@@ -25,16 +50,16 @@ class Request < ActiveRecord::Base
 
   def self.filter_params(params)
     return {
-      'Creation Date'=> params['updated_datetime'],
-      'Status'=> params["status"],
-      'Completion Date'=> nil,
-      'Service Request Number'=> params["service_request_id"],
-      'Type of Service Request'=> params["service_name"],
-      'Street Address'=> params[ "address"],
-      'ZIP Code'=> nil,
-      'Latitude'=> params['lat'],
-      'Longitude'=> params['long'],
-      'Location'=> nil
+      :creation_date => params['updated_datetime'],
+      :status => params["status"],
+      :completion_date => nil,
+      :service_request_number => params["service_request_id"],
+      :type_of_service_request => params["service_name"],
+      :street_address => params[ "address"],
+      :zip_code => nil,
+      :latitude => params['lat'],
+      :longitude => params['long'],
+      :location => nil
     }
   end
 

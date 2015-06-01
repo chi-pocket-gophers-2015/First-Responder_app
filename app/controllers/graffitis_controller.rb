@@ -27,11 +27,15 @@ class GraffitisController < ApplicationController
       'long'=> session[:lng],
       'attribute[WHEREIS1]'=> params[:where_located],
       'attribute[WHATTYP2]'=> params[:surface_type],
-      'attribute[OVER6FEE]'=> params[:height]
+      'attribute[OVER6FEE]'=> params[:height],
+      'first_name' => params[:first_name],
+      'last_name' => params[:last_name],
+      'email' => params[:email],
+      'phone' => params[:phone]
     }
-    request = Request.new.party_time(graffiti_params)
+    request = Request.new.party_time(graffiti_params.merge({street_address: session[:street_address],
+      zip_code: session[:zip]}))
     token = request[0]['token']
-    session.clear
     redirect_to controller: 'requests', action: 'create', token: token
   end
 end

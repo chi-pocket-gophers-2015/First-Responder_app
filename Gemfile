@@ -14,8 +14,8 @@ gem 'rake'
 gem 'bootstrap-sass'
 gem 'pry'
 gem 'httparty'
+gem 'bcrypt'
 gem "paperclip", "~> 4.2"
-
 
 
 group :development, :test do
