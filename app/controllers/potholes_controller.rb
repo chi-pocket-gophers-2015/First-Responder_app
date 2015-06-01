@@ -29,9 +29,9 @@ class PotholesController < ApplicationController
       'attribute[WHEREIST]'=> params[:where_located]
     }
     binding.pry
-    RequestRecord.create(image: params['picture'])
     request = Request.new.party_time(pothole_params)
     token = request[0]['token']
+    RequestRecord.create(image: params['image'], token: token)
     session.clear
     redirect_to controller: 'requests', action: 'create', token: token
   end
