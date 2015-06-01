@@ -32,9 +32,14 @@ class StreetLightsController < RequestsController
       'email' => params[:email],
       'phone' => params[:phone]
     }
+    @errors = StreetLight.city_params_missing(street_light_params)
     request = Request.new.party_time(street_light_params.merge({street_address: session[:street_address],
       zip_code: session[:zip]}))
     token = request[0]['token']
+    @errors.push("Request not accepted by city") if token.nil?
+    if @errors.length > 0
+      render '/street_lights/form'
+    end
     redirect_to controller: 'requests', action: 'create', token: token
   end
 end

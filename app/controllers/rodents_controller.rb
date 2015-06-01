@@ -33,9 +33,14 @@ class RodentsController < ApplicationController
       'email' => params[:email],
       'phone' => params[:phone]
     }
+    @errors = Rodent.city_params_missing(rodent_params)
     request = Request.new.party_time(rodent_params.merge({street_address: session[:street_address],
       zip_code: session[:zip]}))
     token = request[0]['token']
+    @errors.push("Request not accepted by city") if token.nil?
+    if @errors.length > 0
+      render '/rodents/form'
+    end
     redirect_to controller: 'requests', action: 'create', token: token
   end
 end
