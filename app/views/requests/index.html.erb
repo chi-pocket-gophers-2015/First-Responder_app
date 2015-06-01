@@ -1,16 +1,21 @@
-<table>
-  <tr>
-    <th>Creation Date</th>
-    <th>Status</th>
-    <th>Type of Service Request</th>
-    <th>Street Address</th>
-  </tr>
-  <% @requests.each do |request| %>
+<div id="request-list">
+  <table>
     <tr>
-      <td><%= request['Creation Date'] %></td>
-      <td><%= request['Status'] %></td>
-      <td><%= request['Type of Service Request'] %></td>
-      <td><%= request['Street Address'] %></td>
+      <th>Type of Service Request</th>
+      <th>Street Address</th>
+      <th>Creation Date</th>
+      <th>Status</th>
+      <th>Completion Date</th>
     </tr>
-  <% end %>
-</table>
+    <% @requests.each do |request| %>
+      <tr>
+        <td><%= request[:type_of_service_request] %></td>
+        <td><%= "#{request[:street_address]}, Chicago, IL.  #{request[:zip_code]}" %></td>
+        <td><%= request[:creation_date] %></td>
+        <td><%= request[:status] %></td>
+        <td><%= request[:completion_date] %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+

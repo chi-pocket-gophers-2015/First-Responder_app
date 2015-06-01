@@ -38,9 +38,9 @@ class PotholesController < ApplicationController
       'email' => params[:email],
       'phone' => params[:phone]
     }
+    request = Request.new.party_time(pothole_params.merge({street_address: session[:street_address],
+      zip_code: session[:zip]}))
     token = request[0]['token']
-    request = Request.new.party_time(pothole_params)
-    session.clear
     redirect_to controller: 'requests', action: 'create', token: token
   end
 
