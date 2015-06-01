@@ -14,6 +14,7 @@ gem 'rake'
 gem 'bootstrap-sass'
 gem 'pry'
 gem 'httparty'
+gem 'bcrypt'
 
 
 group :development, :test do
