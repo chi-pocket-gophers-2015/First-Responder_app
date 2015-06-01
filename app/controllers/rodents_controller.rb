@@ -1,14 +1,11 @@
 class RodentsController < ApplicationController
   def new
-    session.clear
     @category = 'rodents'
   end
 
   def create
-    session[:lat] = params['lat']
-    session[:lng] = params['lng']
-    session[:street_address] = params['address']
-    session[:zip] = params['zip']
+    set_lat_and_lng(params['lat'], params['lng'])
+    set_address_and_zip(params['address'], params['zip'])
     @request = Request.new
     render '/rodents/form'
   end
@@ -28,9 +25,9 @@ class RodentsController < ApplicationController
     #Sample url below
     #View image <%= image_tag(@record.image.url(:thumb)) %>
     #/system/request_records/images/000/000/003/original/Laina.jpeg?1433185787
-    pothole_params = {
-      'service_code' => '4fd3b656e750846c53000004',
-      'service_name' => 'Pothole in Street',
+    rodent_params = {
+      "service_code"=> "4fd3b9bce750846c5300004a",
+      "service_name"=>"Rodent Baiting / Rat Complaint",
       'description' => params[:description],
       'address' => get_address +
         ', Chicago, IL, ' + get_zip,
@@ -43,7 +40,7 @@ class RodentsController < ApplicationController
       'email' => params[:email],
       'phone' => params[:phone]
     }
-    request = Request.new.party_time(pothole_params.merge({street_address: get_address, zip_code: get_zip}))
+    request = Request.new.party_time(rodent_params.merge({street_address: get_address, zip_code: get_zip}))
     token = request[0]['token']
     record.update(token: token)
     redirect_to controller: 'requests', action: 'create', token: token, record_id: record.id
