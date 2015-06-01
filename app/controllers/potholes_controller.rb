@@ -28,6 +28,8 @@ class PotholesController < ApplicationController
       'long'=> session[:lng],
       'attribute[WHEREIST]'=> params[:where_located]
     }
+    binding.pry
+    RequestRecord.create(image: params['picture'])
     request = Request.new.party_time(pothole_params)
     token = request[0]['token']
     session.clear
