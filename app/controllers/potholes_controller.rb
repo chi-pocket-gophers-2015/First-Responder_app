@@ -10,6 +10,8 @@ class PotholesController < ApplicationController
     session[:street_address] = params['address']
     session[:zip] = params['zip']
     @request = Request.new
+    @record = RequestRecord.last
+    binding.pry
     render '/potholes/form'
   end
 
@@ -17,7 +19,11 @@ class PotholesController < ApplicationController
   end
 
   def update
-    RequestRecord.create(token: token, image: params['image'])
+    #need to add in control flow for if user is signed in and assign to the record below
+    record = RequestRecord.create(token: token, image: params['image'])
+    #need to find out what the route is for pic on heroku
+    #Sample url below
+    #/system/request_records/images/000/000/003/original/Laina.jpeg?1433185787
     pothole_params = {
       "service_code"=> "4fd3b656e750846c53000004",
       "service_name"=> "Pothole in Street",
