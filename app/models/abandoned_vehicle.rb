@@ -22,6 +22,27 @@ class AbandonedVehicle < ActiveRecord::Base
   VEHICLE_BODY_STYLE_OPTIONS = ["Ambulance", "Bus", "Carryall", "Coach", "Dump Truck", "Fire Truck", "Flatbed Truck", "Garage Truck", "Hatchback 2 Door", "Hatchback 4 Door",
     "Legacy Unknown", "Limousine", "Motor Bike"]
 
+  CITY_REQUIRED = {
+    'service_code'=>"Service Code",
+    'service_name'=>"Service Name",
+    'address'=>'Address',
+    'lat'=>'Latitude',
+    'long'=>'Longitude',
+    'attribute[FQSKA3]'=>"Vehicle Color",
+    'attribute[FQSKA4]'=>"Vehicle License Plate Number",
+    'attribute[FQSKA11]'=>"Vehicle Body Style",
+    'attribute[HOWMANYD]'=>"How many days has the vehicle been parked?"
+    }
+
+  def self.city_params_missing(params)
+    errors = []
+    CITY_REQUIRED.each do |k,v|
+      next if !params[k].nil?
+      errors.push("Missing field: #{v}")
+    end
+    return errors
+  end
+
 
 end
 
