@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     get '/create', to: 'requests#create'
   end
 
-  resources :requests, only: [:show]
+  resources :requests, only: [:show, :index]
 
   resource :potholes, only: [:new, :create, :update] do
     get '/form', to: 'potholes#form'
@@ -29,6 +29,6 @@ Rails.application.routes.draw do
     get '/form', to: 'abandoned_vehicles#form'
   end
 
-  root to: 'requests#new'
+  root to: 'welcome#index'
 
 end

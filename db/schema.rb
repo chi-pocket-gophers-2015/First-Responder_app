@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150529183723) do
+ActiveRecord::Schema.define(version: 20150601144238) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "request_records", force: :cascade do |t|
+    t.string   "token"
+    t.string   "service_id"
+    t.integer  "user_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
 
   create_table "requests", force: :cascade do |t|
     t.string "Creation Date"
@@ -27,6 +37,8 @@ ActiveRecord::Schema.define(version: 20150529183723) do
     t.string "Latitude"
     t.string "Longitude"
     t.string "Location"
+    t.string "description"
+    t.string "where_located"
   end
 
 end
