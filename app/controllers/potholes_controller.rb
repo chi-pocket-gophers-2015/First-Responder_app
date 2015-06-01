@@ -1,14 +1,12 @@
 class PotholesController < ApplicationController
   def new
-    session.clear
     @category = 'potholes'
   end
 
   def create
-    session[:lat] = params['lat']
-    session[:lng] = params['lng']
-    session[:street_address] = params['address']
-    session[:zip] = params['zip']
+    set_lat_and_lng(params['lat'], params['lng'])
+    set_address_and_zip(params['address'], params['zip'])
+    binding.pry
     @request = Request.new
     @record = RequestRecord.last
     render '/potholes/form'
@@ -19,7 +17,8 @@ class PotholesController < ApplicationController
 
   def update
     if logged_in?
-      record = RequestRecord.create(image: params['image'], user_id: current_user.id)
+      user = User.find_by_id(current_user.id)
+      record = user.request_records.create(image: params['image'])
     else
       record = RequestRecord.create(image: params['image'])
     end
@@ -32,7 +31,7 @@ class PotholesController < ApplicationController
       'service_name' => 'Pothole in Street',
       'description' => params[:description],
       'address' => session[:street_address] +
-        ', Chicago, IL, '' + session[:zip],
+        ', Chicago, IL, ' + session[:zip],
       'lat' => session[:lat],
       'long' => session[:lng],
       'attribute[WHEREIST]'=> params[:where_located],
