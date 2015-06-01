@@ -26,7 +26,11 @@ class StreetLightsController < RequestsController
         ", Chicago, IL, " + session[:zip],
       'lat'=> session[:lat],
       'long'=> session[:lng],
-      'attribute[ISTHELI2]'=> params[:light_status]
+      'attribute[ISTHELI2]'=> params[:light_status],
+      'first_name' => params[:first_name],
+      'last_name' => params[:last_name],
+      'email' => params[:email],
+      'phone' => params[:phone]
     }
     request = Request.new.party_time(street_light_params)
     token = request[0]['token']
