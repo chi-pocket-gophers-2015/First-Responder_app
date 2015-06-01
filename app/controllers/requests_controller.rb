@@ -1,4 +1,8 @@
 class RequestsController < ApplicationController
+
+  def index
+    @requests = Request.all.limit(20)
+  end
   def new
     session.clear
     @request = Request.new
