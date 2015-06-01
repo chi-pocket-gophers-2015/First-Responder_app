@@ -1,5 +1,6 @@
 <table>
   <%= form_tag({controller: 'graffitis', action: 'update'}, {:multipart => true}) do %>
+    <input type="hidden" name="_method" value="put">
     <tr>
       <td><%= label_tag :image %>: </td>
       <td><%= file_field_tag :image %></td>
