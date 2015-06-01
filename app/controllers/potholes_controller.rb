@@ -26,10 +26,16 @@ class PotholesController < ApplicationController
         ", Chicago, IL, " + session[:zip],
       'lat'=> session[:lat],
       'long'=> session[:lng],
-      'attribute[WHEREIST]'=> params[:where_located]
+      'attribute[WHEREIST]'=> params[:where_located],
+      'first_name' => params[:first_name],
+      'last_name' => params[:last_name],
+      'email' => params[:email],
+      'phone' => params[:phone]
     }
+    binding.pry
     request = Request.new.party_time(pothole_params)
     token = request[0]['token']
+    RequestRecord.create(image: params['image'], token: token)
     session.clear
     redirect_to controller: 'requests', action: 'create', token: token
   end

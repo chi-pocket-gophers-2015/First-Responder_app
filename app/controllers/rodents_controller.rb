@@ -27,7 +27,11 @@ class RodentsController < ApplicationController
       'lat'=> session[:lat],
       'long'=> session[:lng],
       'attribute[DOYOUWAN]'=> params[:backyard_inspected],
-      'attribute[DOYOUWA1]'=> params[:backyard_baited]
+      'attribute[DOYOUWA1]'=> params[:backyard_baited],
+      'first_name' => params[:first_name],
+      'last_name' => params[:last_name],
+      'email' => params[:email],
+      'phone' => params[:phone]
     }
     request = Request.new.party_time(rodent_params)
     token = request[0]['token']

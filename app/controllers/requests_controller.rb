@@ -1,4 +1,9 @@
 class RequestsController < ApplicationController
+
+  def index
+    @requests = Request.all
+  end
+
   def new
     session.clear
     @request = Request.new
@@ -14,6 +19,7 @@ class RequestsController < ApplicationController
   end
 
   def show
+    session.clear
     @request = Request.find_by_id(params[:id])
   end
 
