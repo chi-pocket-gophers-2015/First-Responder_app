@@ -1,7 +1,21 @@
 <div id="request-list">
-  <% @requests.each do |request| %>
-    <div class="single-request">
-      <%= request %>
-    </div>
-  <% end %>
-<div>
+  <table>
+    <tr>
+      <th>Type of Service Request</th>
+      <th>Street Address</th>
+      <th>Creation Date</th>
+      <th>Status</th>
+      <th>Completion Date</th>
+    </tr>
+    <% @requests.each do |request| %>
+      <tr>
+        <td><%= request[:type_of_service_request] %></td>
+        <td><%= "#{request[:street_address]}, Chicago, IL.  #{request[:zip_code]}" %></td>
+        <td><%= request[:creation_date] %></td>
+        <td><%= request[:status] %></td>
+        <td><%= request[:completion_date] %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+

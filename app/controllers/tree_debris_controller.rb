@@ -27,7 +27,11 @@ class TreeDebrisController < ApplicationController
       'lat' => session[:lat],
       'long' => session[:lng],
       'attribute[ISTHEAMO]' => params[:debris_size],
-      'attribute[IFYES,WH]' => params[:debris_location]
+      'attribute[IFYES,WH]' => params[:debris_location],
+      'first_name' => params[:first_name],
+      'last_name' => params[:last_name],
+      'email' => params[:email],
+      'phone' => params[:phone]
     }
     request = Request.new.party_time(tree_debris_params.merge({street_address: session[:street_address],
       zip_code: session[:zip]}))

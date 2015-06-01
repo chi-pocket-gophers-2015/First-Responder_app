@@ -31,6 +31,10 @@ class AbandonedVehiclesController < ApplicationController
       'attribute[FQSKA4]'=> params[:vehicle_license],
       'attribute[FQSKA11]'=> params[:vehicle_body_style],
       'attribute[HOWMANYD]'=> params[:vehicle_days_parked],
+      'first_name' => params[:first_name],
+      'last_name' => params[:last_name],
+      'email' => params[:email],
+      'phone' => params[:phone]
     }
     request = Request.new.party_time(abandoned_vehicle_params.merge({street_address: session[:street_address],
       zip_code: session[:zip]}))

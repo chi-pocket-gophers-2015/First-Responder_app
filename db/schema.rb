@@ -16,6 +16,16 @@ ActiveRecord::Schema.define(version: 20150601182209) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "request_records", force: :cascade do |t|
+    t.string   "token"
+    t.string   "service_id"
+    t.integer  "user_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
   create_table "requests", force: :cascade do |t|
     t.datetime "creation_date"
     t.string   "status"
@@ -27,6 +37,17 @@ ActiveRecord::Schema.define(version: 20150601182209) do
     t.string   "latitude"
     t.string   "longitude"
     t.string   "location"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "username"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "password_hash"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
 end
