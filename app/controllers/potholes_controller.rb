@@ -6,7 +6,6 @@ class PotholesController < ApplicationController
   def create
     set_lat_and_lng(params['lat'], params['lng'])
     set_address_and_zip(params['address'], params['zip'])
-    binding.pry
     @request = Request.new
     @record = RequestRecord.last
     render '/potholes/form'
@@ -30,21 +29,21 @@ class PotholesController < ApplicationController
       'service_code' => '4fd3b656e750846c53000004',
       'service_name' => 'Pothole in Street',
       'description' => params[:description],
-      'address' => session[:street_address] +
-        ', Chicago, IL, ' + session[:zip],
-      'lat' => session[:lat],
-      'long' => session[:lng],
+      'address' => get_address +
+        ', Chicago, IL, ' + get_zip,
+      'lat' => get_lat,
+      'long' => get_lng,
       'attribute[WHEREIST]'=> params[:where_located],
       'first_name' => params[:first_name],
       'last_name' => params[:last_name],
       'email' => params[:email],
       'phone' => params[:phone]
     }
-    request = Request.new.party_time(pothole_params.merge({street_address: session[:street_address],
-      zip_code: session[:zip]}))
+    request = Request.new.party_time(pothole_params.merge({street_address: get_address,
+      zip_code: get_zip}))
     token = request[0]['token']
     record.update(token: token)
-    redirect_to controller: 'requests', action: 'create', token: token
+    redirect_to controller: 'requests', action: 'create', token: token, record_id: record.id
   end
 
 end
