@@ -14,6 +14,7 @@ class RequestsController < ApplicationController
   end
 
   def show
+    session.clear
     @request = Request.find_by_id(params[:id])
   end
 
