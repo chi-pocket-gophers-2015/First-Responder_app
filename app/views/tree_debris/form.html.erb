@@ -1,9 +1,8 @@
 <table>
-  <%= form_tag(controller: 'tree_debris', action: 'update', multipart: true) do %>
-    <input type="hidden" name="_method" value="put">
+  <%= form_tag({controller: 'tree_debris', action: 'update'}, {:multipart => true}) do %>
     <tr>
-      <td><%= label_tag :Picture %>: </td>
-      <td><%= file_field_tag :picture %></td>
+      <td><%= label_tag :image %>: </td>
+      <td><%= file_field_tag :image %></td>
     </tr>
     <tr>
       <td><%= label_tag :description %>: </td>
