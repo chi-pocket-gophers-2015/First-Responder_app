@@ -37,8 +37,6 @@ ActiveRecord::Schema.define(version: 20150601144238) do
     t.string "Latitude"
     t.string "Longitude"
     t.string "Location"
-    t.string "description"
-    t.string "where_located"
   end
 
 end
