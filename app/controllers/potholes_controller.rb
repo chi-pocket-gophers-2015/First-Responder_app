@@ -16,8 +16,8 @@ class PotholesController < ApplicationController
   def form
   end
 
-
   def update
+    RequestRecord.create(token: token, image: params['image'])
     pothole_params = {
       "service_code"=> "4fd3b656e750846c53000004",
       "service_name"=> "Pothole in Street",
@@ -28,19 +28,10 @@ class PotholesController < ApplicationController
       'long'=> session[:lng],
       'attribute[WHEREIST]'=> params[:where_located]
     }
-    request = Request.new.party_time(pothole_params)
     token = request[0]['token']
-
-    binding.pry
-    RequestRecord.create(token: token, image: params['image'])
+    request = Request.new.party_time(pothole_params)
     session.clear
     redirect_to controller: 'requests', action: 'create', token: token
   end
-
-    # private
-
-    # def image_params
-    #   params.require(:request).permit(:image)
-    # end
 
 end
