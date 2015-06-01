@@ -8,7 +8,6 @@ class RequestsController < ApplicationController
     token = params[:token]
     city_params = Request.official_city_data(token)
     @request = Request.new(Request.filter_params(city_params))
-    binding.pry
     if @request.save
       redirect_to request_path(@request)
     end
