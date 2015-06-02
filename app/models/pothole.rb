@@ -1,5 +1,7 @@
 class Pothole < ActiveRecord::Base
+
   POTHOLE_LOCATION_OPTIONS = [nil,'Crosswalk', 'Curb Lane', 'Intersection', 'Traffic Lane']
+
 
   CITY_REQUIRED = {
     'service_code'=>"Service Code",

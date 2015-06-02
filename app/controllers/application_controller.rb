@@ -18,4 +18,37 @@ class ApplicationController < ActionController::Base
   def authenticate_user
     redirect_to(new_session_path) unless logged_in?
   end
+
+  def set_address_and_zip(address, zip)
+    session[:address] = address
+    session[:zip]     = zip
+  end
+
+  def set_lat_and_lng(lat, lng)
+    session[:lat] = lat
+    session[:lng] = lng
+  end
+
+  def get_address
+    session[:address]
+  end
+
+  def get_zip
+    session[:zip]
+  end
+
+  def get_lat
+    session[:lat]
+  end
+
+  def get_lng
+    session[:lng]
+  end
+
+  def clear_address_sessions
+    session[:lat]     = nil
+    session[:lng]     = nil
+    session[:address] = nil
+    session[:zip]     = nil
+  end
 end
