@@ -6,6 +6,26 @@ html, .container-fluid {
   background-color: #E6E6E6;
 }
 
+#new-report-header {
+  font-weight:bold;
+  text-align:center;
+  margin-top: -15%;
+  margin-bottom: -12%;
+  margin-left: 15%;
+}
+
+#new-report-header span {
+  font-size:0.75em;
+  color:red;
+}
+
+div.request-select input {
+  width:150px;
+  height: 140px;
+  margin: 0 auto;
+  padding: 0 auto;
+}
+
 #map-canvas {
   width: 500px;
   height: 350px;
@@ -52,6 +72,7 @@ html, .container-fluid {
   }
 }
 
+
 @media (max-width: 768px) {
   /* Force table to not be like tables anymore */
   #no-more-tables table,
@@ -73,6 +94,42 @@ html, .container-fluid {
   }
 }
 
+
+@media only screen and (min-width : 320px) {
+  .row  {
+  margin-top: 30px;
+  margin-bottom: 30px
+  }
+
+  .btn {
+      padding: 14px 24px;
+      border: 0 none;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+  }
+
+  .btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+  }
+
+  .btn-primary {
+      background: #0099cc;
+      color: #ffffff;
+  }
+
+  .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: #33a6cc;
+  }
+
+  .btn-primary:active, .btn-primary.active {
+      background: #007299;
+      box-shadow: none;
+  }
+
+}
+
+
 #landing-page {
   margin-top: 5%;
   height:90vh;
@@ -89,7 +146,7 @@ html, .container-fluid {
 }
 
 
-#submit-button {
+#map-submit-button {
   height:5em;
 }
 
@@ -117,3 +174,6 @@ table {
   border-top:1px solid #777777
 }
 
+#report-new {
+  padding-right: 15%;
+}
