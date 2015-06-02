@@ -1,8 +1,8 @@
 class TreeDebris < ActiveRecord::Base
 
-  TREE_DEBRIS_SIZE_OPTIONS = ["Yes", "No"]
+  TREE_DEBRIS_SIZE_OPTIONS = [nil,"Yes", "No"]
 
-  TREE_DEBRIS_LOCATION_OPTIONS = ["Alley", "Parkway", "Vacant Lot"]
+  TREE_DEBRIS_LOCATION_OPTIONS = [nil,"Alley", "Parkway", "Vacant Lot"]
 
   CITY_REQUIRED = {
     'service_code'=>"Service Code",

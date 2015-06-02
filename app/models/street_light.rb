@@ -1,6 +1,6 @@
 class StreetLight < ActiveRecord::Base
 
-  STREET_LIGHT_OUT_OPTIONS = ["Completely Out", "On and Off"]
+  STREET_LIGHT_OUT_OPTIONS = [nil,"Completely Out", "On and Off"]
 
   CITY_REQUIRED = {
     'service_code'=>"Service Code",

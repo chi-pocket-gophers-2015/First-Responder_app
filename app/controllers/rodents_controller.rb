@@ -39,7 +39,7 @@ class RodentsController < ApplicationController
     token = request[0]['token']
     @errors.push("Request not accepted by city") if token.nil?
     if @errors.length > 0
-      render '/rodents/form'
+      render '/rodents/form' and return
     end
     redirect_to controller: 'requests', action: 'create', token: token
   end

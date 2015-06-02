@@ -38,7 +38,7 @@ class StreetLightsController < RequestsController
     token = request[0]['token']
     @errors.push("Request not accepted by city") if token.nil?
     if @errors.length > 0
-      render '/street_lights/form'
+      render '/street_lights/form' and return
     end
     redirect_to controller: 'requests', action: 'create', token: token
   end

@@ -43,8 +43,9 @@ class PotholesController < ApplicationController
       zip_code: session[:zip]}))
     token = request[0]['token']
     @errors.push("Request not accepted by city") if token.nil?
+    binding.pry
     if @errors.length > 0
-      render '/potholes/form'
+      render '/potholes/form' and return
     end
     redirect_to controller: 'requests', action: 'create', token: token
   end
