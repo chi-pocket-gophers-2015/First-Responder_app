@@ -122,7 +122,10 @@ namespace :import_request do
   end
   task :create_recent => :environment do
     hour_ago = DateTime.now - (1/24.0)
-    url = BASE_RECENT + hour_ago.strftime("%FT%T%:z") + "&" + Time.now.strftime("%FT%T%:z")
+    heroku_hour_ago = Datetime.now - (6/24.0)
+    heroku_now = Time.now - (5/24.0)
+    url = BASE_RECENT + heroku_hour_ago.strftime("%FT%T%:z") + "&" + heroku_now.strftime("%FT%T%:z")
+    #url = BASE_RECENT + hour_ago.strftime("%FT%T%:z") + "&" + Time.now.strftime("%FT%T%:z")
     get_recent(url)
   end
 end
