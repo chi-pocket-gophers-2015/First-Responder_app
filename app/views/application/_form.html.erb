@@ -2,23 +2,17 @@
   Contact Info (leave blank to submit anonymously)
 </div>
 <div class="contact-info">
-  <table>
-    <tr>
       <!-- <button>Enter your Contact Info</button> -->
-      <td class="table-label"><%= label_tag(:first_name) %></td>
-      <td><%= text_field_tag(:first_name) %></td>
-    </tr>
-    <tr>
-      <td class="table-label"><%= label_tag(:last_name) %></td>
-      <td><%= text_field_tag(:last_name) %></td>
-    </tr>
-    <tr>
-      <td class="table-label"><%= label_tag(:email) %></td>
-      <td><%= text_field_tag(:email) %></td>
-    </tr>
-    <tr>
-      <td class="table-label"><%= label_tag(:phone) %></td>
-      <td><%= text_field_tag(:phone) %></td>
-    </tr>
-  </table>
+  <div class="form-group">
+    <%= text_field_tag(:first_name, nil, class: "form-control", placeholder: "First Name") %>
+  </div>
+  <div class="form-group">
+    <%= text_field_tag(:last_name, nil, class: "form-control", placeholder: "Last Name") %>
+  </div>
+  <div class="form-group">
+    <%= text_field_tag(:phone, nil, class: "form-control", placeholder: "Phone") %>
+  </div>
+  <div class="form-group">
+    <%= text_field_tag(:email, nil, class: "form-control", placeholder: "Email") %>
+  </div>
 </div>
