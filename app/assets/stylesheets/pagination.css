@@ -9,8 +9,9 @@
     float: left;
     margin-right: 1px; }
   .digg_pagination .disabled {
-    color: #999999;
-    border: 1px solid #00B7F7; }
+    color: white;
+    background-color: gray;
+    border: 1px solid gray; }
   .digg_pagination .current {
     font-style: normal;
     font-weight: bold;
