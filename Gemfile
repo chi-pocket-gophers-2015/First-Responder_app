@@ -18,6 +18,7 @@ gem 'bcrypt'
 gem "paperclip", "~> 4.2"
 gem 'aws-sdk', '~> 1.6'
 gem 'will_paginate', '~> 3.0.6'
+gem 'json'
 
 group :development, :test do
   gem 'byebug'
