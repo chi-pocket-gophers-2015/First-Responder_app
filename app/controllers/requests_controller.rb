@@ -1,8 +1,8 @@
 class RequestsController < ApplicationController
 
-  def index
-    @requests = Request.all
-  end
+  # def index
+  #   @requests = Request.paginate(:page => params[:page], :per_page => 30)
+  # end
 
   def new
     session.clear
@@ -25,7 +25,7 @@ class RequestsController < ApplicationController
   end
 
   def index
-    @requests = Request.all.order(creation_date: :desc)
+    @requests = Request.all.order(creation_date: :desc).paginate(page: params[:page], per_page: 5)
   end
 
   def show
