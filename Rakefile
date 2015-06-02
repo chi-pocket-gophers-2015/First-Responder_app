@@ -113,6 +113,7 @@ namespace :import_request do
     # json_parse('https://data.cityofchicago.org/api/views/3c9v-pnva/rows.json',2)
   end
   task :create_recent => :environment do
+    puts "anyone there?"
     hour_ago = DateTime.now - (1/24.0)
     url = BASE_RECENT + hour_ago.strftime("%FT%T%:z") + "&" + Time.now.strftime("%FT%T%:z")
     get_recent(url)
