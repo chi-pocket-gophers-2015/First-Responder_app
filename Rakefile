@@ -79,7 +79,7 @@ def get_recent(url)
   raw_data = open(url)
   parsed = JSON.parse(raw_data.read)
   parsed.each do |hash|
-    slice_hash = hash.slice("requested_datetime", "status", "updated_datetime", "service_request_id", "service_name",
+    slice_hash = hash.slice("requested_datetime", "status", "service_request_id", "service_name",
       "address", "lat", "long")
     mappings = {"requested_datetime" => :creation_date, "status" => :status, #"updated_datetime" => :completion_date,
       "service_request_id" => :service_request_number, "service_name" => :type_of_service_request,
