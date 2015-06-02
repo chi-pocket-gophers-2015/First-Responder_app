@@ -9,7 +9,6 @@ class PotholesController < ApplicationController
     @request = Request.new
     @record = RequestRecord.last
     head 200
-    # render '/potholes/form'
   end
 
   def form
