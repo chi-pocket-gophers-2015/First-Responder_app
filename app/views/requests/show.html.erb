@@ -10,9 +10,13 @@
   </tr>
   <tr>
     <td>Service Request ID</td>
-    <td>
-      <%= link_to(@request[:service_request_number], "http://servicetracker.cityofchicago.org/requests/#{@request[:service_request_number]}") %>
-    </td>
+    <% if @request[:service_request_number].blank? %>
+      <td>Sorry, we do not have an ID yet</td>
+    <% else %>
+      <td>
+        <%= link_to(@request[:service_request_number], "http://servicetracker.cityofchicago.org/requests/#{@request[:service_request_number]}") %>
+      </td>
+    <% end %>
   </tr>
   <tr>
     <td>Type of Request</td>
