@@ -51,4 +51,6 @@ class PotholesController < ApplicationController
     redirect_to controller: 'requests', action: 'create', token: token, record_id: record.id
   end
 
+private
+
 end
