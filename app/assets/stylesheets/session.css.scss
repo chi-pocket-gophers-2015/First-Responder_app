@@ -6,11 +6,23 @@ html, .container-fluid {
   background-color: #E6E6E6;
 }
 
+#new-report-header {
+  font-weight:bold;
+  text-align:center;
+  margin-top: -10%;
+  margin-bottom: -15%;
+  margin-left: 15%;
+}
+
+#new-report-header span {
+  font-size:0.75em;
+  color:red;
+}
+
 div.request-select input {
   width:150px;
   height: 140px;
   margin: 0 auto;
-
   padding: 0 auto;
 }
 

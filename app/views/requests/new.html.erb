@@ -1,4 +1,8 @@
 <div id="report-new">
+  <div id="new-report-header">
+    What would you like to report? <br>
+    <span>If this is an emergency, please call 911</span>
+  </div>
   <div class="row">
     <%= form_tag("/potholes/new", method: 'get') do %>
       <%= hidden_field_tag :category, "pothole" %>
