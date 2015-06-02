@@ -9,9 +9,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= render partial: 'navbar' %>
-<div class="body-container">
-  <%= yield %>
-</div>
+  <%= render partial: 'navbar' %>
+  <div class="container-fluid">
+    <div class="body-container">
+      <%= yield %>
+    </div>
+  </div>
 </body>
 </html>
