@@ -40,8 +40,13 @@ class GraffitisController < ApplicationController
       'email' => params[:email],
       'phone' => params[:phone]
     }
+    @errors = Graffiti.city_params_missing(graffiti_params)
     request = Request.new.party_time(graffiti_params.merge({street_address: get_address, zip_code: get_zip}))
     token = request[0]['token']
+    @errors.push("Request not accepted by city") if token.nil?
+    if @errors.length > 0
+      render '/graffitis/form'
+    end
     record.update(token: token)
     redirect_to controller: 'requests', action: 'create', token: token, record_id: record.id
   end
