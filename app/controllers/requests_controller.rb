@@ -4,6 +4,10 @@ class RequestsController < ApplicationController
     @requests = Request.all
   end
 
+  def map
+    @requests = Request.all
+  end
+
   def new
     session.clear
     @request = Request.new
