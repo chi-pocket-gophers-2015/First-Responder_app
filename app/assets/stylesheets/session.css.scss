@@ -6,6 +6,8 @@
   width: 500px;
   height: 400px;
   background-color: #CCC;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .centerMarker {
@@ -41,13 +43,15 @@
   margin-top: 6em;
 }
 
-#map-canvas {
-  margin: 0 auto;
+.map-button {
+  text-align: center;
 }
 
 #submit-button {
-  text-align: center;
+  height:5em;
+  width:10em;
 }
+
 
 input.submit{
   background:none;
@@ -59,6 +63,4 @@ input.submit{
   color:red;
 }
 
-.map-page {
 
-}
