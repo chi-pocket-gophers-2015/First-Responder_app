@@ -11,11 +11,11 @@
       <%= javascript_tag "var latitude = #{@requests.first[:latitude].to_json}" %>
       <%= javascript_tag "var longitude = #{@requests.first[:longitude].to_json}"%>
       <%= javascript_tag "var potholes = #{@potholes}" %>
-      <%= javascript_tag "var vehicles = #{vehicles}" %>
-      <%= javascript_tag "var rodents
-      <%= javascript_tag "var graffitis
-      <%= javascript_tag "var street_lights
-      <%= javascript_tag "var tree_debris = @tree_debris
+      <%= javascript_tag "var vehicles = #{@vehicles}" %>
+      <%= javascript_tag "var rodents = #{@rodents}" %>
+      <%= javascript_tag "var graffitis = #{@graffitis}" %>
+      <%= javascript_tag "var street_lights = #{@lights}" %>
+      <%= javascript_tag "var tree_debris = #{@tree_debris}" %>
     <script>
 
       var map;
