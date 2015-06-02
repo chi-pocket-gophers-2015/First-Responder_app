@@ -43,7 +43,6 @@ class PotholesController < ApplicationController
     request = Request.new.party_time(pothole_params.merge({street_address: get_address, zip_code: get_zip}))
     token = request[0]['token']
     @errors.push("Request not accepted by city") if token.nil?
-    binding.pry
     if @errors.length > 0
       render '/potholes/form' and return
     end

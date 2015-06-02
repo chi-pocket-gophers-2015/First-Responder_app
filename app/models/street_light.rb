@@ -14,7 +14,7 @@ class StreetLight < ActiveRecord::Base
   def self.city_params_missing(params)
     errors = []
     CITY_REQUIRED.each do |k,v|
-      next if !params[k].nil?
+      next if params[k] != ""
       errors.push("Missing field: #{v}")
     end
     return errors
