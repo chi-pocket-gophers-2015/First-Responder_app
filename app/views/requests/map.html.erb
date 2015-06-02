@@ -8,8 +8,6 @@
       }
     </style>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
-      <%= javascript_tag "var latitude = #{@requests.first[:latitude].to_json}" %>
-      <%= javascript_tag "var longitude = #{@requests.first[:longitude].to_json}"%>
       <%= javascript_tag "var potholes = #{@potholes}" %>
       <%= javascript_tag "var vehicles = #{@vehicles}" %>
       <%= javascript_tag "var rodents = #{@rodents}" %>

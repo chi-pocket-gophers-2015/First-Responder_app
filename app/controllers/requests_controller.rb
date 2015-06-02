@@ -9,6 +9,16 @@ class RequestsController < ApplicationController
     @request = Request.new
   end
 
+  def map
+    @requests = Request.all
+    @vehicles = Request.where(type_of_service_request: "Abandoned Vehicle Complaint").as_json
+    @graffitis = Request.where(type_of_service_request: "Graffiti Removal").as_json
+    @potholes = Request.where(type_of_service_request: "Pothole in Street").as_json
+    @rodents = Request.where(type_of_service_request: "Rodent Baiting/Rat Complaint").as_json
+    @lights = Request.where(type_of_service_request: "Street Light Out").as_json
+    @trees = Request.where(type_of_service_request: "Tree Debris").as_json
+  end
+
   def create
     token = params[:token]
     record = RequestRecord.find_by_id(params[:record_id])
