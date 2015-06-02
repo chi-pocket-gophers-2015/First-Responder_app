@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20150601182209) do
   end
 
   create_table "requests", force: :cascade do |t|
+    t.string   "token"
     t.datetime "creation_date"
     t.string   "status"
     t.datetime "completion_date"

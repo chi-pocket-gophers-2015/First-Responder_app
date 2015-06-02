@@ -19,6 +19,7 @@ class RequestsController < ApplicationController
     end
     @request = Request.new(Request.filter_params(city_params))
     if @request.save
+      @request.update(token: token)
       redirect_to request_path(@request)
       clear_address_sessions
     end
@@ -30,6 +31,11 @@ class RequestsController < ApplicationController
 
   def show
     @request = Request.find_by_id(params[:id])
+    token = @request.token
+    service_id = Request.official_city_data(token)['service_request_id']
+    @request.update(service_request_number: service_id)
+    record = RequestRecord.find_by_token(token)
+    record.update(service_id: service_id)
   end
 
   private
