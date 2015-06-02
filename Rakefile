@@ -79,6 +79,9 @@ def get_recent(url)
   raw_data = open(url)
   parsed = JSON.parse(raw_data.read)
   parsed.each do |hash|
+    puts "one hash here: "
+    print hash
+    puts "------------------------------------------"
     slice_hash = hash.slice("requested_datetime", "status", "service_request_id", "service_name",
       "address", "lat", "long")
     mappings = {"requested_datetime" => :creation_date, "status" => :status, #"updated_datetime" => :completion_date,
@@ -113,7 +116,6 @@ namespace :import_request do
     # json_parse('https://data.cityofchicago.org/api/views/3c9v-pnva/rows.json',2)
   end
   task :create_recent => :environment do
-    puts "anyone there?"
     hour_ago = DateTime.now - (1/24.0)
     url = BASE_RECENT + hour_ago.strftime("%FT%T%:z") + "&" + Time.now.strftime("%FT%T%:z")
     get_recent(url)
