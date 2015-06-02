@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+<<<<<<< HEAD
 RSpec.feature "Vehicles", :type => :feature do
 
 	scenario "User clicks vehicles button" do
@@ -33,3 +34,14 @@ RSpec.feature "Vehicles", :type => :feature do
   #   expect(page).to have_text("Widget was successfully created.")
   # end
 end
+=======
+
+RSpec.feature "AbandonedVehicles", :type => :feature do
+
+
+
+
+
+
+end
+>>>>>>> c022144731458f30d75081e07db8bde99ea38e61

@@ -1,4 +1,4 @@
 <div>
-  <%= button_to("New Report", new_requests_path, class: "btn btn-lg btn-default") %>
-  <%= button_to("View Reports", root_path, class: "btn btn-lg btn-default") %>
+  <%= link_to("New Report", new_requests_path, method: 'get', class: "btn btn-lg btn-default") %>
+  <%= link_to("View Reports", requests_path, method: 'get', class: "btn btn-lg btn-default") %>
 </div>

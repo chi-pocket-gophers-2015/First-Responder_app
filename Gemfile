@@ -16,6 +16,7 @@ gem 'pry'
 gem 'httparty'
 gem 'bcrypt'
 gem "paperclip", "~> 4.2"
+gem 'aws-sdk', '~> 1.6'
 
 
 group :development, :test do

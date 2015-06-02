@@ -1,3 +1,7 @@
+<% if @errors && @errors.length > 0 %>
+  <%= render partial: 'errors', locals: {errors: @errors} %>
+<% end %>
+
 <table>
   <%= form_tag({controller: 'graffitis', action: 'update'}, {:multipart => true}) do %>
     <input type="hidden" name="_method" value="put">
