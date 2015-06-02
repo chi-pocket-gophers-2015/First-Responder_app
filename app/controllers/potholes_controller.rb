@@ -24,7 +24,7 @@ class PotholesController < ApplicationController
     #need to find out what the route is for pic on heroku
     #Sample url below
     #View image <%= image_tag(@record.image.url(:thumb)) %>
-    #/system/request_records/images/000/000/003/original/Laina.jpeg?1433185787
+    #http://responderdbc.s3.amazonaws.com/request_records/images/000/000/010/original/jgl.jpg?1433203891
     pothole_params = {
       'service_code' => '4fd3b656e750846c53000004',
       'service_name' => 'Pothole in Street',
