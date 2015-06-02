@@ -8,7 +8,8 @@ class PotholesController < ApplicationController
     set_address_and_zip(params['address'], params['zip'])
     @request = Request.new
     @record = RequestRecord.last
-    render '/potholes/form'
+    head 200
+    # render '/potholes/form'
   end
 
   def form
