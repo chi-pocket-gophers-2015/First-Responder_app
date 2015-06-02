@@ -8,10 +8,18 @@ html, .container-fluid {
 
 #map-canvas {
   width: 500px;
-  height: 400px;
+  height: 350px;
   background-color: #CCC;
   margin: 0 auto;
   width: 100%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+#map-header-text {
+  margin-top: -10%;
+  font-weight: bold;
+  margin-bottom:2%;
 }
 
 .centerMarker {
@@ -29,6 +37,18 @@ html, .container-fluid {
 @media (min-width: 768px) {
   .navbar-nav > li {
     margin-left: 5px;
+  }
+
+  #map-header-text {
+    margin-top: -3%;
+    text-align: center;
+    font-size: 1.5em;
+  }
+
+  #map-canvas {
+    height: 700px;
+    margin-top: 0;
+    margin-bottom: 3%;
   }
 }
 
@@ -63,4 +83,15 @@ input.submit{
   color:red;
 }
 
+table {
+  table-layout: fixed;
+}
+
+#form-header {
+  font-weight:bold;
+}
+
+#contact-header {
+  border-top:1px solid #777777
+}
 
