@@ -77,7 +77,16 @@ function handleNoGeolocation(errorFlag) {
 }
 
 $(document).ready(function(){
+  // if($(window.location).attr('pathname')==='/potholes/new') ||
+  //   $(window.location).attr('pathname')==='/abandoned_vehicles/new') ||
+  //   $(window.location).attr('pathname')==='/graffitis/new') ||
+  //   $(window.location).attr('pathname')==='/rodents/new') ||
+  //   $(window.location).attr('pathname')==='/street_lights/new') ||
+  //   $(window.location).attr('pathname')==='/tree_debris/new')) {
+  //   function(){initialize()};
+  // }
   initialize();
+
   $(document).on('submit',$('#submit-button'),function(event){
     event.preventDefault();
     center = map.getCenter();

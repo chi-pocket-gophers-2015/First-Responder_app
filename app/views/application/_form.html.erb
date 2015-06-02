@@ -1,19 +1,24 @@
+<div id="contact-header">
+  Contact Info (leave blank to submit anonymously)
+</div>
 <div class="contact-info">
-  <tr>
-    <!-- <button>Enter your Contact Info</button> -->
-    <td><%= label_tag(:first_name) %></td>
-    <td><%= text_field_tag(:first_name) %></td>
-  </tr>
-  <tr>
-    <td><%= label_tag(:last_name) %></td>
-    <td><%= text_field_tag(:last_name) %></td>
-  </tr>
-  <tr>
-    <td><%= label_tag(:email) %></td>
-    <td><%= text_field_tag(:email) %></td>
-  </tr>
-  <tr>
-    <td><%= label_tag(:phone) %></td>
-    <td><%= text_field_tag(:phone) %></td>
-  </tr>
+  <table>
+    <tr>
+      <!-- <button>Enter your Contact Info</button> -->
+      <td class="table-label"><%= label_tag(:first_name) %></td>
+      <td><%= text_field_tag(:first_name) %></td>
+    </tr>
+    <tr>
+      <td class="table-label"><%= label_tag(:last_name) %></td>
+      <td><%= text_field_tag(:last_name) %></td>
+    </tr>
+    <tr>
+      <td class="table-label"><%= label_tag(:email) %></td>
+      <td><%= text_field_tag(:email) %></td>
+    </tr>
+    <tr>
+      <td class="table-label"><%= label_tag(:phone) %></td>
+      <td><%= text_field_tag(:phone) %></td>
+    </tr>
+  </table>
 </div>

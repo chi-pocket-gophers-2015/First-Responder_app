@@ -1,33 +1,40 @@
+<div id="form-header">
+  Submit Rodent Complaint
+</div>
+
 <% if @errors && @errors.length > 0 %>
   <%= render partial: 'errors', locals: {errors: @errors} %>
 <% end %>
 
-<table>
-  <%= form_tag({controller: 'rodents', action: 'update'}, {:multipart => true}) do %>
-    <input type="hidden" name="_method" value="put">
-    <tr>
-      <td><%= label_tag :image %>: </td>
-      <td><%= file_field_tag :image %></td>
-    </tr>
-    <tr>
-      <td><%= label_tag :description %>: </td>
-      <td><%= text_area_tag :description %></td>
-    </tr>
-    <tr>
-      <td><%= label_tag :backyard_inspected %>: </td>
-      <td><%= select_tag(:backyard_inspected, options_for_select(Rodent::RODENT_INSPECTION_OPTIONS)) %></td>
-    </tr>
-    <tr>
-      <td><%= label_tag :backyard_baited %>: </td>
-      <td><%= select_tag(:backyard_baited, options_for_select(Rodent::RODENT_BAIT_OPTIONS)) %></td>
-    </tr>
-    <!-- use different partial for logged in? -->
-    <!-- format this as optional -->
-    <%= render partial: 'form' %>
-    <tr>
-      <td></td>
-      <td><%= submit_tag "Submit", class: "form-submit" %></td>
-    </tr>
-  <% end %>
-</table>
-
+<div id="submission-form">
+  <table>
+    <%= form_tag({controller: 'rodents', action: 'update'}, {:multipart => true}) do %>
+      <input type="hidden" name="_method" value="put">
+      <tr>
+        <td><%= label_tag :image %>: </td>
+        <td><%= file_field_tag :image %></td>
+      </tr>
+      <tr>
+        <td><%= label_tag :description %>: </td>
+        <td><%= text_area_tag :description %></td>
+      </tr>
+      <tr>
+        <td><%= label_tag :backyard_inspected, "Do you want your back yard inspected?" %>: </td>
+        <td><%= select_tag(:backyard_inspected, options_for_select(Rodent::RODENT_INSPECTION_OPTIONS)) %></td>
+      </tr>
+      <tr>
+        <td><%= label_tag :backyard_baited, "Do you want your back yard baited?" %>: </td>
+        <td><%= select_tag(:backyard_baited, options_for_select(Rodent::RODENT_BAIT_OPTIONS)) %></td>
+      </tr>
+    </table>
+      <!-- use different partial for logged in? -->
+      <!-- format this as optional -->
+      <%= render partial: 'form' %>
+    <table>
+      <tr>
+        <td></td>
+        <td><%= submit_tag "Submit", class: "form-submit" %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
