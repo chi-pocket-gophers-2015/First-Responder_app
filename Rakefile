@@ -57,7 +57,7 @@ def json_parse(url, header_type)
  # binding.pry
  data = parsed['data']
  # sliced_hash_holder = []
- data[0..99].each do |row|
+ data.each do |row|
    data_hash = Hash[headers.zip(row)]
    slice_hash = data_hash.slice("Creation Date", "Status", "Completion Date", "Service Request Number", "Type of Service Request",
     "Street Address", "ZIP Code", "Latitude", "Longitude", "Location")
