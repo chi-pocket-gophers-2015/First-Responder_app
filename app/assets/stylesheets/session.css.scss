@@ -12,6 +12,10 @@ html, .container-fluid {
   margin-top: -15%;
   margin-bottom: -12%;
   margin-left: 15%;
+
+  h1 {
+    font-size: 1.1em;
+  }
 }
 
 #new-report-header span {
@@ -128,7 +132,6 @@ div.request-select input {
   }
 
 }
-
 
 #landing-page {
   margin-top: 5%;
