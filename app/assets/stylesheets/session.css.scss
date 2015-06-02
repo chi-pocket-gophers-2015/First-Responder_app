@@ -93,9 +93,11 @@ div.request-select input {
     top: -9999px;
     left: -9999px;
   }
-
   #no-more-tables tr:nth-child(odd) {
     background-color: white;
+  }
+  #no-more-tables tr td:nth-child(1) {
+    font-weight: bold;
   }
 }
 
