@@ -4,6 +4,12 @@ class RequestsController < ApplicationController
     @requests = Request.all
   end
 
+  def map
+    @requests = Request.all
+    @req_lat = Request.first[:latitude].to_json
+    @req_lng = Request.first[:longitude].to_json
+  end
+
   def new
     session.clear
     @request = Request.new
