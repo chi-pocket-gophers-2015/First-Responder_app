@@ -52,6 +52,23 @@ html, .container-fluid {
   }
 }
 
+@media (max-width: 768px) {
+  /* Force table to not be like tables anymore */
+  #no-more-tables table,
+  #no-more-tables thead,
+  #no-more-tables tbody,
+  #no-more-tables th,
+  #no-more-tables td,
+  #no-more-tables tr {
+    display: block;
+  }
+  #no-more-tables thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+}
+
 #landing-page {
   margin-top: 5%;
   height:90vh;
@@ -95,3 +112,4 @@ table {
 #contact-header {
   border-top:1px solid #777777
 }
+
