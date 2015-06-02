@@ -6,6 +6,14 @@ html, .container-fluid {
   background-color: #E6E6E6;
 }
 
+div.request-select input {
+  width:150px;
+  height: 140px;
+  margin: 0 auto;
+
+  padding: 0 auto;
+}
+
 #map-canvas {
   width: 500px;
   height: 350px;
@@ -130,3 +138,6 @@ table {
   border-top:1px solid #777777
 }
 
+#report-new {
+  padding-right: 15%;
+}
