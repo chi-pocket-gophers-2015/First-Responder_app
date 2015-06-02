@@ -1,13 +1,15 @@
 <div id="request-list">
   <div class="table-responsive" id="no-more-tables">
     <table class="table">
-      <tr>
-        <th>Type of Service Request</th>
-        <th>Street Address</th>
-        <th>Creation Date</th>
-        <th>Status</th>
-        <th>Completion Date</th>
-      </tr>
+      <thead>
+        <tr>
+          <th>Type of Service Request</th>
+          <th>Street Address</th>
+          <th>Creation Date</th>
+          <th>Status</th>
+          <th>Completion Date</th>
+        </tr>
+      </thead>
       <% @requests.each do |request| %>
         <tr>
           <td><%= link_to(request[:type_of_service_request], request_path(request)) %></td>
