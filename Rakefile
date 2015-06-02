@@ -76,8 +76,11 @@ def json_parse(url, header_type)
 end
 
 def get_recent(url)
+  puts "about to get raw data"
   raw_data = open(url)
+  puts "raw data: #{raw_data}"
   parsed = JSON.parse(raw_data.read)
+  puts "parsed: #{parsed}"
   parsed.each do |hash|
     puts "one hash here: "
     print hash
