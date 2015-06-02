@@ -2,10 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+html, .container-fluid {
+  background-color: #E6E6E6;
+}
+
 #map-canvas {
   width: 500px;
-  height: 400px;
+  height: 350px;
   background-color: #CCC;
+  margin: 0 auto;
+  width: 100%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+#map-header-text {
+  margin-top: -10%;
+  font-weight: bold;
+  margin-bottom:2%;
 }
 
 .centerMarker {
@@ -23,6 +37,18 @@
 @media (min-width: 768px) {
   .navbar-nav > li {
     margin-left: 5px;
+  }
+
+  #map-header-text {
+    margin-top: -3%;
+    text-align: center;
+    font-size: 1.5em;
+  }
+
+  #map-canvas {
+    height: 700px;
+    margin-top: 0;
+    margin-bottom: 3%;
   }
 }
 
@@ -76,13 +102,11 @@
   margin-top: 6em;
 }
 
-#map-canvas {
-  margin: 0 auto;
+
+#map-submit-button {
+  height:5em;
 }
 
-#submit-button {
-  text-align: center;
-}
 
 input.submit{
   background:none;
@@ -93,3 +117,16 @@ input.submit{
 #error-messages {
   color:red;
 }
+
+table {
+  table-layout: fixed;
+}
+
+#form-header {
+  font-weight:bold;
+}
+
+#contact-header {
+  border-top:1px solid #777777
+}
+

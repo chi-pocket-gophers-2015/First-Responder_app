@@ -1,36 +1,44 @@
+<div id="form-header">
+  Submit Graffiti Removal Request
+</div>
+
 <% if @errors && @errors.length > 0 %>
   <%= render partial: 'errors', locals: {errors: @errors} %>
 <% end %>
 
-<table>
-  <%= form_tag(controller: 'graffitis', action: 'update', multipart: true) do %>
-    <input type="hidden" name="_method" value="put">
-    <tr>
-      <td><%= label_tag :Picture %>: </td>
-      <td><%= file_field_tag :picture %></td>
-    </tr>
-    <tr>
-      <td><%= label_tag :description %>: </td>
-      <td><%= text_area_tag :description %></td>
-    </tr>
-    <tr>
-      <td><%= label_tag :where_located %>: </td>
-      <td><%= select_tag(:where_located, options_for_select(Graffiti::GRAFFITI_LOCATION_OPTIONS)) %></td>
-    </tr>
-    <tr>
-      <td><%= label_tag :surface_type %>: </td>
-      <td><%= select_tag(:surface_type, options_for_select(Graffiti::GRAFFITI_SURFACE_OPTIONS)) %></td>
-    </tr>
-    <tr>
-      <td><%= label_tag :height %>: </td>
-      <td><%= select_tag(:height, options_for_select(Graffiti::GRAFFITI_HEIGHT_OPTIONS)) %></td>
-    </tr>
-    <!-- use different partial for logged in? -->
-    <!-- format this as optional -->
-   <%= render partial: 'form' %>
-    <tr>
-      <td></td>
-      <td><%= submit_tag "Submit", class: "form-submit" %></td>
-    </tr>
-  <% end %>
-</table>
+<div id="submission-form">
+  <table>
+    <%= form_tag({controller: 'graffitis', action: 'update'}, {:multipart => true}) do %>
+      <input type="hidden" name="_method" value="put">
+      <tr>
+        <td><%= label_tag :image %>: </td>
+        <td><%= file_field_tag :image %></td>
+      </tr>
+      <tr>
+        <td><%= label_tag :description %>: </td>
+        <td><%= text_area_tag :description %></td>
+      </tr>
+      <tr>
+        <td><%= label_tag :where_located, "Where is it located?" %>: </td>
+        <td><%= select_tag(:where_located, options_for_select(Graffiti::GRAFFITI_LOCATION_OPTIONS)) %></td>
+      </tr>
+      <tr>
+        <td><%= label_tag :surface_type, "What type of surface is it the graffiti on?" %>: </td>
+        <td><%= select_tag(:surface_type, options_for_select(Graffiti::GRAFFITI_SURFACE_OPTIONS)) %></td>
+      </tr>
+      <tr>
+        <td><%= label_tag :height, "Is the graffiti located over 6 feet from teh ground?" %>: </td>
+        <td><%= select_tag(:height, options_for_select(Graffiti::GRAFFITI_HEIGHT_OPTIONS)) %></td>
+      </tr>
+    </table>
+      <!-- use different partial for logged in? -->
+      <!-- format this as optional -->
+     <%= render partial: 'form' %>
+    <table>
+      <tr>
+        <td></td>
+        <td><%= submit_tag "Submit", class: "form-submit" %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

@@ -7,7 +7,7 @@ class GraffitisController < ApplicationController
     set_lat_and_lng(params['lat'], params['lng'])
     set_address_and_zip(params['address'], params['zip'])
     @request = Request.new
-    render '/graffitis/form'
+    head 200
   end
 
   def form
@@ -20,10 +20,6 @@ class GraffitisController < ApplicationController
     else
       record = RequestRecord.create(image: params['image'])
     end
-    #need to find out what the route is for pic on heroku
-    #Sample url below
-    #View image <%= image_tag(@record.image.url(:thumb)) %>
-    #/system/request_records/images/000/000/003/original/Laina.jpeg?1433185787
     graffiti_params = {
       "service_code"=> "4fd3b167e750846744000005",
       "service_name"=> "Graffiti Removal",
@@ -38,7 +34,8 @@ class GraffitisController < ApplicationController
       'first_name' => params[:first_name],
       'last_name' => params[:last_name],
       'email' => params[:email],
-      'phone' => params[:phone]
+      'phone' => params[:phone],
+      'media_url' => record.image.url
     }
     @errors = Graffiti.city_params_missing(graffiti_params)
     request = Request.new.party_time(graffiti_params.merge({street_address: get_address, zip_code: get_zip}))

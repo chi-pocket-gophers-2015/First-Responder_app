@@ -77,23 +77,21 @@ function handleNoGeolocation(errorFlag) {
 }
 
 $(document).ready(function(){
-  initialize();
-  $(document).on('submit',$('#submit-button'),function(event){
-    event.preventDefault();
-    center = map.getCenter();
-    codeLatLng(center);
-  });
+  // if($(window.location).attr('pathname')==='/potholes/new') ||
+  //   $(window.location).attr('pathname')==='/abandoned_vehicles/new') ||
+  //   $(window.location).attr('pathname')==='/graffitis/new') ||
+  //   $(window.location).attr('pathname')==='/rodents/new') ||
+  //   $(window.location).attr('pathname')==='/street_lights/new') ||
+  //   $(window.location).attr('pathname')==='/tree_debris/new')) {
+  //   function(){initialize()};
+  // }
+  if(document.getElementById("big-map-div") != null) {
+    initialize();
+    $(document).on('submit',$('#map-submit-button'),function(event){
+      event.preventDefault();
+      center = map.getCenter();
+      codeLatLng(center);
+    });
+  }
 
-  // $('body').on('click', '.form-submit', function() {
-  //   console.log("hello");
-  //   console.log($(this))
-  //    // var request = $.ajax({
-  //    //  url: "/requests",
-  //    //  method: "post",
-  //    //  data: {lat: lat,
-  //    //        lng: lng,
-  //    //        address: address_part[0].short_name + " " + address_part[1].short_name,
-  //    //        zip: address_part[7].short_name
-  //    //      }
-  // });
 });

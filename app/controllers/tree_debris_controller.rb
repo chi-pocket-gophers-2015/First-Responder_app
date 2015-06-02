@@ -7,7 +7,7 @@ class TreeDebrisController < ApplicationController
     set_lat_and_lng(params['lat'], params['lng'])
     set_address_and_zip(params['address'], params['zip'])
     @request = Request.new
-    render '/tree_debris/form'
+    head 200
   end
 
   def form
@@ -21,10 +21,6 @@ class TreeDebrisController < ApplicationController
     else
       record = RequestRecord.create(image: params['image'])
     end
-    #need to find out what the route is for pic on heroku
-    #Sample url below
-    #View image <%= image_tag(@record.image.url(:thumb)) %>
-    #/system/request_records/images/000/000/003/original/Laina.jpeg?1433185787
     tree_debris_params = {
       "service_code"=> "4fd3bbf8e750846c53000069",
       "service_name" => "Tree Debris",
@@ -38,7 +34,8 @@ class TreeDebrisController < ApplicationController
       'first_name' => params[:first_name],
       'last_name' => params[:last_name],
       'email' => params[:email],
-      'phone' => params[:phone]
+      'phone' => params[:phone],
+      'media_url' => record.image.url
     }
     @errors = TreeDebris.city_params_missing(tree_debris_params)
     request = Request.new.party_time(tree_debris_params.merge({street_address: get_address, zip_code: get_zip}))

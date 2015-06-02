@@ -9,9 +9,9 @@
     </tr>
     <% @requests.each do |request| %>
       <tr>
-        <td><%= request[:type_of_service_request] %></td>
+        <td><%= link_to(request[:type_of_service_request], request_path(request)) %></td>
         <td><%= "#{request[:street_address]}, Chicago, IL.  #{request[:zip_code]}" %></td>
-        <td><%= request[:creation_date] %></td>
+        <td><%= request[:creation_date].strftime("%m/%d/%Y") %></td>
         <td><%= request[:status] %></td>
         <td><%= request[:completion_date] %></td>
       </tr>

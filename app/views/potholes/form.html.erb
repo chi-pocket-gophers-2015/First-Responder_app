@@ -1,29 +1,37 @@
+<div id="form-header">
+  Submit Pothole Fixing Request
+</div>
+
 <% if @errors && @errors.length > 0 %>
   <%= render partial: 'errors', locals: {errors: @errors} %>
 <% end %>
 
-<table>
-  <%= form_tag({controller: 'potholes', action: 'update'}, {:multipart => true}) do %>
-  <input type="hidden" name="_method" value="put">
-    <tr>
-      <td><%= label_tag :image %>: </td>
-      <td><%= file_field_tag :image %></td>
-    </tr>
-    <tr>
-      <td><%= label_tag :description %>: </td>
-      <td><%= text_area_tag :description %></td>
-    </tr>
-    <tr>
-      <td><%= label_tag :where_located %>: </td>
+<div id="submission-form">
+  <table>
+    <%= form_tag({controller: 'potholes', action: 'update'}, {:multipart => true}) do %>
+      <input type="hidden" name="_method" value="put">
 
-      <td><%= select_tag(:where_located, options_for_select(Pothole::POTHOLE_LOCATION_OPTIONS)) %></td>
-    </tr>
-    <!-- use different partial for logged in? -->
-    <!-- format this as optional -->
-   <%= render partial: 'form' %>
-    <tr>
-      <td></td>
-      <td><%= submit_tag "Submit", class: "form-submit" %></td>
-    </tr>
-  <% end %>
-</table>
+      <tr>
+        <td class="table-label"><%= label_tag :image %>: </td>
+        <td><%= file_field_tag :image %></td>
+      </tr>
+      <tr>
+        <td class="table-label"><%= label_tag :description %>: </td>
+        <td><%= text_area_tag :description %></td>
+      </tr>
+      <tr>
+        <td class="table-label"><%= label_tag :where_located, "Where is the pothole \n located?" %>: </td>
+        <td><%= select_tag(:where_located, options_for_select(Pothole::POTHOLE_LOCATION_OPTIONS)) %></td>
+      </tr>
+    </table>
+      <!-- use different partial for logged in? -->
+      <!-- format this as optional -->
+     <%= render partial: 'form' %>
+    <table>
+      <tr>
+        <td></td>
+        <td><%= submit_tag "Submit", class: "form-submit" %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
