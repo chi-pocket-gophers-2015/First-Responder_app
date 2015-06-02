@@ -26,6 +26,7 @@ function codeLatLng(input) {
 function initialize() {
   geocoder = new google.maps.Geocoder();
   var mapCanvas = document.getElementById('map-canvas');
+  var mapCanvas2 = document.getElementById('map-canvas-request-index');
   var mapOptions = {
     center: new google.maps.LatLng(41.889797, -87.637756),
     zoom: 18,
@@ -33,6 +34,8 @@ function initialize() {
     tilt: 0
   }
   map = new google.maps.Map(mapCanvas,mapOptions);
+  var map2 = new google.maps.Map(mapCanvas2,mapOptions);
+
 
   // added the below for geolocation
    if(navigator.geolocation) {
