@@ -11,13 +11,16 @@ class RequestsController < ApplicationController
 
   def create
     token = params[:token]
+    record = RequestRecord.find_by_id(params[:record_id])
+    record.update(service_id: params["service_request_id"])
     city_params = Request.official_city_data(token)
     if city_params['address'].nil?
-      city_params['address'] = "#{session[:street_address]}, #{session[:zip]}"
+      city_params['address'] = "#{get_address}, #{get_zip}"
     end
     @request = Request.new(Request.filter_params(city_params))
     if @request.save
       redirect_to request_path(@request)
+      clear_address_sessions
     end
   end
 
