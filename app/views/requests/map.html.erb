@@ -8,8 +8,7 @@
         height: 400px;
       }
     </style>
-    <span1><%= @requests.first[:latitude]%></span1> 
-    <span2><%=@requests.first[:longitude]%></span2>
+ 
     <script src="https://maps.googleapis.com/maps/api/js"></script>
 	    <%= javascript_tag "var latitude = #{@requests.first[:latitude].to_json}" %>
 	    <%= javascript_tag "var longitude = #{@requests.first[:longitude].to_json}" %>
