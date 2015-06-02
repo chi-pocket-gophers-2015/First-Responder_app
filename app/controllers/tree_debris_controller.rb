@@ -45,7 +45,7 @@ class TreeDebrisController < ApplicationController
     token = request[0]['token']
     @errors.push("Request not accepted by city") if token.nil?
     if @errors.length > 0
-      render '/tree_debris/form'
+      render '/tree_debris/form' and return
     end
     record.update(token: token)
     redirect_to controller: 'requests', action: 'create', token: token, record_id: record.id

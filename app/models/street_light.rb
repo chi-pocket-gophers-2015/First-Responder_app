@@ -1,6 +1,6 @@
 class StreetLight < ActiveRecord::Base
 
-  STREET_LIGHT_OUT_OPTIONS = ["Completely Out", "On and Off"]
+  STREET_LIGHT_OUT_OPTIONS = [nil,"Completely Out", "On and Off"]
 
   CITY_REQUIRED = {
     'service_code'=>"Service Code",
@@ -14,7 +14,7 @@ class StreetLight < ActiveRecord::Base
   def self.city_params_missing(params)
     errors = []
     CITY_REQUIRED.each do |k,v|
-      next if !params[k].nil?
+      next if params[k] != ""
       errors.push("Missing field: #{v}")
     end
     return errors

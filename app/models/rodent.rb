@@ -1,6 +1,6 @@
 class Rodent < ActiveRecord::Base
-  RODENT_INSPECTION_OPTIONS = ["Inspect Back Yard", "No"]
-  RODENT_BAIT_OPTIONS = ["Bait Back Yard", "No"]
+  RODENT_INSPECTION_OPTIONS = [nil,"Inspect Back Yard", "No"]
+  RODENT_BAIT_OPTIONS = [nil,"Bait Back Yard", "No"]
 
   CITY_REQUIRED = {
     'service_code'=>"Service Code",
@@ -15,7 +15,7 @@ class Rodent < ActiveRecord::Base
   def self.city_params_missing(params)
     errors = []
     CITY_REQUIRED.each do |k,v|
-      next if !params[k].nil?
+      next if params[k] != ""
       errors.push("Missing field: #{v}")
     end
     return errors

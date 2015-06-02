@@ -1,6 +1,6 @@
 class AbandonedVehicle < ActiveRecord::Base
 
-  VEHICLE_MAKE_MODEL_OPTIONS = ["(Assembled From Parts, Homemade)","(Homemade Motorcycle, Moped.Etc)","(Homemade Trailer)","(Reconstructed Motor Home)",
+  VEHICLE_MAKE_MODEL_OPTIONS = [nil,"(Assembled From Parts, Homemade)","(Homemade Motorcycle, Moped.Etc)","(Homemade Trailer)","(Reconstructed Motor Home)",
     "(Reconstructed Trailers)","See Lancia Make)", "(Unlisted Construction Equipment Make)","(Unlisted Farm/Garden Equipment Make)","(Unlisted Make)",
     "(Unlisted Manufacturer)","Acura","Aero Glass Boat Co.","Alfa Romeo", "All Terrain - No Vmo", "American Motors", "Audi", "Austin", "Bentley", "Bmw", "Buick",
     "Cadillac", "Campers, Inc.", "Caterpillar Tractor Co.", "Chappy (Mfd. By Yamaha Motor Corp.)", "Chevrolet", "Chrysler", "Cozy Craft (Mfd. By Travelcraft, Inc.)",
@@ -16,10 +16,10 @@ class AbandonedVehicle < ActiveRecord::Base
     "Studebaker", "Subaru", "Suzuki", "Tennesse Trailer", "Toyota", "Trailco Mfg. Sales Co., Div. Of Dorsey Trailers", "Transcraft Corp.", "Transmission - No Vmo",
     "Triumph", "U-Haul Co, Division Parkhurst Manufacturing Co.", "Vehicle Part", "Vespa", "Volkswagen", "Volvo", "Wasp", "Winnebago Industries, Inc.", "Zcz (Yugoslavia)"]
 
-  VEHICLE_COLOR_OPTIONS = ["Beige", "Black", "Blue", "Bronze", "Brown", "Burgundy", "Chrome", "Copper", "Cream", "Gold", "Gray", "Green", "Maroon", "Multi-Color",
+  VEHICLE_COLOR_OPTIONS = [nil,"Beige", "Black", "Blue", "Bronze", "Brown", "Burgundy", "Chrome", "Copper", "Cream", "Gold", "Gray", "Green", "Maroon", "Multi-Color",
     "Orange", "Pink", "Purple", "Red", "Silver", "Star", "Stripes", "Tan", "Turquoise", "Unknown", "White", "Yellow"]
 
-  VEHICLE_BODY_STYLE_OPTIONS = ["Ambulance", "Bus", "Carryall", "Coach", "Dump Truck", "Fire Truck", "Flatbed Truck", "Garage Truck", "Hatchback 2 Door", "Hatchback 4 Door",
+  VEHICLE_BODY_STYLE_OPTIONS = [nil,"Ambulance", "Bus", "Carryall", "Coach", "Dump Truck", "Fire Truck", "Flatbed Truck", "Garage Truck", "Hatchback 2 Door", "Hatchback 4 Door",
     "Legacy Unknown", "Limousine", "Motor Bike"]
 
   CITY_REQUIRED = {
@@ -37,7 +37,7 @@ class AbandonedVehicle < ActiveRecord::Base
   def self.city_params_missing(params)
     errors = []
     CITY_REQUIRED.each do |k,v|
-      next if !params[k].nil?
+      next if params[k] != ""
       errors.push("Missing field: #{v}")
     end
     return errors

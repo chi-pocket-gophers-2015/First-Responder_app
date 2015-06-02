@@ -1,8 +1,8 @@
 class TreeDebris < ActiveRecord::Base
 
-  TREE_DEBRIS_SIZE_OPTIONS = ["Yes", "No"]
+  TREE_DEBRIS_SIZE_OPTIONS = [nil,"Yes", "No"]
 
-  TREE_DEBRIS_LOCATION_OPTIONS = ["Alley", "Parkway", "Vacant Lot"]
+  TREE_DEBRIS_LOCATION_OPTIONS = [nil,"Alley", "Parkway", "Vacant Lot"]
 
   CITY_REQUIRED = {
     'service_code'=>"Service Code",
@@ -17,7 +17,7 @@ class TreeDebris < ActiveRecord::Base
   def self.city_params_missing(params)
     errors = []
     CITY_REQUIRED.each do |k,v|
-      next if !params[k].nil?
+      next if params[k] != ""
       errors.push("Missing field: #{v}")
     end
     return errors
