@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+html, .container-fluid {
+  background-color: #E6E6E6;
+}
+
 #map-canvas {
   width: 500px;
   height: 400px;
@@ -43,13 +47,9 @@
   margin-top: 6em;
 }
 
-.map-button {
-  text-align: center;
-}
 
 #submit-button {
   height:5em;
-  width:10em;
 }
 
 
