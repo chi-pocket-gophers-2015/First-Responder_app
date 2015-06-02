@@ -80,8 +80,9 @@ def get_recent(url)
   puts "about to get raw data"
   raw_data = open(url)
   puts "raw data: #{raw_data}"
+  red = raw_data.read
   puts "read raw data: #{raw_data.read}"
-  parsed = JSON.parse(raw_data.read)
+  parsed = JSON.parse(red)
   puts "parsed: #{parsed}"
   parsed.each do |hash|
     puts "one hash here: "
