@@ -5,7 +5,7 @@ RSpec.feature "Graffiti", :type => :feature do
 	scenario "User clicks graffiti button" do
 		visit "requests/new"
 		click_button "Graffiti"
-		# expect(current_path).to eq('/graffitis/new')
+		expect(current_path).to eq('/graffitis/new')
 		# click_button "Mark Location"
 	end
 
