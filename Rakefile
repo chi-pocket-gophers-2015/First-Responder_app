@@ -117,6 +117,11 @@ namespace :import_request do
     url = BASE_RECENT + hour_ago.strftime("%FT%T%:z") + "&" + Time.now.strftime("%FT%T%:z")
     get_recent(url)
   end
+
+  task :tester => :environment do
+    request = Request.create(status: 'open')
+  end
+
 end
 
 

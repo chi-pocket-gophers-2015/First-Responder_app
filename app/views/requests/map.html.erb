@@ -13,53 +13,146 @@
       <%= javascript_tag "var rodents = #{@rodents}" %>
       <%= javascript_tag "var graffitis = #{@graffitis}" %>
       <%= javascript_tag "var street_lights = #{@lights}" %>
-      <%= javascript_tag "var tree_debris = #{@tree_debris}" %>
+      <%= javascript_tag "var tree_debris = #{@trees}" %>
     <script>
-
       var map;
       var geocoder;
-      function initialize() {
-        var mapCanvas = document.getElementById('totally-different-map');
-        var differentMapOptions = {
-          center: new google.maps.LatLng(41.889797, -87.637756),
-          zoom: 14,
-          mapTypeId: google.maps.MapTypeId.ROADMAP,
-          tilt: 0
+      // function initialize() {
+      //   var mapCanvas = document.getElementById('totally-different-map');
+      //   var differentMapOptions = {
+      //     center: new google.maps.LatLng(41.889797, -87.637756),
+      //     zoom: 18,
+      //     mapTypeId: google.maps.MapTypeId.ROADMAP,
+      //     tilt: 0
+      //   }
+
+      //   // var myLatLng = new google.maps.LatLng(latitude, longitude);
+      //   map = new google.maps.Map(mapCanvas, differentMapOptions);
+      //   // createMarker(myLatLng,map,'Thing');
+      // }
+      // google.maps.event.addDomListener(window, 'load', initialize);
+
+
+      // var marker;
+      // function createMarker(coords, map, title){
+      //   marker = new google.maps.Marker({
+      //     position: coords,
+      //     map: map,
+      //     title: title
+      //   });
+      // }
+
+      $(document).ready(function(){
+        var defaultLatLng = new google.maps.LatLng(41.89239617653017, -87.63646503505709);
+        if (navigator.geolocation) {
+          function success(pos) {
+              // Location found, show map with these coordinates
+              drawMap(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+          }
+          function fail(error) {
+              drawMap(defaultLatLng); // Failed to find location, show default map
+          }
+          // Find the users current position.  Cache the location for 5 minutes, timeout after 6 seconds
+          navigator.geolocation.getCurrentPosition(success, fail, {
+              maximumAge: 500000,
+              enableHighAccuracy: true,
+              timeout: 6000
+          });
+        } else {
+            drawMap(defaultLatLng); // No geolocation support, show default map
         }
 
-        var myLatLng = new google.maps.LatLng(latitude, longitude);
-        map = new google.maps.Map(mapCanvas, differentMapOptions);
-        createMarker(myLatLng,map,'Thing');
-      }
-      google.maps.event.addDomListener(window, 'load', initialize);
-
-
-      var marker;
-      function createMarker(coords, map, title){
-        marker = new google.maps.Marker({
-          position: coords,
-          map: map,
-          title: title
-        });
-      }
-      // can I plot point from 311
-      if($('#tree-debris-check').value()===1) {
-        for(i=0;i<tree_debris.length;i++) {
-          instance = tree_debris[i]
-          coords = maps.LatLng(instance.lat, instance.lng)
-          createMarker()
+        function drawMap(latlng) {
+          var myOptions = {
+              zoom: 18,
+              center: latlng,
+              mapTypeId: google.maps.MapTypeId.ROADMAP
+          };
+          map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
+          // place the infowindow.  Invisible, without content.
+          var infowindow = new google.maps.InfoWindow({
+              content: '',
+          });
+          $.each(potholes, function (i, pothole) {
+            debugger;
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(pothole.latitude, pothole.longitude),
+                map: map
+            });
+            // when the client clicks on a marker we set the content and bind the position to the marker
+            google.maps.event.addListener(marker, 'click', function() {
+              infowindow.setContent(pothole.address);
+              infowindow.setPosition(this.getPosition())
+              infowindow.setMap(map);
+            });
+          });
         }
-      }
 
+
+      });
     </script>
   </head>
   <body>
     <div id="totally-different-map"></div>
   </body>
 </html>
-<!--       //  add_column :requests, :latitude, :string
-      // remove_column :requests, 'Longitude'
-      // add_column :requests, :longitude, :string
-      // first plot one point from db
-      // @request[:service_request_number]
- -->
+<!-- new stuff under here -->
+
+<style>
+  #map-canvas {
+    height: 500px;
+  }
+  .gm-style-iw{ /* infowindow */
+    width: 200px;
+  }
+</style>
+<div id="map-canvas"></div>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+<script>
+  $(document).ready(function () {
+    var defaultLatLng = new google.maps.LatLng(-25.975769, 32.582499); // Default
+    if (navigator.geolocation) {
+        function success(pos) {
+            // Location found, show map with these coordinates
+            drawMap(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+        }
+        function fail(error) {
+            drawMap(defaultLatLng); // Failed to find location, show default map
+        }
+        // Find the users current position.  Cache the location for 5 minutes, timeout after 6 seconds
+        navigator.geolocation.getCurrentPosition(success, fail, {
+            maximumAge: 500000,
+            enableHighAccuracy: true,
+            timeout: 6000
+        });
+    } else {
+        drawMap(defaultLatLng); // No geolocation support, show default map
+    }
+    function drawMap(latlng) {
+          var myOptions = {
+              zoom: 18,
+              center: latlng,
+              mapTypeId: google.maps.MapTypeId.ROADMAP
+          };
+          map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
+          // place the infowindow.  Invisible, without content.
+          var infowindow = new google.maps.InfoWindow({
+              content: '',
+          });
+          $.each(potholes, function (i, pothole) {
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(pothole.latitude, pothole.longitude),
+                map: map
+            });
+            // when the client clicks on a marker we set the content and bind the position to the marker
+            google.maps.event.addListener(marker, 'click', function() {
+              infowindow.setContent(pothole.address);
+              infowindow.setPosition(this.getPosition())
+              infowindow.setMap(map);
+            });
+          });
+        }
+  });
+</script>
+

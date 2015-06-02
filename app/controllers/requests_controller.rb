@@ -11,12 +11,12 @@ class RequestsController < ApplicationController
 
   def map
     @requests = Request.all
-    @vehicles = Request.where(type_of_service_request: "Abandoned Vehicle Complaint").as_json
-    @graffitis = Request.where(type_of_service_request: "Graffiti Removal").as_json
-    @potholes = Request.where(type_of_service_request: "Pothole in Street").as_json
-    @rodents = Request.where(type_of_service_request: "Rodent Baiting/Rat Complaint").as_json
-    @lights = Request.where(type_of_service_request: "Street Light Out").as_json
-    @trees = Request.where(type_of_service_request: "Tree Debris").as_json
+    @vehicles = Request.where(type_of_service_request: "Abandoned Vehicle Complaint").map{|p| p.to_json}
+    @graffitis = Request.where(type_of_service_request: "Graffiti Removal").map{|p| p.to_json}
+    @potholes = Request.where(type_of_service_request: "Pothole in Street").map{|p| p.to_json}
+    @rodents = Request.where(type_of_service_request: "Rodent Baiting/Rat Complaint").map{|p| p.to_json}
+    @lights = Request.where(type_of_service_request: "Street Light Out").map{|p| p.to_json}
+    @trees = Request.where(type_of_service_request: "Tree Debris").map{|p| p.to_json}
   end
 
   def create

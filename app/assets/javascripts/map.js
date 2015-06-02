@@ -68,8 +68,7 @@ function handleNoGeolocation(errorFlag) {
 
   var options = {
     map: map,
-    position: new google.maps.LatLng(41.889797, -87.637756),
-    content: content
+    position: new google.maps.LatLng(41.889797, -87.637756)
   };
 
   var infowindow = new google.maps.InfoWindow(options);
@@ -77,14 +76,6 @@ function handleNoGeolocation(errorFlag) {
 }
 
 $(document).ready(function(){
-  // if($(window.location).attr('pathname')==='/potholes/new') ||
-  //   $(window.location).attr('pathname')==='/abandoned_vehicles/new') ||
-  //   $(window.location).attr('pathname')==='/graffitis/new') ||
-  //   $(window.location).attr('pathname')==='/rodents/new') ||
-  //   $(window.location).attr('pathname')==='/street_lights/new') ||
-  //   $(window.location).attr('pathname')==='/tree_debris/new')) {
-  //   function(){initialize()};
-  // }
   if(document.getElementById("big-map-div") != null) {
     initialize();
     $(document).on('submit',$('#map-submit-button'),function(event){
