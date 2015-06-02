@@ -6,6 +6,14 @@ html, .container-fluid {
   background-color: #E6E6E6;
 }
 
+a:link, a:visited {
+  color: #44C7F5;
+}
+
+a:hover {
+  color: #EE1B25;
+}
+
 #new-report-header {
   font-weight:bold;
   text-align:center;
