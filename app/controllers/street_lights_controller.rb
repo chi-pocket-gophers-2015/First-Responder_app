@@ -7,7 +7,7 @@ class StreetLightsController < RequestsController
     set_lat_and_lng(params['lat'], params['lng'])
     set_address_and_zip(params['address'], params['zip'])
     @request = Request.new
-    render '/street_lights/form'
+    head 200
   end
 
   def form
