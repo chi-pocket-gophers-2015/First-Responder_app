@@ -18,7 +18,7 @@ gem 'bcrypt'
 gem "paperclip", "~> 4.2"
 gem 'aws-sdk', '~> 1.6'
 gem 'will_paginate', '~> 3.0.6'
-gem 'json'
+gem 'json' # make this json-ruby??
 gem 'ruby'
 
 group :development, :test do
