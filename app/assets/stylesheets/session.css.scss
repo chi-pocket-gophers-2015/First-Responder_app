@@ -67,6 +67,10 @@ html, .container-fluid {
     top: -9999px;
     left: -9999px;
   }
+
+  #no-more-tables tr:nth-child(odd) {
+    background-color: white;
+  }
 }
 
 #landing-page {
