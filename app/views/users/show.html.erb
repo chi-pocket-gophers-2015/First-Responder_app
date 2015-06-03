@@ -9,6 +9,7 @@
 <% end %>
 <ol>
   <% @records.each do |record| %>
-    <li><%= link_to(record.service_id, "http://servicetracker.cityofchicago.org/requests/#{record.service_id}") %></li>
+    <% request = Request.find_by_token(record.token) %>
+    <li><%= link_to(request.type_of_service_request, request_path(request.id)) %> on <%= request.creation_date.strftime("%m/%d/%Y") %></li>
   <% end %>
 </ol>
