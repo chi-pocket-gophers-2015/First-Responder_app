@@ -38,7 +38,7 @@ class AbandonedVehiclesController < ApplicationController
       'last_name' => params[:last_name],
       'email' => params[:email],
       'phone' => params[:phone],
-      'media_url' => record.image.url
+      'media_url' => image_url(record)
     }
     @errors = AbandonedVehicle.city_params_missing(abandoned_vehicle_params)
     request = Request.new.party_time(abandoned_vehicle_params.merge({street_address: get_address, zip_code: get_zip}))
