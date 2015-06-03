@@ -11,6 +11,11 @@ class AbandonedVehiclesController < ApplicationController
   end
 
   def form
+    if logged_in?
+      @user = User.find_by_id(current_user.id)
+    else
+      @user = User.new
+    end
   end
 
   def update
@@ -20,6 +25,7 @@ class AbandonedVehiclesController < ApplicationController
     else
       record = RequestRecord.create(image: params['image'])
     end
+
     abandoned_vehicle_params = {
       "service_code"=> "4ffa4c69601827691b000018",
       "service_name"=> "Abandoned Vehicle",
@@ -39,6 +45,12 @@ class AbandonedVehiclesController < ApplicationController
       'phone' => params[:phone],
       'media_url' => image_url(record)
     }
+
+    contact_array = ['first_name', 'last_name', 'email', 'phone']
+    if params['toggle'] != "on"
+      abandoned_vehicle_params.except!(*contact_array)
+    end
+
     @errors = AbandonedVehicle.city_params_missing(abandoned_vehicle_params)
     request = Request.new.party_time(abandoned_vehicle_params.merge({street_address: get_address, zip_code: get_zip}))
     token = request[0]['token']

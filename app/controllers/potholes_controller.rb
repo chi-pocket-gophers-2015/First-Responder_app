@@ -28,8 +28,6 @@ class PotholesController < ApplicationController
       record = RequestRecord.create(image: params['image'])
     end
 
-    contact_array = ['first_name', 'last_name', 'email', 'phone']
-
     pothole_params = {
       'service_code' => '4fd3b656e750846c53000004',
       'service_name' => 'Pothole in Street',
@@ -46,6 +44,7 @@ class PotholesController < ApplicationController
       'media_url' => image_url(record)
     }
 
+    contact_array = ['first_name', 'last_name', 'email', 'phone']
     if params['toggle'] != "on"
       pothole_params.except!(*contact_array)
     end
