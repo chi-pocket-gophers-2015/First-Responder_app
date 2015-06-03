@@ -247,6 +247,7 @@ DEPENDENCIES
   httparty
   jbuilder (~> 2.0)
   jquery-rails
+  json
   paperclip (~> 4.2)
   pg
   pry
