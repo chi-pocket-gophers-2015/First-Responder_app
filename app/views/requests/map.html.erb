@@ -119,6 +119,7 @@
 
 		    $( "#filter" ).change(function() {
 				 	clearMarkers(markers);
+          clearClusters();
 				  plotMarkers(categories[this.value])
 				});
 
@@ -126,11 +127,17 @@
 				  $.each(array, function(i, obj){
 				  	obj.setMap(null);
 				  })
-					// setAllMap(null);
 				}
+
+        function clearClusters() {
+          $.each(mc_array, function(i, mc) {
+            mc.setMap(null);
+          })
+        }
 	      var map;
 	      var geocoder;
 	      var markers = [];
+        var mc_array = [];
 
 	      function initialize() {
           var markers = [];
@@ -165,6 +172,7 @@
               curmarkers.push(marker);
 					});
           var mc = new MarkerClusterer(map, curmarkers, mcOptions);
+          mc_array.push(mc);
 	       	}
 
 	      function createMarker(coords, map, title){
