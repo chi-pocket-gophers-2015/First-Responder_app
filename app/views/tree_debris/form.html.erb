@@ -18,7 +18,7 @@
     <%= text_area_tag :description, content = nil, class: "form-control", required: true %>
   </div>
   <div class="form-group">
-    <%= label_tag :debris_size, "Is the debris larger than a city garbage cart?" %>&#42;
+    <%= label_tag :debris_size, "Is the debris larger than a city garbage can?" %>&#42;
     <%= select_tag(:debris_size, options_for_select(TreeDebris::TREE_DEBRIS_SIZE_OPTIONS), {class: 'form-control', required: true}) %>
   </div>
   <div class="form-group">
