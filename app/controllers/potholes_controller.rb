@@ -50,7 +50,6 @@ class PotholesController < ApplicationController
       pothole_params.except!(*contact_array)
     end
 
-    binding.pry
     @errors = Pothole.city_params_missing(pothole_params)
     request = Request.new.party_time(pothole_params.merge({street_address: get_address, zip_code: get_zip}))
     token = request[0]['token']

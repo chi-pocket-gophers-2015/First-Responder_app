@@ -36,6 +36,6 @@
     <%= select_tag(:vehicle_days_parked, options_for_select([[nil, nil], ['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5], ['6', 6], ['7', 7], ['8', 8], ['9', 9], ['10', 10], ['11', 12], ['13', 13], ['14', 14]]), {class: 'form-control', required: true}) %>
   </div>
     <!-- use different partial for logged in? -->
-  <%= render partial: 'form' %>
+  <%= render partial: 'form', locals: {user: @user} %>
   <%= submit_tag "Submit", class: "btn btn-default" %>
 <% end %>
