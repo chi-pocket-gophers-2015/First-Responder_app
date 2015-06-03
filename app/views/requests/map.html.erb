@@ -8,12 +8,12 @@
       }
     </style>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
-      <%= javascript_tag "var potholes = #{@potholes}" %>
-      <%= javascript_tag "var vehicles = #{@vehicles}" %>
-      <%= javascript_tag "var rodents = #{@rodents}" %>
-      <%= javascript_tag "var graffitis = #{@graffitis}" %>
-      <%= javascript_tag "var street_lights = #{@lights}" %>
-      <%= javascript_tag "var tree_debris = #{@trees}" %>
+      <%= javascript_tag "var potholes = #{@potholes.to_json}" %>
+      <%= javascript_tag "var vehicles = #{@vehicles.to_json}" %>
+      <%= javascript_tag "var rodents = #{@rodents.to_json}" %>
+      <%= javascript_tag "var graffitis = #{@graffitis.to_json}" %>
+      <%= javascript_tag "var street_lights = #{@lights.to_json}" %>
+      <%= javascript_tag "var tree_debris = #{@trees.to_json}" %>
     <script>
       var map;
       var geocoder;
@@ -96,63 +96,4 @@
     <div id="totally-different-map"></div>
   </body>
 </html>
-<!-- new stuff under here -->
-
-<style>
-  #map-canvas {
-    height: 500px;
-  }
-  .gm-style-iw{ /* infowindow */
-    width: 200px;
-  }
-</style>
-<div id="map-canvas"></div>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
-<script>
-  $(document).ready(function () {
-    var defaultLatLng = new google.maps.LatLng(-25.975769, 32.582499); // Default
-    if (navigator.geolocation) {
-        function success(pos) {
-            // Location found, show map with these coordinates
-            drawMap(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-        }
-        function fail(error) {
-            drawMap(defaultLatLng); // Failed to find location, show default map
-        }
-        // Find the users current position.  Cache the location for 5 minutes, timeout after 6 seconds
-        navigator.geolocation.getCurrentPosition(success, fail, {
-            maximumAge: 500000,
-            enableHighAccuracy: true,
-            timeout: 6000
-        });
-    } else {
-        drawMap(defaultLatLng); // No geolocation support, show default map
-    }
-    function drawMap(latlng) {
-          var myOptions = {
-              zoom: 18,
-              center: latlng,
-              mapTypeId: google.maps.MapTypeId.ROADMAP
-          };
-          map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
-          // place the infowindow.  Invisible, without content.
-          var infowindow = new google.maps.InfoWindow({
-              content: '',
-          });
-          $.each(potholes, function (i, pothole) {
-            var marker = new google.maps.Marker({
-                position: new google.maps.LatLng(pothole.latitude, pothole.longitude),
-                map: map
-            });
-            // when the client clicks on a marker we set the content and bind the position to the marker
-            google.maps.event.addListener(marker, 'click', function() {
-              infowindow.setContent(pothole.address);
-              infowindow.setPosition(this.getPosition())
-              infowindow.setMap(map);
-            });
-          });
-        }
-  });
-</script>
 
