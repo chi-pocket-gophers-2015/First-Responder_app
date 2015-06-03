@@ -1,5 +1,5 @@
-    function initialize() {
-    var myLatlng = new google.maps.LatLng(<%= @request.latitude %>,<%= @request.longitude %>);
+  function initializeShow() {
+    var myLatlng = new google.maps.LatLng(41.8897107,-87.63695229999996);
     var mapCanvas = document.getElementById('request-show-map');
     var differentMapOptions = {
     center: myLatlng,
@@ -16,6 +16,6 @@
   }
   $(document).ready(function(){
     if(document.getElementById("request-show-map") != null) {
-      initialize();
+      initializeShow();
     }
   })
