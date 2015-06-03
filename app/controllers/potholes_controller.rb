@@ -4,6 +4,13 @@ class PotholesController < ApplicationController
   end
 
   def create
+    session[:user_id] = 1
+    if logged_in?
+      @user = User.find_by_id(current_user.id)
+    else
+      @user = User.new
+    end
+    binding.pry
     set_lat_and_lng(params['lat'], params['lng'])
     set_address_and_zip(params['address'], params['zip'])
     @request = Request.new

@@ -19,7 +19,7 @@
   <div class="contact-info">
         <!-- <button>Enter your Contact Info</button> -->
     <div class="form-group">
-      <%= text_field_tag(:first_name, nil, class: "form-control", placeholder: "First Name") %>
+      <%= text_field_tag(:first_name, nil, class: "form-control", value: user.first_name, placeholder: "First Name") %>
     </div>
     <div class="form-group">
       <%= text_field_tag(:last_name, nil, class: "form-control", placeholder: "Last Name") %>

@@ -20,7 +20,7 @@
     <%= select_tag(:where_located, options_for_select(Pothole::POTHOLE_LOCATION_OPTIONS), {class: 'form-control', required: true}) %>
   </div>
     <!-- use different partial for logged in? -->
-  <%= render partial: 'form' %>
+  <%= render partial: 'form', locals: {user: @user} %>
   <%= submit_tag "Submit", class: "btn btn-default" %>
 <% end %>
 
