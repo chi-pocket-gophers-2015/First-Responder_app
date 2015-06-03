@@ -10,9 +10,10 @@
     <%= text_field_tag(:last_name, nil, class: "form-control", placeholder: "Last Name") %>
   </div>
   <div class="form-group">
-    <%= text_field_tag(:phone, nil, class: "form-control", placeholder: "Phone") %>
+    <%= telephone_field_tag(:phone, nil, class: "form-control", placeholder: "Phone") %>
   </div>
   <div class="form-group">
-    <%= text_field_tag(:email, nil, class: "form-control", placeholder: "Email") %>
+    <p class="help-block">Enter an email to track your request</p>
+    <%= email_field_tag(:email, nil, class: "form-control", placeholder: "Email") %>
   </div>
 </div>

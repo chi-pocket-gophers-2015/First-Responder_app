@@ -1,18 +1,8 @@
 class RequestsController < ApplicationController
 
-  def index
-    @requests = Request.all
-  end
-
-  def map
-    @requests = Request.all
-    @vehicles = Request.where(type_of_service_request: "Abandoned Vehicle Complaint").as_json
-    @graffitis = Request.where(type_of_service_request: "Graffiti Removal").as_json
-    @potholes = Request.where(type_of_service_request: "Pothole in Street").as_json
-    @rodents = Request.where(type_of_service_request: "Rodent Baiting/Rat Complaint").as_json
-    @lights = Request.where(type_of_service_request: "Street Light Out").as_json
-    @trees = Request.where(type_of_service_request: "Tree Debris").as_json
-  end
+  # def index
+  #   @requests = Request.paginate(:page => params[:page], :per_page => 30)
+  # end
 
   def new
     session.clear
@@ -29,17 +19,24 @@ class RequestsController < ApplicationController
     end
     @request = Request.new(Request.filter_params(city_params))
     if @request.save
+      @request.update(token: token)
       redirect_to request_path(@request)
       clear_address_sessions
     end
   end
 
   def index
-    @requests = Request.all.order(creation_date: :desc)
+    @requests = Request.all.order(creation_date: :desc).paginate(page: params[:page], per_page: 5)
   end
 
   def show
+    @show = true
     @request = Request.find_by_id(params[:id])
+    token = @request.token
+    service_id = Request.official_city_data(token)['service_request_id']
+    @request.update(service_request_number: service_id)
+    record = RequestRecord.find_by_token(token)
+    record.update(service_id: service_id)
   end
 
   private

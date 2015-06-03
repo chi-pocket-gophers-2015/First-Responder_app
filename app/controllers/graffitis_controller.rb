@@ -35,7 +35,7 @@ class GraffitisController < ApplicationController
       'last_name' => params[:last_name],
       'email' => params[:email],
       'phone' => params[:phone],
-      'media_url' => record.image.url
+      'media_url' => image_url(record)
     }
     @errors = Graffiti.city_params_missing(graffiti_params)
     request = Request.new.party_time(graffiti_params.merge({street_address: get_address, zip_code: get_zip}))
