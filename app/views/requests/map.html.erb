@@ -104,8 +104,8 @@
 			  <option value="graffiti">Graffiti</option>
 			  <option value="street_lights">Street Lights</option>
 			  <option value="tree_debris">Tree Debris</option>
-			  <input type="submit">
 			</select><br><br>
+
     	<script>
 	    	var categories = {
 	    		"all": requests,
@@ -118,13 +118,20 @@
 	    	}
 
 		    $( "#filter" ).change(function() {
-		    	debugger;
-				  
+		    	// debugger;
+				 	clearMarkers(markers);
 				  plotMarkers(categories[this.value])
 				});
 
+				function clearMarkers(array) {
+				  $.each(array, function(i, obj){
+				  	obj.setMap(null);
+				  })
+					// setAllMap(null);
+				}
 	      var map;
 	      var geocoder;
+	      var markers = [];
 
 	      function initialize() {
 	        var mapCanvas = document.getElementById('totally-different-map');
@@ -145,10 +152,7 @@
 					  //use obj.id and obj.name here, for example:
 					  	thisLatLng = new google.maps.LatLng(obj.latitude, obj.longitude);
 					  	// console.log(thisLatLng);
-					  	createMarker({
-					  		position: thisLatLng, 
-					  		map: map,
-					  		title: obj.type_of_service_request});
+					  	createMarker(thisLatLng, map);
 						});
 	       	}
 	      
@@ -160,6 +164,7 @@
 	          map: map,
 	          title: title
 	        });
+	        markers.push(marker);
 	      }
 	      // can I plot point from 311
 	      function createInfoWindow(text){
