@@ -117,6 +117,12 @@ namespace :import_request do
     url = BASE_RECENT + hour_ago.strftime("%FT%T%:z") + "&" + Time.now.strftime("%FT%T%:z")
     get_recent(url)
   end
+
+    task :big_batch => :environment do
+    twelve_ago = DateTime.now - (12/24.0)
+    url = BASE_RECENT + twelve_ago.strftime("%FT%T%:z") + "&" + Time.now.strftime("%FT%T%:z")
+    get_recent(url)
+  end
 end
 
 
