@@ -13,7 +13,8 @@
   </div>
   <div class="form-group">
     <%= label_tag :description %>&#42;
-    <%= text_area_tag :description, content = nil, class: "form-control", required: true %>
+    <%= text_area_tag :description, content = nil, class: "form-control", maxlength:
+    "150", required: true %>
   </div>
   <div class="form-group">
     <%= label_tag :light_status, "Is the light completely out or does it go on and off?" %>&#42;

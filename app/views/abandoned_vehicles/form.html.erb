@@ -13,7 +13,8 @@
   </div>
   <div class="form-group">
     <%= label_tag :description %>&#42;
-    <%= text_area_tag :description, content = nil, class: "form-control", required: true %>
+    <%= text_area_tag :description, content = nil, class: "form-control", maxlength:
+    "150", required: true %>
   </div>
   <div class="form-group">
     <%= label_tag :vehicle_make_model, "Vehicle make/model" %>&#42;
