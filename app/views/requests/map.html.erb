@@ -172,8 +172,12 @@
               // createMarker(latlng, map)
 					  	markers.push(marker);
               curmarkers.push(marker);
-
-              google.maps.event.addListener(marker, 'click', function() {
+              // debugger;
+              var contentString = '<h4 style = "color: black">' + obj.type_of_service_request + '</h4>';
+              var infowindow = new google.maps.InfoWindow({
+			      		content: contentString
+			  			});
+	            google.maps.event.addListener(marker, 'click', function() {
 					    infowindow.open(map,marker);
 
 					    
@@ -184,11 +188,9 @@
           mc_array.push(mc);
 	      }
 
-	      var contentString = '<div id="window" style = "color: black">' + "Hi George";
+	       
 
-	      var infowindow = new google.maps.InfoWindow({
-      		content: contentString
-  			});
+
 
 	      function createMarker(coords, map, title){
 	        var marker = new google.maps.Marker({
