@@ -118,11 +118,12 @@ div.request-select input {
     left: -9999px;
   }
   #no-more-tables tr:nth-child(odd) {
-    background-color: white;
+    background-color: #EEEEEE;
     color: #423F3F;
   }
   #no-more-tables tr td:nth-child(1) {
     font-weight: bold;
+    font-size: 1.2em;
   }
 }
 
