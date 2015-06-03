@@ -1,0 +1,4 @@
+<% if record.image.url =~ /missing/ %>
+<% else %>
+  <%= image_tag(record.image.url(:thumb)) %>
+<% end %>

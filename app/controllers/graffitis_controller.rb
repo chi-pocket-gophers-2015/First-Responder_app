@@ -4,6 +4,7 @@ class GraffitisController < ApplicationController
   end
 
   def create
+
     set_lat_and_lng(params['lat'], params['lng'])
     set_address_and_zip(params['address'], params['zip'])
     @request = Request.new
@@ -42,7 +43,6 @@ class GraffitisController < ApplicationController
       'phone' => params[:phone],
       'media_url' => image_url(record)
     }
-
     contact_array = ['first_name', 'last_name', 'email', 'phone']
     if params['toggle'] != "on"
       graffiti_params.except!(*contact_array)

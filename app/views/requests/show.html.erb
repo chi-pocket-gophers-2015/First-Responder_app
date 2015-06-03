@@ -26,4 +26,12 @@
     <td>Date Created:</td>
     <td><%= @request[:creation_date].strftime("%m/%d/%Y") %></td>
   </tr>
+  <% if @record.image_file_name %>
+    <tr>
+      <td>Image:</td>
+      <td><%= render partial: 'image', locals: {record: @record} %></td>
+    </tr>
+  <% end %>
 </table>
+<%= image_tag("https://maps.googleapis.com/maps/api/staticmap?center=#{@request.latitude},#{@request.longitude}&zoom=17&size=350x200&maptype=roadmap&markers=size:mid%7Ccolor:red%7C#{@request.latitude},#{@request.longitude}
+", class: 'show-img') %>
