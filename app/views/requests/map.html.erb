@@ -175,10 +175,35 @@
               });
 					  	markers.push(marker);
               curmarkers.push(marker);
+              // debugger;
+              var contentString = '<h4 style = "color: black">' + obj.type_of_service_request + '</h4>';
+              var infowindow = new google.maps.InfoWindow({
+			      		content: contentString
+			  			});
+	            google.maps.event.addListener(marker, 'click', function() {
+					    infowindow.open(map,marker);
+
+					    
+					  });
 					});
+          
           var mc = new MarkerClusterer(map, curmarkers, mcOptions);
           mc_array.push(mc);
 	      }
+
+	       
+
+
+
+	      // function createMarker(coords, map, title){
+	      //   var marker = new google.maps.Marker({
+	      //     position: coords,
+	      //     map: map,
+	      //     title: title
+	      //   });
+	      //   markers.push(marker);
+	      // }
+
 
         $(document).ready(function(){
           if(document.getElementById('totally-different-map') != null){
