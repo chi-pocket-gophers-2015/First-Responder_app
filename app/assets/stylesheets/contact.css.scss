@@ -1,7 +1,12 @@
 .contact-toggle-button {
   padding-bottom: 1em;
   vertical-align: middle;
-  line-height: 25px;
+  td {
+    padding-right: 9px;
+  }
+  #toggle-text {
+    padding-bottom: 9px;
+  }
 }
 
 .tgl{
@@ -47,7 +52,7 @@
 
 .tgl-light{
   + .tgl-btn{
-    background: #ccc;
+    background: #bbbbbb;
     border-radius: 2em;
     padding: 2px;
     transition: all .4s ease;
