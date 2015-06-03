@@ -1,4 +1,8 @@
 class StreetLightsController < RequestsController
+
+  def show
+  end
+
   def new
     @category = 'street_lights'
   end

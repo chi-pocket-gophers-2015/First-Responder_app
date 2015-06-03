@@ -1,4 +1,8 @@
 class GraffitisController < ApplicationController
+
+  def show
+  end
+
   def new
     @category = 'graffitis'
   end

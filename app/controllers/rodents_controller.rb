@@ -1,4 +1,8 @@
 class RodentsController < ApplicationController
+
+  def show
+  end
+
   def new
     @category = 'rodents'
   end
