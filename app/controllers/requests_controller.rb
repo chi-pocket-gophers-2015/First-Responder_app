@@ -45,8 +45,8 @@ class RequestsController < ApplicationController
     token = @request.token
     service_id = Request.official_city_data(token)['service_request_id']
     @request.update(service_request_number: service_id)
-    record = RequestRecord.find_by_token(token)
-    record.update(service_id: service_id)
+    @record = RequestRecord.find_by_token(token)
+    @record.update(service_id: service_id)
   end
 
   private
