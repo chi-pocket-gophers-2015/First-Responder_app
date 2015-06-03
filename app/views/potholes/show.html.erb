@@ -1,1 +1,10 @@
-adsfafa
+<h1>Most Recent Potholes Request</h1>
+<ol>
+  <% @potholes.each do |pothole| %>
+    <li>
+      <%= link_to(pothole.street_address, request_path(pothole.id)) %>
+      reported on
+      <%= pothole.creation_date.strftime("%m/%d/%Y") %>
+    </li>
+  <% end %>
+</ol>

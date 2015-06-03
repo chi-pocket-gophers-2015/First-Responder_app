@@ -1,6 +1,7 @@
 class PotholesController < ApplicationController
 
   def show
+    @potholes = Request.where(type_of_service_request: "Pothole in Street")
   end
 
   def new
