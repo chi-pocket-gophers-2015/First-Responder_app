@@ -19,7 +19,7 @@ h1 {
 }
 
 h2 {
-  font-size: 1.3em;
+  font-size: 1.2em;
 }
 
 .btn, .btn-lg, .btn-default {
@@ -204,13 +204,23 @@ table {
 }
 
 #report-new {
-
 }
 
 .help-block {
   font-family: 'PT Serif', serif;
+  color: #ccc;
 }
 
 label {
   font-weight: normal;
+}
+
+.index-buttons {
+  margin-bottom: 1.2em;
+}
+
+.welcome-notice h3 {
+  font-size: 1em;
+  background-color: #CC0000;
+  padding: 0.6em 0;
 }
