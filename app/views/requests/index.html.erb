@@ -4,8 +4,7 @@
   </div>
 
   <div class="row">
-    <%= form_tag("/potholes/new", method: 'get') do %>
-      <%= hidden_field_tag :category, "pothole" %>
+    <%= form_tag("/potholes", method: 'get') do %>
       <div class="col-xs-6 request-select">
         <%= submit_tag("Potholes", class: "btn btn-lg btn-default button-city-problem-category") %>
       </div>

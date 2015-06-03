@@ -1,4 +1,9 @@
 class PotholesController < ApplicationController
+
+  def show
+
+  end
+
   def new
     @category = 'potholes'
   end
