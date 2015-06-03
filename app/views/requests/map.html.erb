@@ -117,30 +117,34 @@
 	    		"tree_debris": tree_debris
 	    	}
 
+        var map;
+        var geocoder;
+        var markers = [];
+        var mc_array = [];
+        var category;
+
 		    $( "#filter" ).change(function() {
-				 	clearMarkers(markers);
+				 	clearMarkers();
           clearClusters();
-				  plotMarkers(categories[this.value])
+          category = this.value;
+				  plotMarkers(categories[this.value]);
 				});
 
-				function clearMarkers(array) {
-				  $.each(array, function(i, obj){
+				function clearMarkers() {
+				  $.each(markers, function(i, obj){
 				  	obj.setMap(null);
+            obj=null;
 				  })
 				}
 
         function clearClusters() {
           $.each(mc_array, function(i, mc) {
             mc.setMap(null);
+            mc=null;
           })
         }
-	      var map;
-	      var geocoder;
-	      var markers = [];
-        var mc_array = [];
 
 	      function initialize() {
-          var markers = [];
 	        var mapCanvas = document.getElementById('totally-different-map');
 	        var differentMapOptions = {
 	          center: new google.maps.LatLng(41.889797, -87.637756),
@@ -149,40 +153,53 @@
 	          tilt: 0
 	        }
 		        map = new google.maps.Map(mapCanvas, differentMapOptions);
+            category = "Request";
+            plotMarkers(requests);
 	      }
 
-	      google.maps.event.addDomListener(window, 'load', initialize);
+	      // google.maps.event.addDomListener(window, 'load', initialize);
 
 	      function plotMarkers(array){
-          var category_string = array[0].type_of_service_request;
+          // debugger;
           var curmarkers = [];
           var mcOptions = {
             gridSize: 50,
             maxZoom: 15,
-            title: category_string + ' cluster - click to zoom'};
-	       $.each(array, function(i, obj) {
+            title: category + ' cluster - click to zoom'};
+	        $.each(array, function(i, obj) {
 					  //use obj.id and obj.name here, for example:
 					  	latlng = new google.maps.LatLng(obj.latitude, obj.longitude);
               var marker = new google.maps.Marker({
                 position: latlng,
-                map: map});
-					  	// console.log(thisLatLng);
-              // createMarker(latlng, map)
+                map: map
+              });
 					  	markers.push(marker);
               curmarkers.push(marker);
 					});
           var mc = new MarkerClusterer(map, curmarkers, mcOptions);
           mc_array.push(mc);
-	       	}
-
-	      function createMarker(coords, map, title){
-	        var marker = new google.maps.Marker({
-	          position: coords,
-	          map: map,
-	          title: title
-	        });
-	        markers.push(marker);
 	      }
+
+        $(document).ready(function(){
+          if(document.getElementById('totally-different-map') != null){
+            initialize()
+            $( "#filter" ).change(function() {
+              clearMarkers();
+              clearClusters();
+              category = this.value;
+              plotMarkers(categories[this.value]);
+            });
+          }
+        })
+
+	      // function createMarker(coords, map, title){
+	      //   var marker = new google.maps.Marker({
+	      //     position: coords,
+	      //     map: map,
+	      //     title: title
+	      //   });
+	      //   markers.push(marker);
+	      // }
 
         // $.each(potholes, function(i, obj) {
         //   latlng = new google.maps.LatLng(obj.latitude, obj.longitude);
