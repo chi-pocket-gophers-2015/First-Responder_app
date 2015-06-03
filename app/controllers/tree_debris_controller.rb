@@ -36,6 +36,12 @@ class TreeDebrisController < ApplicationController
       'phone' => params[:phone],
       'media_url' => image_url(record)
     }
+
+    contact_array = ['first_name', 'last_name', 'email', 'phone']
+    if params['toggle'] != "on"
+      tree_debris_params.except!(*contact_array)
+    end
+
     @errors = TreeDebris.city_params_missing(tree_debris_params)
     request = Request.new.party_time(tree_debris_params.merge({street_address: get_address, zip_code: get_zip}))
     token = request[0]['token']

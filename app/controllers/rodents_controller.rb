@@ -37,6 +37,12 @@ class RodentsController < ApplicationController
       'phone' => params[:phone],
       'media_url' => image_url(record)
     }
+
+    contact_array = ['first_name', 'last_name', 'email', 'phone']
+    if params['toggle'] != "on"
+      rodent_params.except!(*contact_array)
+    end
+
     @errors = Rodent.city_params_missing(rodent_params)
     request = Request.new.party_time(rodent_params.merge({street_address: get_address, zip_code: get_zip}))
     token = request[0]['token']

@@ -101,7 +101,6 @@ div.request-select input {
   }
 }
 
-
 @media (max-width: 768px) {
   /* Force table to not be like tables anymore */
   #no-more-tables table,
@@ -199,7 +198,8 @@ table {
 }
 
 #contact-header {
-  border-top:1px solid #777777
+  border-top:1px solid #777777;
+  padding-top: 9px;
 }
 
 #report-new {
