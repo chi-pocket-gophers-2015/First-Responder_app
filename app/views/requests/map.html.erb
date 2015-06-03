@@ -146,14 +146,13 @@
 
 	      google.maps.event.addDomListener(window, 'load', initialize);
 
-        var mcOptions(category_string) = {
-          gridSize: 50,
-          maxZoom: 15,
-          title: category_string + ' cluster - click to zoom'};
-
 	      function plotMarkers(array){
-          var title = array[0].type_of_service_request
-          var curmarkers = []
+          var category_string = array[0].type_of_service_request;
+          var curmarkers = [];
+          var mcOptions = {
+            gridSize: 50,
+            maxZoom: 15,
+            title: category_string + ' cluster - click to zoom'};
 	       $.each(array, function(i, obj) {
 					  //use obj.id and obj.name here, for example:
 					  	latlng = new google.maps.LatLng(obj.latitude, obj.longitude);
@@ -161,15 +160,15 @@
                 position: latlng,
                 map: map});
 					  	// console.log(thisLatLng);
-              createMarker(latlng, map)
+              // createMarker(latlng, map)
 					  	markers.push(marker);
               curmarkers.push(marker);
 					});
-          var mc = new MarkerClusterer(map, curmarkers, mcOptions(title));
+          var mc = new MarkerClusterer(map, curmarkers, mcOptions);
 	       	}
 
 	      function createMarker(coords, map, title){
-	        new google.maps.Marker({
+	        var marker = new google.maps.Marker({
 	          position: coords,
 	          map: map,
 	          title: title
