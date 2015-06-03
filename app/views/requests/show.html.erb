@@ -1,29 +1,29 @@
 <h1>Service Request</h1>
 <table class="table table-condensed">
   <tr>
-    <td>Status:</td>
-    <td><%= @request[:status] %></td>
-  </tr>
-  <tr>
-    <td>Date Created:</td>
-    <td><%= @request[:creation_date].strftime("%m/%d/%Y") %></td>
+    <td>Type of Request</td>
+    <td><%= @request[:type_of_service_request] %></td>
   </tr>
   <tr>
     <td>Service Request ID</td>
     <% if @request[:service_request_number].blank? %>
-      <td>Sorry, we do not have an ID yet</td>
+      <td>Processing.  Please check back in a couple minutes.</td>
     <% else %>
       <td>
         <%= link_to(@request[:service_request_number], "http://servicetracker.cityofchicago.org/requests/#{@request[:service_request_number]}") %>
       </td>
     <% end %>
   </tr>
-  <tr>
-    <td>Type of Request</td>
-    <td><%= @request[:type_of_service_request] %></td>
-  </tr>
-  <tr>
+    <tr>
     <td>Street Address</td>
     <td><%= @request[:street_address] %></td>
+  </tr>
+  <tr>
+    <td>Status:</td>
+    <td><%= @request[:status] %></td>
+  </tr>
+  <tr>
+    <td>Date Created:</td>
+    <td><%= @request[:creation_date].strftime("%m/%d/%Y") %></td>
   </tr>
 </table>

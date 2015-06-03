@@ -1,8 +1,8 @@
 class RequestsController < ApplicationController
 
-  def index
-    @requests = Request.all
-  end
+  # def index
+  #   @requests = Request.paginate(:page => params[:page], :per_page => 30)
+  # end
 
   def new
     session.clear
@@ -29,17 +29,24 @@ class RequestsController < ApplicationController
     end
     @request = Request.new(Request.filter_params(city_params))
     if @request.save
+      @request.update(token: token)
       redirect_to request_path(@request)
       clear_address_sessions
     end
   end
 
   def index
-    @requests = Request.all.order(creation_date: :desc)
+    @requests = Request.all.order(creation_date: :desc).paginate(page: params[:page], per_page: 5)
   end
 
   def show
+    @show = true
     @request = Request.find_by_id(params[:id])
+    token = @request.token
+    service_id = Request.official_city_data(token)['service_request_id']
+    @request.update(service_request_number: service_id)
+    record = RequestRecord.find_by_token(token)
+    record.update(service_id: service_id)
   end
 
   private

@@ -77,8 +77,10 @@ end
 
 def get_recent(url)
   raw_data = open(url)
-  parsed = JSON.parse(raw_data.read)
+  red = raw_data.read
+  parsed = JSON.parse(red)
   parsed.each do |hash|
+    print hash
     slice_hash = hash.slice("requested_datetime", "status", "service_request_id", "service_name",
       "address", "lat", "long")
     mappings = {"requested_datetime" => :creation_date, "status" => :status, #"updated_datetime" => :completion_date,
@@ -118,10 +120,11 @@ namespace :import_request do
     get_recent(url)
   end
 
-  task :tester => :environment do
-    request = Request.create(status: 'open')
+  task :big_batch => :environment do
+    twelve_ago = DateTime.now - (12/24.0)
+    url = BASE_RECENT + twelve_ago.strftime("%FT%T%:z") + "&" + Time.now.strftime("%FT%T%:z")
+    get_recent(url)
   end
-
 end
 
 

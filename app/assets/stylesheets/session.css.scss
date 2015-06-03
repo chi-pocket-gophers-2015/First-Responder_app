@@ -1,9 +1,37 @@
+@import url(http://fonts.googleapis.com/css?family=Arimo:400,700|PT+Serif:400,700);
+
 // Place all the styles related to the session controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 html, .container-fluid {
-  background-color: #E6E6E6;
+  background-color: #343838;
+  color: #FAFAFA;
+  font-family: 'Arimo', sans-serif;
+}
+
+* {
+  font-size: 15px;
+}
+
+h1 {
+  font-size: 1.8em;
+}
+
+h2 {
+  font-size: 1.3em;
+}
+
+.btn, .btn-lg, .btn-default {
+  background-color: #C7C7C7;
+}
+
+a:link, a:visited {
+  color: #00DFFC;
+}
+
+a:hover {
+  color: #FF348E;
 }
 
 #new-report-header {
@@ -12,10 +40,6 @@ html, .container-fluid {
   margin-top: -15%;
   margin-bottom: -12%;
   margin-left: 15%;
-
-  h1 {
-    font-size: 1.1em;
-  }
 }
 
 #new-report-header span {
@@ -86,15 +110,19 @@ div.request-select input {
   #no-more-tables td,
   #no-more-tables tr {
     display: block;
+    border: 0;
   }
   #no-more-tables thead tr {
     position: absolute;
     top: -9999px;
     left: -9999px;
   }
-
   #no-more-tables tr:nth-child(odd) {
     background-color: white;
+    color: #423F3F;
+  }
+  #no-more-tables tr td:nth-child(1) {
+    font-weight: bold;
   }
 }
 
@@ -179,4 +207,12 @@ table {
 
 #report-new {
   padding-right: 15%;
+}
+
+.help-block {
+  font-family: 'PT Serif', serif;
+}
+
+label {
+  font-weight: normal;
 }

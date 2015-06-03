@@ -21,6 +21,7 @@ class PotholesController < ApplicationController
     else
       record = RequestRecord.create(image: params['image'])
     end
+
     pothole_params = {
       'service_code' => '4fd3b656e750846c53000004',
       'service_name' => 'Pothole in Street',
@@ -34,7 +35,7 @@ class PotholesController < ApplicationController
       'last_name' => params[:last_name],
       'email' => params[:email],
       'phone' => params[:phone],
-      'media_url' => record.image.url
+      'media_url' => image_url(record)
     }
     @errors = Pothole.city_params_missing(pothole_params)
     request = Request.new.party_time(pothole_params.merge({street_address: get_address, zip_code: get_zip}))
