@@ -1,19 +1,25 @@
-<div id="contact-header">
-  <p>Contact Info (leave blank to submit anonymously)</p>
+<div class="contact-toggle-button">
+  <p>Contact information button</p>
 </div>
-<div class="contact-info">
-      <!-- <button>Enter your Contact Info</button> -->
-  <div class="form-group">
-    <%= text_field_tag(:first_name, nil, class: "form-control", placeholder: "First Name") %>
+
+<div class="contact-form">
+  <div id="contact-header">
+    <p>Contact Info (leave blank to submit anonymously)</p>
   </div>
-  <div class="form-group">
-    <%= text_field_tag(:last_name, nil, class: "form-control", placeholder: "Last Name") %>
-  </div>
-  <div class="form-group">
-    <%= telephone_field_tag(:phone, nil, class: "form-control", placeholder: "Phone") %>
-  </div>
-  <div class="form-group">
-    <p class="help-block">Enter an email to track your request</p>
-    <%= email_field_tag(:email, nil, class: "form-control", placeholder: "Email") %>
+  <div class="contact-info">
+        <!-- <button>Enter your Contact Info</button> -->
+    <div class="form-group">
+      <%= text_field_tag(:first_name, nil, class: "form-control", placeholder: "First Name") %>
+    </div>
+    <div class="form-group">
+      <%= text_field_tag(:last_name, nil, class: "form-control", placeholder: "Last Name") %>
+    </div>
+    <div class="form-group">
+      <%= telephone_field_tag(:phone, nil, class: "form-control", placeholder: "Phone") %>
+    </div>
+    <div class="form-group">
+      <p class="help-block">Enter an email to track your request</p>
+      <%= email_field_tag(:email, nil, class: "form-control", placeholder: "Email") %>
+    </div>
   </div>
 </div>
