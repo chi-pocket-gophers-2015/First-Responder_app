@@ -22,6 +22,9 @@ h2 {
   font-size: 1.3em;
 }
 
+.btn, .btn-lg, .btn-default {
+  background-color: #C7C7C7;
+}
 
 a:link, a:visited {
   color: #00DFFC;
@@ -37,14 +40,6 @@ a:hover {
   margin-top: -15%;
   margin-bottom: -12%;
   margin-left: 15%;
-
-  h1 {
-    font-size: 1.1em;
-  }
-}
-
-btn, btn-lg, btn-default {
-
 }
 
 #new-report-header span {
