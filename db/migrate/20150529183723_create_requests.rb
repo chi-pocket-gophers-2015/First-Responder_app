@@ -11,7 +11,6 @@ class CreateRequests < ActiveRecord::Migration
       t.string "Latitude"
       t.string "Longitude"
       t.string "Location"
-      t.string :token
     end
   end
 end
