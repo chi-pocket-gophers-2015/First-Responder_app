@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
 
   def show
-    return redirect_to root_path if !current_user
+    # return redirect_to root_path if !current_user
     @user = current_user
+    @records = @user.request_records
   end
 
   def new

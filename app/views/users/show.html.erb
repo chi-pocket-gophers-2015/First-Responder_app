@@ -3,8 +3,8 @@
 </div>
 
 <h2>My requests</h2>
-<table>
-  <tr>
-    <td></td>
-  </tr>
-</table>
+<ol>
+  <% @records.each do |record| %>
+    <li><%= link_to(record.service_id, "http://servicetracker.cityofchicago.org/requests/#{record.service_id}") %></li>
+  <% end %>
+</ol>

@@ -10,6 +10,15 @@ html, .container-fluid {
   font-size: 15px;
 }
 
+h1 {
+  font-size: 1.8em;
+}
+
+h2 {
+  font-size: 1.3em;
+}
+
+
 a:link, a:visited {
   color: #00B7F7;
 }
@@ -194,8 +203,4 @@ table {
 
 #report-new {
   padding-right: 15%;
-}
-
-.container-header h1 {
-  font-size: 20px;
 }
