@@ -15,16 +15,16 @@
   .digg_pagination .current {
     font-style: normal;
     font-weight: bold;
-    background: #00B7F7;
+    background: #00DFFC;
     color: white;
-    border: 1px solid #00B7F7; }
+    border: 1px solid #00DFFC; }
   .digg_pagination a {
     text-decoration: none;
-    color: #105cb6;
-    border: 1px solid #00B7F7; }
+    color: #00DFFC;
+    border: 1px solid #00DFFC; }
     .digg_pagination a:hover, .digg_pagination a:focus {
-      color: #ED1B24;
-      border-color: #00B7F7; }
+      color: #FF348E;
+      border-color: #00DFFC; }
   .digg_pagination .page_info {
     background: #2e6ab1;
     color: white;
