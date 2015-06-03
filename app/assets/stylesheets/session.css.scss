@@ -100,7 +100,6 @@ div.request-select input {
   }
 }
 
-
 @media (max-width: 768px) {
   /* Force table to not be like tables anymore */
   #no-more-tables table,
@@ -125,7 +124,6 @@ div.request-select input {
     font-weight: bold;
   }
 }
-
 
 @media only screen and (min-width : 320px) {
   .row  {
@@ -202,7 +200,8 @@ table {
 }
 
 #contact-header {
-  border-top:1px solid #777777
+  border-top:1px solid #777777;
+  padding-top: 9px;
 }
 
 #report-new {
