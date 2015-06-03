@@ -30,6 +30,7 @@ class RequestsController < ApplicationController
   end
 
   def show
+    @show = true
     @request = Request.find_by_id(params[:id])
     token = @request.token
     service_id = Request.official_city_data(token)['service_request_id']

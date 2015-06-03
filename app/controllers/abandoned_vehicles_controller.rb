@@ -13,7 +13,6 @@ class AbandonedVehiclesController < ApplicationController
   def form
   end
 
-
   def update
     if logged_in?
       user = User.find_by_id(current_user.id)
