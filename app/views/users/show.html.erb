@@ -3,6 +3,10 @@
 </div>
 
 <h2>My requests</h2>
+<% if @records.empty? %>
+  <p>You have not submitted a request</p>
+  <p><%= link_to("Click here to make a new request", new_request_path) %></p>
+<% end %>
 <ol>
   <% @records.each do |record| %>
     <li><%= link_to(record.service_id, "http://servicetracker.cityofchicago.org/requests/#{record.service_id}") %></li>
