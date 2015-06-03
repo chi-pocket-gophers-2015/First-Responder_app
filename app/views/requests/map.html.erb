@@ -117,6 +117,7 @@
 	    		"tree_debris": tree_debris
 	    	}
 
+	    	var info;
         var map;
         var geocoder;
         var markers = [];
@@ -162,6 +163,8 @@
 	      function plotMarkers(array){
           // debugger;
           var curmarkers = [];
+          var infowindow = null;
+          var oldinfowindow = null;
           var mcOptions = {
             gridSize: 50,
             maxZoom: 15,
@@ -176,15 +179,30 @@
 					  	markers.push(marker);
               curmarkers.push(marker);
               // debugger;
-              var contentString = '<h4 style = "color: black">' + obj.type_of_service_request + '</h4>';
-              var infowindow = new google.maps.InfoWindow({
-			      		content: contentString
-			  			});
+              var contentString = '<h4 style = "color: black">' + obj.type_of_service_request + '</h4><p style = "color: black">' + obj.street_address + '</>';
+              
 	            google.maps.event.addListener(marker, 'click', function() {
-					    infowindow.open(map,marker);
+	            	
+	            	infowindow = new google.maps.InfoWindow({
+				      		content: contentString
+				  			});
 
-					    
-					  });
+	            	if (oldinfowindow != null && oldinfowindow.content == infowindow.content){
+	            		oldinfowindow.close();
+	            		infowindow = null;
+	            		oldinfowindow = null;
+	   				     }
+	            	else if (oldinfowindow) {
+	            		oldinfowindow.close();		
+	   				     	infowindow.open(map,this);
+	            	}
+	            	else {
+	   				     	infowindow.open(map,this);
+	            	}
+   				     	oldinfowindow = infowindow;
+	            	 
+					  	});
+
 					});
           
           var mc = new MarkerClusterer(map, curmarkers, mcOptions);
