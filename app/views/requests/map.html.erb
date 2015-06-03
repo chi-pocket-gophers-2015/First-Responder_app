@@ -94,10 +94,38 @@
       <%= javascript_tag "var graffitis = #{@graffitis.to_json}" %>
       <%= javascript_tag "var street_lights = #{@lights.to_json}" %>
       <%= javascript_tag "var tree_debris = #{@trees.to_json}" %>
+			
+			<span>Filter results:</span>
+			<select id="filter" style = "color: black">
+			  <option value="all"  selected >All</option>
+			  <option value="potholes">Potholes</option>
+			  <option value="abandoned_vehicles">Abandoned Vehicles</option>
+			  <option value="rodents">Rodents</option>
+			  <option value="graffiti">Graffiti</option>
+			  <option value="street_lights">Street Lights</option>
+			  <option value="tree_debris">Tree Debris</option>
+			  <input type="submit">
+			</select><br><br>
     	<script>
+	    	var categories = {
+	    		"all": requests,
+	    		"potholes": potholes,
+	    		"abandoned_vehicles": vehicles,
+	    		"rodents": rodents,
+	    		"graffiti": graffitis,
+	    		"street_lights": street_lights,
+	    		"tree_debris": tree_debris
+	    	}
+
+		    $( "#filter" ).change(function() {
+		    	debugger;
+				  
+				  plotMarkers(categories[this.value])
+				});
 
 	      var map;
 	      var geocoder;
+
 	      function initialize() {
 	        var mapCanvas = document.getElementById('totally-different-map');
 	        var differentMapOptions = {
@@ -108,15 +136,22 @@
 	        }
 		        map = new google.maps.Map(mapCanvas, differentMapOptions);
 
-		        $.each(requests, function(i, obj) {
+	      }
+
+	      google.maps.event.addDomListener(window, 'load', initialize);
+
+	      function plotMarkers(array){
+	       $.each(array, function(i, obj) {
 					  //use obj.id and obj.name here, for example:
 					  	thisLatLng = new google.maps.LatLng(obj.latitude, obj.longitude);
 					  	// console.log(thisLatLng);
-					  	createMarker(thisLatLng, map);
+					  	createMarker({
+					  		position: thisLatLng, 
+					  		map: map,
+					  		title: obj.type_of_service_request});
 						});
-	      }
-	      google.maps.event.addDomListener(window, 'load', initialize);
-
+	       	}
+	      
 
 	      var marker;
 	      function createMarker(coords, map, title){
@@ -127,7 +162,12 @@
 	        });
 	      }
 	      // can I plot point from 311
-
+	      function createInfoWindow(text){
+				  var infowindow = new google.maps.InfoWindow({
+				    content: text
+				  });
+				  return infowindow;
+				}
 
     	</script>
 
