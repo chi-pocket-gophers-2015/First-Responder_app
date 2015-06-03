@@ -12,6 +12,11 @@ class PotholesController < ApplicationController
   end
 
   def form
+    if logged_in?
+      @user = User.find_by_id(current_user.id)
+    else
+      @user = User.new
+    end
   end
 
   def update
@@ -37,6 +42,12 @@ class PotholesController < ApplicationController
       'phone' => params[:phone],
       'media_url' => image_url(record)
     }
+
+    contact_array = ['first_name', 'last_name', 'email', 'phone']
+    if params['toggle'] != "on"
+      pothole_params.except!(*contact_array)
+    end
+
     @errors = Pothole.city_params_missing(pothole_params)
     request = Request.new.party_time(pothole_params.merge({street_address: get_address, zip_code: get_zip}))
     token = request[0]['token']

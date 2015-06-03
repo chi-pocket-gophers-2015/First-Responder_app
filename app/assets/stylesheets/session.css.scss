@@ -34,12 +34,13 @@ a:hover {
   color: #FF348E;
 }
 
+#new-report-request h1 {
+  text-align: center
+}
+
 #new-report-header {
   font-weight:bold;
   text-align:center;
-  margin-top: -15%;
-  margin-bottom: -12%;
-  margin-left: 15%;
 }
 
 #new-report-header span {
@@ -48,7 +49,7 @@ a:hover {
 }
 
 div.request-select input {
-  width:150px;
+  width:100%;
   height: 140px;
   margin: 0 auto;
   padding: 0 auto;
@@ -100,7 +101,6 @@ div.request-select input {
   }
 }
 
-
 @media (max-width: 768px) {
   /* Force table to not be like tables anymore */
   #no-more-tables table,
@@ -126,39 +126,36 @@ div.request-select input {
   }
 }
 
-
 @media only screen and (min-width : 320px) {
-  .row  {
+  .row {
   margin-top: 30px;
-  margin-bottom: 30px
+  margin-bottom: 30px;
   }
-
   .btn {
-      padding: 14px 24px;
       border: 0 none;
       font-weight: 700;
       letter-spacing: 1px;
       text-transform: uppercase;
+      white-space:normal;
+      text-align: center;
   }
-
   .btn:focus, .btn:active:focus, .btn.active:focus {
     outline: 0 none;
   }
-
   .btn-primary {
       background: #0099cc;
       color: #ffffff;
   }
-
   .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
     background: #33a6cc;
   }
-
   .btn-primary:active, .btn-primary.active {
       background: #007299;
       box-shadow: none;
   }
-
+  .button-city-problem-category {
+    font-size: 15px;
+  }
 }
 
 #landing-page {
@@ -181,7 +178,6 @@ div.request-select input {
   height:5em;
 }
 
-
 input.submit{
   background:none;
   border:none;
@@ -202,11 +198,12 @@ table {
 }
 
 #contact-header {
-  border-top:1px solid #777777
+  border-top:1px solid #777777;
+  padding-top: 9px;
 }
 
 #report-new {
-  padding-right: 15%;
+
 }
 
 .help-block {
