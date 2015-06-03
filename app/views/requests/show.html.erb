@@ -1,5 +1,3 @@
-<script src="https://maps.googleapis.com/maps/api/js"></script>
-
 <h1>Service Request</h1>
 <table class="table table-condensed">
   <tr>
@@ -35,5 +33,5 @@
     </tr>
   <% end %>
 </table>
-<%= image_tag("https://maps.googleapis.com/maps/api/staticmap?center=#{@request.latitude},#{@request.longitude}&zoom=17&size=400x200&maptype=roadmap&markers=size:mid%7Ccolor:red%7C#{@request.latitude},#{@request.longitude}
-") %>
+<%= image_tag("https://maps.googleapis.com/maps/api/staticmap?center=#{@request.latitude},#{@request.longitude}&zoom=17&size=350x200&maptype=roadmap&markers=size:mid%7Ccolor:red%7C#{@request.latitude},#{@request.longitude}
+", class: 'show-img') %>
