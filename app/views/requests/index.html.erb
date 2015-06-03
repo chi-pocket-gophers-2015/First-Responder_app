@@ -10,17 +10,17 @@
           <th>Street Address</th>
           <th>Creation Date</th>
           <th>Status</th>
-          <th>Completion Date</th>
+  
         </tr>
       </thead>
       <% @requests.each do |request| %>
         <tr>
+
           <td><%= link_to(request[:type_of_service_request], request_path(request)) %></td>
           <td><%= "#{request[:street_address]}" %></td>
           <!-- Zip is in street address body #, Chicago, IL.  #{request[:zip_code]}" %></td> -->
           <td><%= request[:creation_date].strftime("%m/%d/%Y") %></td>
           <td><%= request[:status] %></td>
-          <td><%= request[:completion_date] %></td>
         </tr>
       <% end %>
     </table>
