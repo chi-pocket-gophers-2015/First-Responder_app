@@ -1,9 +1,13 @@
+@import url(http://fonts.googleapis.com/css?family=Arimo:400,700|PT+Serif:400,700);
+
 // Place all the styles related to the session controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 html, .container-fluid {
-  background-color: #E6E6E6;
+  background-color: #343838;
+  color: #FAFAFA;
+  font-family: 'Arimo', sans-serif;
 }
 
 * {
@@ -20,11 +24,11 @@ h2 {
 
 
 a:link, a:visited {
-  color: #00B7F7;
+  color: #00DFFC;
 }
 
 a:hover {
-  color: #ED1B24;
+  color: #FF348E;
 }
 
 #new-report-header {
@@ -116,6 +120,7 @@ div.request-select input {
   }
   #no-more-tables tr:nth-child(odd) {
     background-color: white;
+    color: #423F3F;
   }
   #no-more-tables tr td:nth-child(1) {
     font-weight: bold;
@@ -203,4 +208,12 @@ table {
 
 #report-new {
   padding-right: 15%;
+}
+
+.help-block {
+  font-family: 'PT Serif', serif;
+}
+
+label {
+  font-weight: normal;
 }
