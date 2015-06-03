@@ -1,4 +1,8 @@
 class AbandonedVehiclesController < ApplicationController
+
+  def show
+  end
+
   def new
     @category = 'abandoned_vehicles'
   end

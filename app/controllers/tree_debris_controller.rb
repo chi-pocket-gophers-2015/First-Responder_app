@@ -1,4 +1,8 @@
 class TreeDebrisController < ApplicationController
+
+  def show
+  end
+
   def new
     @category = 'tree_debris'
   end
