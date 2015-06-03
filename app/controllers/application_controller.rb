@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def image_url(record)
+    record.image_file_name != nil ? record.image.url : nil
+  end
+
   def current_user
     @_current_user ||= User.find_by_id(session[:user_id])
   end

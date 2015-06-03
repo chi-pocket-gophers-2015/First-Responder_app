@@ -1,6 +1,4 @@
-<div id="form-header">
-  Submit Graffiti Removal Request
-</div>
+<h1>Submit Graffiti Removal Request</h1>
 
 <% if @errors && @errors.length > 0 %>
   <%= render partial: 'graffitis', locals: {errors: @errors} %>
@@ -26,7 +24,7 @@
     <%= select_tag(:surface_type, options_for_select(Graffiti::GRAFFITI_SURFACE_OPTIONS), {class: 'form-control', required: true}) %>
   </div>
   <div class="form-group">
-    <%= label_tag :height, "Is the graffiti located over 6 feet from teh ground?" %>&#42;
+    <%= label_tag :height, "Is the graffiti located over 6 feet from the ground?" %>&#42;
     <%= select_tag(:height, options_for_select(Graffiti::GRAFFITI_HEIGHT_OPTIONS), {class: 'form-control', required: true}) %>
   </div>
     <!-- use different partial for logged in? -->
