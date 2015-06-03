@@ -1,7 +1,7 @@
 class PotholesController < ApplicationController
 
   def show
-    @potholes = Request.where(type_of_service_request: "Pothole in Street")
+    @potholes = Request.where(type_of_service_request: "Pothole in Street").paginate(page: params[:page], per_page: 5)
   end
 
   def new

@@ -8,3 +8,8 @@
     </li>
   <% end %>
 </ol>
+<%= will_paginate @requests, class: 'digg_pagination' %>
+<div class="map-list-toggle">
+  <div class="btn"><%= link_to("List View", potholes_path) %></div>
+  <div class="btn">Map View</div>
+</div>
