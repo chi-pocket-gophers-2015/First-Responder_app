@@ -94,10 +94,44 @@
       <%= javascript_tag "var graffitis = #{@graffitis.to_json}" %>
       <%= javascript_tag "var street_lights = #{@lights.to_json}" %>
       <%= javascript_tag "var tree_debris = #{@trees.to_json}" %>
-    	<script>
 
+			<span>Filter results:</span>
+			<select id="filter" style = "color: black">
+			  <option value="all"  selected >All</option>
+			  <option value="potholes">Potholes</option>
+			  <option value="abandoned_vehicles">Abandoned Vehicles</option>
+			  <option value="rodents">Rodents</option>
+			  <option value="graffiti">Graffiti</option>
+			  <option value="street_lights">Street Lights</option>
+			  <option value="tree_debris">Tree Debris</option>
+			</select><br><br>
+
+    	<script>
+	    	var categories = {
+	    		"all": requests,
+	    		"potholes": potholes,
+	    		"abandoned_vehicles": vehicles,
+	    		"rodents": rodents,
+	    		"graffiti": graffitis,
+	    		"street_lights": street_lights,
+	    		"tree_debris": tree_debris
+	    	}
+
+		    $( "#filter" ).change(function() {
+				 	clearMarkers(markers);
+				  plotMarkers(categories[this.value])
+				});
+
+				function clearMarkers(array) {
+				  $.each(array, function(i, obj){
+				  	obj.setMap(null);
+				  })
+					// setAllMap(null);
+				}
 	      var map;
 	      var geocoder;
+	      var markers = [];
+
 	      function initialize() {
           var markers = [];
 	        var mapCanvas = document.getElementById('totally-different-map');
@@ -108,67 +142,82 @@
 	          tilt: 0
 	        }
 		        map = new google.maps.Map(mapCanvas, differentMapOptions);
+	      }
 
-		        $.each(potholes, function(i, obj) {
+	      google.maps.event.addDomListener(window, 'load', initialize);
+
+	      function plotMarkers(array){
+          var category_string = array[0].type_of_service_request;
+          var curmarkers = [];
+          var mcOptions = {
+            gridSize: 50,
+            maxZoom: 15,
+            title: category_string + ' cluster - click to zoom'};
+	       $.each(array, function(i, obj) {
 					  //use obj.id and obj.name here, for example:
 					  	latlng = new google.maps.LatLng(obj.latitude, obj.longitude);
-              var marker = new google.maps.Marker(latlng);
+              var marker = new google.maps.Marker({
+                position: latlng,
+                map: map});
 					  	// console.log(thisLatLng);
-              createMarker(latlng, map)
+              // createMarker(latlng, map)
 					  	markers.push(marker);
-						});
-
-            //var markerCluster = new MarkerClusterer(map, markers);
-	      }
-	      // google.maps.event.addDomListener(window, 'load', initialize);
-        //google.maps.event.addDomListener(window, 'load', tester);
+              curmarkers.push(marker);
+					});
+          var mc = new MarkerClusterer(map, curmarkers, mcOptions);
+	       	}
 
 	      function createMarker(coords, map, title){
-	        new google.maps.Marker({
+	        var marker = new google.maps.Marker({
 	          position: coords,
 	          map: map,
 	          title: title
 	        });
+	        markers.push(marker);
 	      }
-	      // can I plot point from 311
+
+        // $.each(potholes, function(i, obj) {
+        //   latlng = new google.maps.LatLng(obj.latitude, obj.longitude);
+        //   var marker = new google.maps.Marker({
+        //     position: latlng,
+        //     map: map});
+        //   // console.log(thisLatLng);
+        //   markers.push(marker);
+        // });
+        // var mc = new MarkerClusterer(map, markers, mcOptions);
+
         // Peter test stuff after here ->
 
-        $(document).ready(function(){
-          if(document.getElementById('totally-different-map') != null){tester()}
-          function tester(){
-            var infowindow = new google.maps.InfoWindow({
-              content: 'Mouseover nah'
-            });
-            var markers = [];
-            var center = new google.maps.LatLng(41.889797, -87.637756);
-            var options = {
-              'zoom': 13,
-              'center': center,
-              'mapTypeId': google.maps.MapTypeId.ROADMAP
-            };
+        // $(document).ready(function(){
+        //   if(document.getElementById('totally-different-map') != null){tester()}
+        //   function tester(){
+        //     var markers = [];
+        //     var center = new google.maps.LatLng(41.889797, -87.637756);
+        //     var options = {
+        //       'zoom': 13,
+        //       'center': center,
+        //       'mapTypeId': google.maps.MapTypeId.ROADMAP
+        //     };
 
-            var map = new google.maps.Map(document.getElementById("totally-different-map"), options);
+        //     var map = new google.maps.Map(document.getElementById("totally-different-map"), options);
 
-            var mcOptions = {
-              gridSize: 50,
-              maxZoom: 15,
-              title: 'Pothole cluster - click to zoom'};
-            $.each(potholes, function(i, obj) {
-              latlng = new google.maps.LatLng(obj.latitude, obj.longitude);
-              var marker = new google.maps.Marker({
-                position: latlng,
-                map: map});
-              // console.log(thisLatLng);
-              markers.push(marker);
-            });
-            var mc = new MarkerClusterer(map, markers, mcOptions);
-            // google.maps.event.addListener(mc, "mouseover", function (mCluster) {;
-            //   infowindow.setPosition(mCluster.getCenter());
-            //   infowindow.open(map)
-            // })
-          }
-        });
+        //     var mcOptions = {
+        //       gridSize: 50,
+        //       maxZoom: 15,
+        //       title: 'Pothole cluster - click to zoom'};
+        //     $.each(potholes, function(i, obj) {
+        //       latlng = new google.maps.LatLng(obj.latitude, obj.longitude);
+        //       var marker = new google.maps.Marker({
+        //         position: latlng,
+        //         map: map});
+        //       // console.log(thisLatLng);
+        //       markers.push(marker);
+        //     });
+        //     var mc = new MarkerClusterer(map, markers, mcOptions);
+        //   }
+        // });
 
+        // end of Peter test stuff
 
     	</script>
 
