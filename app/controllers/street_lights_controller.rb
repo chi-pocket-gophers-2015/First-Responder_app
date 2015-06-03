@@ -11,6 +11,11 @@ class StreetLightsController < RequestsController
   end
 
   def form
+    if logged_in?
+      @user = User.find_by_id(current_user.id)
+    else
+      @user = User.new
+    end
   end
 
 

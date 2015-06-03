@@ -12,7 +12,6 @@ class PotholesController < ApplicationController
   end
 
   def form
-    session[:user_id] = 1
     if logged_in?
       @user = User.find_by_id(current_user.id)
     else
