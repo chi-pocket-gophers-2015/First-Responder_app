@@ -2,7 +2,7 @@
   <h1>User Profile</h1>
   <p>
     <strong>Name:</strong>
-    <%= current_user.name %>
+    <%= current_user.name ||= current_user.first_name %>
   </p>
   <p>
     <strong>Provider:</strong>
@@ -23,14 +23,14 @@
       <%= image_tag "twitter_64.png", size: "64x64", alt: "Twitter" %>
       Twitter
     </a>
-    <a href="/auth/facebook" class="auth_provider">
+    <!-- <a href="/auth/facebook" class="auth_provider">
       <%= image_tag "facebook_64.png", size: "64x64", alt: "Facebook" %>
       Facebook
     </a>
     <a href="/auth/google_apps" class="auth_provider">
       <%= image_tag "google_apps_64.png", size: "64x64", alt: "Google" %>
       Google
-    </a>
+    </a> -->
   </div>
 
   <p>

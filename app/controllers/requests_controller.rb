@@ -5,7 +5,7 @@ class RequestsController < ApplicationController
   # end
 
   def new
-    session.clear
+    clear_address_sessions
     # binding.pry
     @request = Request.new
   end
