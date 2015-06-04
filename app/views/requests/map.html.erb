@@ -1,12 +1,6 @@
 <html>
   <head>
     <br><br>
-    <style>
-      #totally-different-map {
-        width: 500px;
-        height: 400px;
-      }
-    </style>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
 
     <script>
@@ -97,7 +91,7 @@
 
 			<span>Filter results:</span>
 			<select id="filter" style = "color: black">
-			  <option value="all"  selected >All</option>
+			  <option value="all"  selected >All Categories</option>
 			  <option value="potholes">Potholes</option>
 			  <option value="abandoned_vehicles">Abandoned Vehicles</option>
 			  <option value="rodents">Rodents</option>
@@ -179,10 +173,11 @@
 					  	markers.push(marker);
               curmarkers.push(marker);
               // debugger;
+
               var contentString = '<h4 style = "color: black">' + obj.type_of_service_request + '</h4><p style = "color: black">' + obj.street_address + '</p>';
               
 	            google.maps.event.addListener(marker, 'click', function() {
-	            	
+
 	            	infowindow = new google.maps.InfoWindow({
 				      		content: contentString
 				  			});
@@ -193,23 +188,22 @@
 	            		oldinfowindow = null;
 	   				     }
 	            	else if (oldinfowindow) {
-	            		oldinfowindow.close();		
+	            		oldinfowindow.close();
 	   				     	infowindow.open(map,this);
 	            	}
 	            	else {
 	   				     	infowindow.open(map,this);
 	            	}
    				     	oldinfowindow = infowindow;
-	            	 
-					  	});
 
+					  	});
 					});
-          
+
           var mc = new MarkerClusterer(map, curmarkers, mcOptions);
           mc_array.push(mc);
 	      }
 
-	       
+
 
 
 

@@ -1,4 +1,9 @@
 class StreetLightsController < RequestsController
+
+  def show
+    @requests = Request.where(type_of_service_request: "Street Light Out").paginate(page: params[:page], per_page: 7)
+  end
+
   def new
     @category = 'street_lights'
   end

@@ -1,30 +1,54 @@
-<div class="container-header">
-  <h1>Most recent requests</h1>
-</div>
-<div id="request-list">
-  <div class="table-responsive" id="no-more-tables">
-    <table class="table table-condensed">
-      <thead>
-        <tr>
-          <th>Type of Service Request</th>
-          <th>Street Address</th>
-          <th>Creation Date</th>
-          <th>Status</th>
-  
-        </tr>
-      </thead>
-      <% @requests.each do |request| %>
-        <tr>
-
-          <td><%= link_to(request[:type_of_service_request], request_path(request)) %></td>
-          <td><%= "#{request[:street_address]}" %></td>
-          <!-- Zip is in street address body #, Chicago, IL.  #{request[:zip_code]}" %></td> -->
-          <td><%= request[:creation_date].strftime("%m/%d/%Y") %></td>
-          <td><%= request[:status] %></td>
-        </tr>
-      <% end %>
-    </table>
+<div id="report-new">
+  <div id='new-report-request'>
+    <h1>What would you like to see?</h1>
   </div>
-  <%= will_paginate @requests, class: 'digg_pagination' %>
+
+  <div class="row">
+    <%= form_tag("/potholes", method: 'get') do %>
+      <div class="col-xs-6 request-select">
+        <%= submit_tag("Potholes", class: "btn btn-lg btn-default button-city-problem-category") %>
+      </div>
+    <% end %>
+
+    <%= form_tag("/tree_debris", method: 'get') do %>
+      <%= hidden_field_tag :category, "tree_debris" %>
+      <div class="col-xs-6 request-select">
+        <%= submit_tag("Tree Debris", class: "btn btn-lg btn-default button-city-problem-category") %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <%= form_tag("/street_lights", method: 'get') do %>
+      <%= hidden_field_tag :category, "street_light" %>
+      <div class="col-xs-6 request-select">
+        <%= submit_tag("Street Light Out", class: "btn btn-lg btn-default button-city-problem-category")%>
+      </div>
+    <% end %>
+
+    <%= form_tag("/graffitis", method: 'get') do %>
+      <%= hidden_field_tag :category, "graffitis" %>
+     <div class="col-xs-6 request-select">
+      <%= submit_tag("Graffiti", class: "btn btn-lg btn-default button-city-problem-category")%>
+    </div>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <%= form_tag("/rodents", method: 'get') do %>
+      <%= hidden_field_tag :category, "rodent" %>
+      <div class="col-xs-6 request-select">
+        <%= submit_tag("Rodents", class: "btn btn-lg btn-default button-city-problem-category")%>
+      </div>
+    <% end %>
+
+    <%= form_tag("/abandoned_vehicles", method: 'get') do %>
+      <%= hidden_field_tag :category, "abandoned_vehicle" %>
+      <div class="col-xs-6 request-select">
+        <%= submit_tag("Abandoned Vehicle", class: "btn btn-lg btn-default button-city-problem-category")%>
+      </div>
+    <% end %>
+  </div>
 </div>
+
 
