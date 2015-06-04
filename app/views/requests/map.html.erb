@@ -87,7 +87,7 @@
       <%= javascript_tag "var graffitis = #{@graffitis.to_json}" %>
       <%= javascript_tag "var street_lights = #{@lights.to_json}" %>
       <%= javascript_tag "var tree_debris = #{@trees.to_json}" %>
-
+    <div id="map-options-filter">
 			<span>Filter results:</span>
 			<select id="filter" style = "color: black">
 			  <option value="all"  selected >All Categories</option>
@@ -98,6 +98,7 @@
 			  <option value="street_lights">Street Lights</option>
 			  <option value="tree_debris">Tree Debris</option>
 			</select><br><br>
+    </div>
 
     	<script>
 	    	var categories = {

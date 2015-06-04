@@ -65,6 +65,10 @@ a:hover {
   color: #343838 ;
 }
 
+#new-report-request.less-content {
+  margin-bottom: 30px;
+}
+
 #new-report-header {
   font-weight:bold;
   text-align:center;
@@ -80,6 +84,10 @@ div.request-select input {
   height: 90px;
   margin: 0 auto;
   padding: 0 auto;
+}
+
+#map-options-filter {
+  margin-top:-15%;
 }
 
 #map-canvas, #totally-different-map {
@@ -161,7 +169,6 @@ div.request-select input {
 
 @media only screen and (min-width : 320px) {
   .row {
-  margin-top: 30px;
   margin-bottom: 30px;
   }
   .btn {
@@ -236,6 +243,7 @@ table {
 }
 
 #report-new {
+  margin-top:-10%;
 }
 
 .help-block {
@@ -295,3 +303,4 @@ form {
 .submit-form {
   margin-top: -12%;
 }
+
