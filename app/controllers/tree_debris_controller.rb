@@ -1,6 +1,7 @@
 class TreeDebrisController < ApplicationController
 
   def show
+    @requests = Request.where(type_of_service_request: "Tree Debris").paginate(page: params[:page], per_page: 7)
   end
 
   def new

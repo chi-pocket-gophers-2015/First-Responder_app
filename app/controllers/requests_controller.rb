@@ -6,6 +6,7 @@ class RequestsController < ApplicationController
 
   def new
     session.clear
+    # binding.pry
     @request = Request.new
   end
 
