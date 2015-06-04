@@ -32,6 +32,7 @@ html, .container-fluid {
 
 h1 {
   font-size: 1.8em;
+  color: #343838;
 }
 
 h2 {
@@ -42,6 +43,7 @@ h2 {
   /*background-color: #C7C7C7;*/
   /*background-color: #343838;*/
   background-color: white;
+  color: #FF0000;
 }
 
 a:link, a:visited {
@@ -63,6 +65,10 @@ a:hover {
   color: #343838 ;
 }
 
+#new-report-request.less-content {
+  margin-bottom: 30px;
+}
+
 #new-report-header {
   font-weight:bold;
   text-align:center;
@@ -80,6 +86,10 @@ div.request-select input {
   padding: 0 auto;
 }
 
+#map-options-filter {
+  margin-top:-15%;
+}
+
 #map-canvas, #totally-different-map {
   width: 500px;
   height: 350px;
@@ -92,9 +102,10 @@ div.request-select input {
 }
 
 #map-header-text {
-  margin-top: -10%;
+  margin-top: -13%;
   font-weight: bold;
   margin-bottom:2%;
+  color: #343838;
 }
 
 .centerMarker {
@@ -158,7 +169,6 @@ div.request-select input {
 
 @media only screen and (min-width : 320px) {
   .row {
-  margin-top: 30px;
   margin-bottom: 30px;
   }
   .btn {
@@ -200,7 +210,7 @@ div.request-select input {
 }
 
 .body-container {
-  margin-top: 6em;
+  margin-top: 5.5em;
 }
 
 
@@ -233,6 +243,7 @@ table {
 }
 
 #report-new {
+  margin-top:-10%;
 }
 
 .help-block {
@@ -283,5 +294,13 @@ label {
 
 #btn-all {
   height: 40px;
+}
+
+form {
+  color: #343838;
+}
+
+.submit-form {
+  margin-top: -12%;
 }
 

@@ -12,12 +12,12 @@ class RequestsController < ApplicationController
 
   def map
     @requests = Request.all
-    @vehicles = Request.where(type_of_service_request: "Abandoned Vehicle")
-    @graffitis = Request.where(type_of_service_request: "Graffiti Removal")
-    @potholes = Request.where(type_of_service_request: "Pothole in Street")
-    @rodents = Request.where(type_of_service_request: "Rodent Baiting / Rat Complaint")
-    @lights = Request.where(type_of_service_request: "Street Light Out")
-    @trees = Request.where(type_of_service_request: "Tree Debris")
+    @vehicles = @requests.where(type_of_service_request: "Abandoned Vehicle")
+    @graffitis = @requests.where(type_of_service_request: "Graffiti Removal")
+    @potholes = @requests.where(type_of_service_request: "Pothole in Street")
+    @rodents = @requests.where(type_of_service_request: "Rodent Baiting / Rat Complaint")
+    @lights = @requests.where(type_of_service_request: "Street Light Out")
+    @trees = @requests.where(type_of_service_request: "Tree Debris")
   end
 
   def create
@@ -37,11 +37,18 @@ class RequestsController < ApplicationController
   end
 
   def index
+    @requests = Request.all
+    @vehicles = Request.where(type_of_service_request: "Abandoned Vehicle")
+    @graffitis = Request.where(type_of_service_request: "Graffiti Removal")
+    @potholes = Request.where(type_of_service_request: "Pothole in Street")
+    @rodents = Request.where(type_of_service_request: "Rodent Baiting / Rat Complaint")
+    @lights = Request.where(type_of_service_request: "Street Light Out")
+    @trees = Request.where(type_of_service_request: "Tree Debris")
     # @requests = Request.all.order(creation_date: :desc).paginate(page: params[:page], per_page: 5)
   end
 
   def all
-    @requests = Request.all.paginate(page: params[:page], per_page: 7)
+    @requests = Request.all.paginate(page: params[:page], per_page: 6)
   end
 
   def show
