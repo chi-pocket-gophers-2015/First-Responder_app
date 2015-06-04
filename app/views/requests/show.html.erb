@@ -34,8 +34,10 @@
   <% end %>
 </table>
 
+<br>
 <a href="https://twitter.com/intent/tweet?button_hashtag=IHelpedFixChicago&text=I%20sent%20to%20a%20request%20to%20Chicago%20311!" class="twitter-hashtag-button">Tweet #IHelpedFixChicago</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<br>
 
 <%= image_tag("https://maps.googleapis.com/maps/api/staticmap?center=#{@request.latitude},#{@request.longitude}&zoom=17&size=290x200&maptype=roadmap&markers=icon:http://www.chivingtonchiropractic.com/communities/6/004/012/290/346//images/4602044381_23x27.png%7C#{@request.latitude},#{@request.longitude}
 ", class: 'show-img') %>
