@@ -18,7 +18,7 @@ RSpec.feature "Vehicles", :type => :feature do
 		visit "/abandoned_vehicles/form"
 		fill_in "Description", :with => "It's a big car, I don't know."
 		fill_in "vehicle_license", :with => "totally gross"
-		fill_in "vehicle_days_parked", :with => "1000"
+		fill_in "vehicle_days_parked", :with => "8"
 		select('Unknown', :from => 'vehicle_color')
 		click_button "Submit"
 		expect(page).to have_content 'Abandoned Vehicle'
