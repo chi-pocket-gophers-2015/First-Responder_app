@@ -5,9 +5,20 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 html, .container-fluid {
-  background-color: #343838;
+  /*background-color: #343838;*/
+  background-color: #B3DDF2;
   color: #FAFAFA;
   font-family: 'Arimo', sans-serif;
+
+}
+
+.frontpage {
+  font-size:1.75em;
+  font-family: serif;
+}
+
+.the {
+  font-style: italic
 }
 
 #request-show-map {
@@ -21,6 +32,7 @@ html, .container-fluid {
 
 h1 {
   font-size: 1.8em;
+  color: #343838;
 }
 
 h2 {
@@ -28,15 +40,20 @@ h2 {
 }
 
 .btn, .btn-lg, .btn-default {
-  background-color: #C7C7C7;
+  /*background-color: #C7C7C7;*/
+  /*background-color: #343838;*/
+  background-color: white;
+  color: #FF0000;
 }
 
 a:link, a:visited {
-  color: #00DFFC;
+  /*color: #00DFFC;*/
+  color: #FF0000;
 }
 
 a:hover {
-  color: #FF348E;
+  /*color: #FF348E;*/
+  color: #FF0000;
 }
 
 #locate-message {
@@ -44,7 +61,12 @@ a:hover {
 }
 
 #new-report-request h1 {
-  text-align: center
+  text-align: center;
+  color: #343838 ;
+}
+
+#new-report-request.less-content {
+  margin-bottom: 30px;
 }
 
 #new-report-header {
@@ -64,6 +86,10 @@ div.request-select input {
   padding: 0 auto;
 }
 
+#map-options-filter {
+  margin-top:-15%;
+}
+
 #map-canvas, #totally-different-map {
   width: 500px;
   height: 350px;
@@ -72,27 +98,29 @@ div.request-select input {
   width: 100%;
   margin-top: 5%;
   margin-bottom: 5%;
+  border: 1px solid #343838;
 }
 
 #map-header-text {
-  margin-top: -10%;
+  margin-top: -13%;
   font-weight: bold;
   margin-bottom:2%;
+  color: #343838;
 }
 
 .centerMarker {
     position: absolute;
-    background:url('http://maps.gstatic.com/mapfiles/markers2/marker.png') no-repeat;
-    /*background: url('http://cdn.shopify.com/s/files/1/0332/8305/t/3/assets/chicago-star-full.png?6753181835237615725') no-repeat;
-    background: image-url('chicago_star.png') no-repeat;
-    background-color: yellow;*/
-    top:50%;left:50%;
+    top:53%;left:47.33%;
     z-index:1;
     margin-left: -10px;
     margin-top:-34px;
     height:34px;
     width:20px;
     cursor:pointer;
+    #chicago-star {
+      width: 45px;
+      height: 45px;
+    }
 }
 
 @media (min-width: 768px) {
@@ -141,7 +169,6 @@ div.request-select input {
 
 @media only screen and (min-width : 320px) {
   .row {
-  margin-top: 30px;
   margin-bottom: 30px;
   }
   .btn {
@@ -160,7 +187,7 @@ div.request-select input {
       color: #ffffff;
   }
   .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
-    background: #33a6cc;
+    background: #B3DDF2;
   }
   .btn-primary:active, .btn-primary.active {
       background: #007299;
@@ -216,11 +243,13 @@ table {
 }
 
 #report-new {
+  margin-top:-10%;
 }
 
 .help-block {
   font-family: 'PT Serif', serif;
-  color: #ccc;
+  /*color: #ccc;*/
+  color: #343838;
 }
 
 label {
@@ -231,11 +260,17 @@ label {
   margin-bottom: 1.2em;
 }
 
+.welcome-notice {
+  color: #343838;
+}
+
 .welcome-notice h3 {
   font-size: 1em;
   background-color: #CC0000;
   padding: 0.6em 0;
+  color: white;
 }
+
 
 .show-img {
   display: block;
@@ -250,5 +285,22 @@ label {
     display: block;
     font-family: 'PT Serif', serif;
   }
-
 }
+
+.btn {
+  border-radius: 0;
+  box-shadow: 0 1px 1px 0 #343838;
+}
+
+#btn-all {
+  height: 40px;
+}
+
+form {
+  color: #343838;
+}
+
+.submit-form {
+  margin-top: -12%;
+}
+

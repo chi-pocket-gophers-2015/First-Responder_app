@@ -1,0 +1,10 @@
+<div class="list-view-page">
+  <h1>Most Recent Service Requests</h1>
+
+  <%= render partial: 'partials/list_category', locals: {requests: @requests} %>
+</div>
+
+<div class="map-list-toggle">
+  <div class="btn"><%= link_to("List View", all_requests_path) %></div>
+  <div class="btn"><%= link_to("Map View", map_requests_path) %></div>
+</div>
