@@ -49,6 +49,14 @@
       </div>
     <% end %>
   </div>
+  <div class="row">
+    <%= form_tag("/rodents", method: 'get') do %>
+      <%= hidden_field_tag :category, "rodent" %>
+      <div class="col-xs-12 request-select">
+        <%= submit_tag("All", class: "btn btn-lg btn-default button-city-problem-category btn-all")%>
+      </div>
+    <% end %>
+  </div>
 </div>
 
 
