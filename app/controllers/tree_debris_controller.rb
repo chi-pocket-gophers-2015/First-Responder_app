@@ -5,6 +5,7 @@ class TreeDebrisController < ApplicationController
   end
 
   def map
+    @requests = Request.all.where(type_of_service_request: "Tree Debris")
   end
 
   def new

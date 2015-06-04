@@ -5,6 +5,7 @@ class RodentsController < ApplicationController
   end
 
   def map
+        @requests = Request.all.where(type_of_service_request: "Rodent Baiting / Rat Complaint")
   end
 
   def new
