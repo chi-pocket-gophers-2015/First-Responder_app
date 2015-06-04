@@ -1,42 +1,44 @@
-<h1>Report Abandoned Vehicle</h1>
+<div class="submit-form">
+  <h1>Report Abandoned Vehicle</h1>
 
-<% if @errors && @errors.length > 0 %>
-  <%= render partial: 'errors', locals: {errors: @errors} %>
-<% end %>
-<p class="help-block">Required fields noted with &#42;</p>
+  <% if @errors && @errors.length > 0 %>
+    <%= render partial: 'errors', locals: {errors: @errors} %>
+  <% end %>
+  <p class="help-block">Required fields noted with &#42;</p>
 
-<%= form_tag({controller: 'abandoned_vehicles', action: 'update'}, {:multipart => true}) do %>
-  <input type="hidden" name="_method" value="put">
-  <div class="form-group">
-    <%= label_tag :image %>
-    <%= file_field_tag :image, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= label_tag :description %>&#42;
-    <%= text_area_tag :description, content = nil, class: "form-control", maxlength:
-    "150", required: true %>
-  </div>
-  <div class="form-group">
-    <%= label_tag :vehicle_make_model, "Vehicle make/model *" %>
-    <%= select_tag(:vehicle_make_model, options_for_select(AbandonedVehicle::VEHICLE_MAKE_MODEL_OPTIONS), {class: 'form-control', required: true}) %>
-  </div>
-  <div class="form-group">
-    <%= label_tag :vehicle_color %>&nbsp;&#42;
-    <%= select_tag(:vehicle_color, options_for_select(AbandonedVehicle::VEHICLE_COLOR_OPTIONS), {class: 'form-control', required: true}) %>
-  </div>
-  <div class="form-group">
-    <%= label_tag :vehicle_license, "Vehicle license plate number" %>&nbsp;&#42;
-    <%= text_field_tag :vehicle_license, content = nil, class: "form-control", required: true %>
-  </div>
-  <div class="form-group">
-    <%= label_tag :vehicle_body_style %>&nbsp;&#42;
-    <%= select_tag(:vehicle_body_style, options_for_select(AbandonedVehicle::VEHICLE_BODY_STYLE_OPTIONS), {class: 'form-control', required: true}) %>
-  </div>
-  <div class="form-group">
-    <%= label_tag :vehicle_days_parked, "How many days has the vehicle been parked? *" %>
-    <%= select_tag(:vehicle_days_parked, options_for_select([[nil, nil], ['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5], ['6', 6], ['7', 7], ['8', 8], ['9', 9], ['10', 10], ['11', 12], ['13', 13], ['14', 14]]), {class: 'form-control', required: true}) %>
-  </div>
-    <!-- use different partial for logged in? -->
-  <%= render partial: 'form', locals: {user: @user} %>
-  <%= submit_tag "Submit", class: "btn btn-default" %>
-<% end %>
+  <%= form_tag({controller: 'abandoned_vehicles', action: 'update'}, {:multipart => true}) do %>
+    <input type="hidden" name="_method" value="put">
+    <div class="form-group">
+      <%= label_tag :image %>
+      <%= file_field_tag :image, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= label_tag :description %>&#42;
+      <%= text_area_tag :description, content = nil, class: "form-control", maxlength:
+      "150", required: true %>
+    </div>
+    <div class="form-group">
+      <%= label_tag :vehicle_make_model, "Vehicle make/model *" %>
+      <%= select_tag(:vehicle_make_model, options_for_select(AbandonedVehicle::VEHICLE_MAKE_MODEL_OPTIONS), {class: 'form-control', required: true}) %>
+    </div>
+    <div class="form-group">
+      <%= label_tag :vehicle_color %>&nbsp;&#42;
+      <%= select_tag(:vehicle_color, options_for_select(AbandonedVehicle::VEHICLE_COLOR_OPTIONS), {class: 'form-control', required: true}) %>
+    </div>
+    <div class="form-group">
+      <%= label_tag :vehicle_license, "Vehicle license plate number" %>&nbsp;&#42;
+      <%= text_field_tag :vehicle_license, content = nil, class: "form-control", required: true %>
+    </div>
+    <div class="form-group">
+      <%= label_tag :vehicle_body_style %>&nbsp;&#42;
+      <%= select_tag(:vehicle_body_style, options_for_select(AbandonedVehicle::VEHICLE_BODY_STYLE_OPTIONS), {class: 'form-control', required: true}) %>
+    </div>
+    <div class="form-group">
+      <%= label_tag :vehicle_days_parked, "How many days has the vehicle been parked? *" %>
+      <%= select_tag(:vehicle_days_parked, options_for_select([[nil, nil], ['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5], ['6', 6], ['7', 7], ['8', 8], ['9', 9], ['10', 10], ['11', 12], ['13', 13], ['14', 14]]), {class: 'form-control', required: true}) %>
+    </div>
+      <!-- use different partial for logged in? -->
+    <%= render partial: 'form', locals: {user: @user} %>
+    <%= submit_tag "Submit", class: "btn btn-default" %>
+  <% end %>
+</div>

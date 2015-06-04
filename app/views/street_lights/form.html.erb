@@ -1,26 +1,28 @@
-<h1>Report Street Light Outage</h1>
+<div class="submit-form">
+  <h1>Report Street Light Outage</h1>
 
-<% if @errors && @errors.length > 0 %>
-  <%= render partial: 'errors', locals: {errors: @errors} %>
-<% end %>
-<p class="help-block">Required fields noted with &#42;</p>
+  <% if @errors && @errors.length > 0 %>
+    <%= render partial: 'errors', locals: {errors: @errors} %>
+  <% end %>
+  <p class="help-block">Required fields noted with &#42;</p>
 
-<%= form_tag({controller: 'street_lights', action: 'update'}, {:multipart => true}) do %>
-  <input type="hidden" name="_method" value="put">
-  <div class="form-group">
-    <%= label_tag :image %>
-    <%= file_field_tag :image, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= label_tag :description %>&#42;
-    <%= text_area_tag :description, content = nil, class: "form-control", maxlength:
-    "150", required: true %>
-  </div>
-  <div class="form-group">
-    <%= label_tag :light_status, "Is the light completely out or does it go on and off? *" %>
-    <%= select_tag(:light_status, options_for_select(StreetLight::STREET_LIGHT_OUT_OPTIONS), {class: 'form-control', required: true}) %>
-  </div>
-    <!-- use different partial for logged in? -->
-  <%= render partial: 'form', locals: {user: @user} %>
-  <%= submit_tag "Submit", class: "btn btn-default" %>
-<% end %>
+  <%= form_tag({controller: 'street_lights', action: 'update'}, {:multipart => true}) do %>
+    <input type="hidden" name="_method" value="put">
+    <div class="form-group">
+      <%= label_tag :image %>
+      <%= file_field_tag :image, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= label_tag :description %>&#42;
+      <%= text_area_tag :description, content = nil, class: "form-control", maxlength:
+      "150", required: true %>
+    </div>
+    <div class="form-group">
+      <%= label_tag :light_status, "Is the light completely out or does it go on and off? *" %>
+      <%= select_tag(:light_status, options_for_select(StreetLight::STREET_LIGHT_OUT_OPTIONS), {class: 'form-control', required: true}) %>
+    </div>
+      <!-- use different partial for logged in? -->
+    <%= render partial: 'form', locals: {user: @user} %>
+    <%= submit_tag "Submit", class: "btn btn-default" %>
+  <% end %>
+</div>
