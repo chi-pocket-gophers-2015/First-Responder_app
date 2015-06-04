@@ -1,3 +1,5 @@
-<h1>Recent Graffiti Removal Requests</h1>
+<%= javascript_tag "var requests = #{@requests.to_json}" %>
 
+<h1>Recent Graffiti Removal Requests</h1>
+<div id="totally-different-map"></div>
 <%= render partial: 'partials/map_list_toggle'%>

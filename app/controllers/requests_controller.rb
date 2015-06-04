@@ -1,9 +1,5 @@
 class RequestsController < ApplicationController
 
-  # def index
-  #   @requests = Request.paginate(:page => params[:page], :per_page => 30)
-  # end
-
   def new
     clear_address_sessions
     # binding.pry
