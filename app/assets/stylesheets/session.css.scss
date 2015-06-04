@@ -83,6 +83,9 @@ div.request-select input {
 .centerMarker {
     position: absolute;
     background:url('http://maps.gstatic.com/mapfiles/markers2/marker.png') no-repeat;
+    /*background: url('http://cdn.shopify.com/s/files/1/0332/8305/t/3/assets/chicago-star-full.png?6753181835237615725') no-repeat;
+    background: image-url('chicago_star.png') no-repeat;
+    background-color: yellow;*/
     top:50%;left:50%;
     z-index:1;
     margin-left: -10px;
