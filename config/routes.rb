@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resource :requests, only: [:new, :create, :update] do
     get '/create', to: 'requests#create'
     get '/map', to: 'requests#map'
+    get '/all', to: 'requests#all'
   end
 
   resources :requests, only: [:show, :index]

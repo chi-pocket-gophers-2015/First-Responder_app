@@ -37,7 +37,11 @@ class RequestsController < ApplicationController
   end
 
   def index
-    @requests = Request.all.order(creation_date: :desc).paginate(page: params[:page], per_page: 5)
+    # @requests = Request.all.order(creation_date: :desc).paginate(page: params[:page], per_page: 5)
+  end
+
+  def all
+    @requests = Request.all
   end
 
   def show
