@@ -41,7 +41,7 @@ class RequestsController < ApplicationController
   end
 
   def all
-    @requests = Request.all
+    @requests = Request.all.paginate(page: params[:page], per_page: 7)
   end
 
   def show
