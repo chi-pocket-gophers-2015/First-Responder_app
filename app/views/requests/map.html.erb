@@ -1,135 +1,25 @@
-<html>
-  <head>
-    <%= javascript_tag "var requests = #{@requests.to_json}" %>
-    <%= javascript_tag "var potholes = #{@potholes.to_json}" %>
-    <%= javascript_tag "var vehicles = #{@vehicles.to_json}" %>
-    <%= javascript_tag "var rodents = #{@rodents.to_json}" %>
-    <%= javascript_tag "var graffitis = #{@graffitis.to_json}" %>
-    <%= javascript_tag "var street_lights = #{@lights.to_json}" %>
-    <%= javascript_tag "var tree_debris = #{@trees.to_json}" %>
-
-    <script>
-      var categories = {
-        "all": requests,
-        "potholes": potholes,
-        "abandoned_vehicles": vehicles,
-        "rodents": rodents,
-        "graffiti": graffitis,
-        "street_lights": street_lights,
-        "tree_debris": tree_debris
-      }
-      var info;
-      var map;
-      var geocoder;
-      var markers = [];
-      var mc_array = [];
-      var category;
-      $( "#filter" ).change(function() {
-        clearMarkers();
-        clearClusters();
-        category = this.value;
-        plotMarkers(categories[this.value]);
-      });
-      function clearMarkers() {
-        $.each(markers, function(i, obj){
-          obj.setMap(null);
-          obj=null;
-        })
-      }
-      function clearClusters() {
-        $.each(mc_array, function(i, mc) {
-          mc.setMap(null);
-          mc=null;
-        })
-      }
-      function initialize() {
-        var mapCanvas = document.getElementById('totally-different-map');
-        var differentMapOptions = {
-          center: new google.maps.LatLng(41.889797, -87.637756),
-          zoom: 14,
-          mapTypeId: google.maps.MapTypeId.ROADMAP,
-          tilt: 0
-        }
-          map = new google.maps.Map(mapCanvas, differentMapOptions);
-          category = "Request";
-          plotMarkers(requests);
-      }
-      // google.maps.event.addDomListener(window, 'load', initialize);
-      function plotMarkers(array){
-        // debugger;
-        var curmarkers = [];
-        var infowindow = null;
-        var oldinfowindow = null;
-        var mcOptions = {
-          gridSize: 50,
-          maxZoom: 15,
-          title: category + ' cluster - click to zoom'};
-        $.each(array, function(i, obj) {
-          //use obj.id and obj.name here, for example:
-            latlng = new google.maps.LatLng(obj.latitude, obj.longitude);
-            var marker = new google.maps.Marker({
-              position: latlng,
-              map: map
-            });
-            markers.push(marker);
-            curmarkers.push(marker);
-
-            var contentString = '<h4 style = "color: black">' + obj.type_of_service_request + '</h4><p style = "color: black">' + obj.street_address + '</>';
-            google.maps.event.addListener(marker, 'click', function() {
-              infowindow = new google.maps.InfoWindow({
-                content: contentString
-              });
-              if (oldinfowindow != null && oldinfowindow.content == infowindow.content){
-                oldinfowindow.close();
-                infowindow = null;
-                oldinfowindow = null;
-               }
-              else if (oldinfowindow) {
-                oldinfowindow.close();
-                infowindow.open(map,this);
-              }
-              else {
-                infowindow.open(map,this);
-              }
-              oldinfowindow = infowindow;
-            });
-        });
-        var mc = new MarkerClusterer(map, curmarkers, mcOptions);
-        mc_array.push(mc);
-      }
-
-      $(document).ready(function(){
-        if(document.getElementById('totally-different-map') != null){
-          initialize()
-          $( "#filter" ).change(function() {
-            clearMarkers();
-            clearClusters();
-            category = this.value;
-            plotMarkers(categories[this.value]);
-          });
-        }
-      });
-    </script>
-  </head>
-  <body>
-    <h1>Map View</h1>
-    <div>
-      <span>Filter results:</span>
-      <select id="filter" style = "color: black">
-        <option value="all"  selected >All Categories</option>
-        <option value="potholes">Potholes</option>
-        <option value="abandoned_vehicles">Abandoned Vehicles</option>
-        <option value="rodents">Rodents</option>
-        <option value="graffiti">Graffiti</option>
-        <option value="street_lights">Street Lights</option>
-        <option value="tree_debris">Tree Debris</option>
-      </select>
-    </div>
-    <div id="totally-different-map"></div>
-    <div class="map-list-toggle">
-      <div class="btn"><%= link_to("List View", all_requests_path) %></div>
-      <div class="btn"><%= link_to("Map View", map_requests_path) %></div>
-    </div>
-
-  </body>
-</html>
+<%= javascript_tag "var requests = #{@requests.to_json}" %>
+<%= javascript_tag "var potholes = #{@potholes.to_json}" %>
+<%= javascript_tag "var vehicles = #{@vehicles.to_json}" %>
+<%= javascript_tag "var rodents = #{@rodents.to_json}" %>
+<%= javascript_tag "var graffitis = #{@graffitis.to_json}" %>
+<%= javascript_tag "var street_lights = #{@lights.to_json}" %>
+<%= javascript_tag "var tree_debris = #{@trees.to_json}" %>
+<h1>Map View</h1>
+<div>
+  <span>Filter results:</span>
+  <select id="filter" style = "color: black">
+    <option value="all"  selected >All Categories</option>
+    <option value="potholes">Potholes</option>
+    <option value="abandoned_vehicles">Abandoned Vehicles</option>
+    <option value="rodents">Rodents</option>
+    <option value="graffiti">Graffiti</option>
+    <option value="street_lights">Street Lights</option>
+    <option value="tree_debris">Tree Debris</option>
+  </select>
+</div>
+<div id="totally-different-map"></div>
+<div class="map-list-toggle">
+  <div class="btn"><%= link_to("List View", all_requests_path) %></div>
+  <div class="btn"><%= link_to("Map View", map_requests_path) %></div>
+</div>
