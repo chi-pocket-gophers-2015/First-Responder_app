@@ -57,6 +57,7 @@ function initialize() {
   // added the above for geo-location
 
   $('<div/>').addClass('centerMarker').appendTo(map.getDiv());
+  $('.centerMarker').html('<img id="chicago-star" src="/images/2.png" />')
 }
 
 function handleNoGeolocation(errorFlag) {
