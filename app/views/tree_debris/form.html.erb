@@ -17,11 +17,11 @@
     "150", required: true %>
   </div>
   <div class="form-group">
-    <%= label_tag :debris_size, "Is the debris larger than a city garbage can?" %>&#42;
+    <%= label_tag :debris_size, "Is the debris larger than a city garbage can? *"%>
     <%= select_tag(:debris_size, options_for_select(TreeDebris::TREE_DEBRIS_SIZE_OPTIONS), {class: 'form-control', required: true}) %>
   </div>
   <div class="form-group">
-    <%= label_tag :debris_location, "Where is the debris located?" %>&#42;
+    <%= label_tag :debris_location, "Where is the debris located? *" %>
     <%= select_tag(:debris_location, options_for_select(TreeDebris::TREE_DEBRIS_LOCATION_OPTIONS), {class: 'form-control', required: true}) %>
   </div>
     <!-- use different partial for logged in? -->

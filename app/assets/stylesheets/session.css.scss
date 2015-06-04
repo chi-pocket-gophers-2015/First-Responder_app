@@ -32,6 +32,7 @@ html, .container-fluid {
 
 h1 {
   font-size: 1.8em;
+  color: #343838;
 }
 
 h2 {
@@ -42,6 +43,7 @@ h2 {
   /*background-color: #C7C7C7;*/
   /*background-color: #343838;*/
   background-color: white;
+  color: #FF0000;
 }
 
 a:link, a:visited {
@@ -95,6 +97,7 @@ div.request-select input {
   margin-top: -10%;
   font-weight: bold;
   margin-bottom:2%;
+  color: #343838;
 }
 
 .centerMarker {
@@ -285,3 +288,6 @@ label {
   height: 40px;
 }
 
+form {
+  color: #343838;
+}

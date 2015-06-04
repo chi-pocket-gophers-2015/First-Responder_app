@@ -17,23 +17,23 @@
     "150", required: true %>
   </div>
   <div class="form-group">
-    <%= label_tag :vehicle_make_model, "Vehicle make/model" %>&#42;
+    <%= label_tag :vehicle_make_model, "Vehicle make/model *" %>
     <%= select_tag(:vehicle_make_model, options_for_select(AbandonedVehicle::VEHICLE_MAKE_MODEL_OPTIONS), {class: 'form-control', required: true}) %>
   </div>
   <div class="form-group">
-    <%= label_tag :vehicle_color %>&#42;
+    <%= label_tag :vehicle_color %>&nbsp;&#42;
     <%= select_tag(:vehicle_color, options_for_select(AbandonedVehicle::VEHICLE_COLOR_OPTIONS), {class: 'form-control', required: true}) %>
   </div>
   <div class="form-group">
-    <%= label_tag :vehicle_license, "Vehicle license plate number" %>&#42;
+    <%= label_tag :vehicle_license, "Vehicle license plate number" %>&nbsp;&#42;
     <%= text_field_tag :vehicle_license, content = nil, class: "form-control", required: true %>
   </div>
   <div class="form-group">
-    <%= label_tag :vehicle_body_style %>&#42;
+    <%= label_tag :vehicle_body_style %>&nbsp;&#42;
     <%= select_tag(:vehicle_body_style, options_for_select(AbandonedVehicle::VEHICLE_BODY_STYLE_OPTIONS), {class: 'form-control', required: true}) %>
   </div>
   <div class="form-group">
-    <%= label_tag :vehicle_days_parked, "How many days has the vehicle been parked?" %>&#42;
+    <%= label_tag :vehicle_days_parked, "How many days has the vehicle been parked? *" %>
     <%= select_tag(:vehicle_days_parked, options_for_select([[nil, nil], ['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5], ['6', 6], ['7', 7], ['8', 8], ['9', 9], ['10', 10], ['11', 12], ['13', 13], ['14', 14]]), {class: 'form-control', required: true}) %>
   </div>
     <!-- use different partial for logged in? -->

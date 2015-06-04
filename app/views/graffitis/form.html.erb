@@ -21,11 +21,11 @@
     <%= select_tag(:where_located, options_for_select(Graffiti::GRAFFITI_LOCATION_OPTIONS), {class: 'form-control', required: true}) %>
   </div>
   <div class="form-group">
-    <%= label_tag :surface_type, "What type of surface is it the graffiti on?" %>&#42;
+    <%= label_tag :surface_type, "What type of surface is it the graffiti on? *" %>
     <%= select_tag(:surface_type, options_for_select(Graffiti::GRAFFITI_SURFACE_OPTIONS), {class: 'form-control', required: true}) %>
   </div>
   <div class="form-group">
-    <%= label_tag :height, "Is the graffiti located over 6 feet from the ground?" %>&#42;
+    <%= label_tag :height, "Is the graffiti located over 6 feet from the ground? *" %>
     <%= select_tag(:height, options_for_select(Graffiti::GRAFFITI_HEIGHT_OPTIONS), {class: 'form-control', required: true}) %>
   </div>
     <!-- use different partial for logged in? -->
