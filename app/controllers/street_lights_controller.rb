@@ -5,6 +5,7 @@ class StreetLightsController < RequestsController
   end
 
   def map
+    @requests = Request.all.where(type_of_service_request: "Street Light Out")
   end
 
   def new

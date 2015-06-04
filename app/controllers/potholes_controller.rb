@@ -5,6 +5,7 @@ class PotholesController < ApplicationController
   end
 
   def map
+    @requests = Request.all.where(type_of_service_request: "Pothole in Street")
   end
 
   def new
