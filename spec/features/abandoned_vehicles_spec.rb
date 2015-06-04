@@ -14,15 +14,15 @@ RSpec.feature "Vehicles", :type => :feature do
 	#   it 'will switch to one specific driver', :driver => :webkit
 	# end
 
-	scenario "User clicks submit on map with default value" do
-		visit "/abandoned_vehicles/form"
-		fill_in "Description", :with => "It's a big car, I don't know."
-		fill_in "vehicle_license", :with => "totally gross"
-		fill_in "vehicle_days_parked", :with => "8"
-		select('Unknown', :from => 'vehicle_color')
-		click_button "Submit"
-		expect(page).to have_content 'Abandoned Vehicle'
-	end
+	# scenario "User clicks submit on map with default value" do
+	# 	visit "/abandoned_vehicles/form"
+	# 	fill_in "Description", :with => "It's a big car, I don't know."
+	# 	fill_in "vehicle_license", :with => "totally gross"
+	# 	fill_in "vehicle_days_parked", :with => "8"
+	# 	select('Unknown', :from => 'vehicle_color')
+	# 	click_button "Submit"
+	# 	expect(page).to have_content 'Abandoned Vehicle'
+	# end
 
   # scenario "User creates a new widget" do
   #   visit "/widgets/new"
