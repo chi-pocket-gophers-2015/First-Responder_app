@@ -34,7 +34,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy, :failure]
   resources :identities
 
-  get "/auth/:provider/callback", to: "sessions#create"
+  post "/auth/:provider/callback", to: "sessions#create"
   get "/auth/failure", to: "sessions#failure"
   get "/logout", to: "sessions#destroy", :as => "logout"
 

@@ -11,7 +11,10 @@ class User < ActiveRecord::Base
       create! do |user|
         user.provider = auth["provider"]
         user.uid = auth["uid"]
-        user.name = auth["info"]["name"]
+        user.first_name = auth["info"]["name"].split(' ')[0]
+        if auth["info"]["name"].split(' ').length > 1
+          user.last_name = auth["info"]["name"].split(' ')[-1]
+        end
     end
   end
 
