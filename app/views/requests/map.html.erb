@@ -285,6 +285,10 @@
   </head>
   <body>
     <div id="totally-different-map"></div>
+    <div class="map-list-toggle">
+      <div class="btn"><%= link_to("List View", all_requests_path) %></div>
+      <div class="btn"><%= link_to("Map View", action: "map") %></div>
+    </div>
   </body>
 </html>
 
