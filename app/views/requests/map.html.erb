@@ -5,21 +5,23 @@
 <%= javascript_tag "var graffitis = #{@graffitis.to_json}" %>
 <%= javascript_tag "var street_lights = #{@lights.to_json}" %>
 <%= javascript_tag "var tree_debris = #{@trees.to_json}" %>
-<h1>Map View</h1>
-<div>
-  <span>Filter results:</span>
-  <select id="filter" style = "color: black">
-    <option value="all"  selected >All Categories</option>
-    <option value="potholes">Potholes</option>
-    <option value="abandoned_vehicles">Abandoned Vehicles</option>
-    <option value="rodents">Rodents</option>
-    <option value="graffiti">Graffiti</option>
-    <option value="street_lights">Street Lights</option>
-    <option value="tree_debris">Tree Debris</option>
-  </select>
-</div>
-<div id="totally-different-map"></div>
-<div class="map-list-toggle">
-  <div class="btn"><%= link_to("List View", all_requests_path) %></div>
-  <div class="btn"><%= link_to("Map View", map_requests_path) %></div>
+<div class="map-view-page">
+  <h1>Map View</h1>
+  <div>
+    <span>Filter results:</span>
+    <select id="filter" style = "color: black">
+      <option value="all"  selected >All Categories</option>
+      <option value="potholes">Potholes</option>
+      <option value="abandoned_vehicles">Abandoned Vehicles</option>
+      <option value="rodents">Rodents</option>
+      <option value="graffiti">Graffiti</option>
+      <option value="street_lights">Street Lights</option>
+      <option value="tree_debris">Tree Debris</option>
+    </select>
+  </div>
+  <div id="totally-different-map"></div>
+  <div class="map-list-toggle">
+    <div class="btn"><%= link_to("List View", all_requests_path) %></div>
+    <div class="btn"><%= link_to("Map View", map_requests_path) %></div>
+  </div>
 </div>
