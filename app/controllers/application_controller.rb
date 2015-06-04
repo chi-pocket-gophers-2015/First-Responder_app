@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def method_name
+
+  end
+
   def image_url(record)
     record.image_file_name != nil ? record.image.url : nil
   end

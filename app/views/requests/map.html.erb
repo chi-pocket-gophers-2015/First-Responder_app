@@ -1,91 +1,9 @@
 <html>
   <head>
     <br><br>
-    <style>
-      #totally-different-map {
-        width: 500px;
-        height: 400px;
-      }
-    </style>
-    <script src="https://maps.googleapis.com/maps/api/js"></script>
 
     <script>
-    //   var map;
-    //   var geocoder;
-    //   // function initialize() {
-    //   //   var mapCanvas = document.getElementById('totally-different-map');
-    //   //   var differentMapOptions = {
-    //   //     center: new google.maps.LatLng(41.889797, -87.637756),
-    //   //     zoom: 18,
-    //   //     mapTypeId: google.maps.MapTypeId.ROADMAP,
-    //   //     tilt: 0
-    //   //   }
 
-    //   //   // var myLatLng = new google.maps.LatLng(latitude, longitude);
-    //   //   map = new google.maps.Map(mapCanvas, differentMapOptions);
-    //   //   // createMarker(myLatLng,map,'Thing');
-    //   // }
-    //   // google.maps.event.addDomListener(window, 'load', initialize);
-
-
-    //   // var marker;
-    //   // function createMarker(coords, map, title){
-    //   //   marker = new google.maps.Marker({
-    //   //     position: coords,
-    //   //     map: map,
-    //   //     title: title
-    //   //   });
-    //   // }
-
-    //   $(document).ready(function(){
-    //     var defaultLatLng = new google.maps.LatLng(41.89239617653017, -87.63646503505709);
-    //     if (navigator.geolocation) {
-    //       function success(pos) {
-    //           // Location found, show map with these coordinates
-    //           drawMap(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-    //       }
-    //       function fail(error) {
-    //           drawMap(defaultLatLng); // Failed to find location, show default map
-    //       }
-    //       // Find the users current position.  Cache the location for 5 minutes, timeout after 6 seconds
-    //       navigator.geolocation.getCurrentPosition(success, fail, {
-    //           maximumAge: 500000,
-    //           enableHighAccuracy: true,
-    //           timeout: 6000
-    //       });
-    //     } else {
-    //         drawMap(defaultLatLng); // No geolocation support, show default map
-    //     }
-
-    //     function drawMap(latlng) {
-    //       var myOptions = {
-    //           zoom: 18,
-    //           center: latlng,
-    //           mapTypeId: google.maps.MapTypeId.ROADMAP
-    //       };
-    //       map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
-    //       // place the infowindow.  Invisible, without content.
-    //       var infowindow = new google.maps.InfoWindow({
-    //           content: '',
-    //       });
-    //       $.each(potholes, function (i, pothole) {
-    //         debugger;
-    //         var marker = new google.maps.Marker({
-    //             position: new google.maps.LatLng(pothole.latitude, pothole.longitude),
-    //             map: map
-    //         });
-    //         // when the client clicks on a marker we set the content and bind the position to the marker
-    //         google.maps.event.addListener(marker, 'click', function() {
-    //           infowindow.setContent(pothole.address);
-    //           infowindow.setPosition(this.getPosition())
-    //           infowindow.setMap(map);
-    //         });
-    //       });
-    //     }
-
-
-    //   });
-    //
     </script>
       <%= javascript_tag "var requests = #{@requests.to_json}" %>
       <%= javascript_tag "var potholes = #{@potholes.to_json}" %>
@@ -97,7 +15,7 @@
 
 			<span>Filter results:</span>
 			<select id="filter" style = "color: black">
-			  <option value="all"  selected >All</option>
+			  <option value="all"  selected >All Categories</option>
 			  <option value="potholes">Potholes</option>
 			  <option value="abandoned_vehicles">Abandoned Vehicles</option>
 			  <option value="rodents">Rodents</option>
@@ -117,30 +35,36 @@
 	    		"tree_debris": tree_debris
 	    	}
 
+	    	var info;
+        var map;
+        var geocoder;
+        var markers = [];
+        var mc_array = [];
+        var category;
+
 		    $( "#filter" ).change(function() {
-				 	clearMarkers(markers);
+				 	clearMarkers();
           clearClusters();
-				  plotMarkers(categories[this.value])
+          category = this.value;
+				  plotMarkers(categories[this.value]);
 				});
 
-				function clearMarkers(array) {
-				  $.each(array, function(i, obj){
+				function clearMarkers() {
+				  $.each(markers, function(i, obj){
 				  	obj.setMap(null);
+            obj=null;
 				  })
 				}
 
         function clearClusters() {
           $.each(mc_array, function(i, mc) {
             mc.setMap(null);
+            mc=null;
           })
         }
-	      var map;
-	      var geocoder;
-	      var markers = [];
-        var mc_array = [];
 
 	      function initialize() {
-          var markers = [];
+
 	        var mapCanvas = document.getElementById('totally-different-map');
 	        var differentMapOptions = {
 	          center: new google.maps.LatLng(41.889797, -87.637756),
@@ -149,89 +73,87 @@
 	          tilt: 0
 	        }
 		        map = new google.maps.Map(mapCanvas, differentMapOptions);
+            category = "Request";
+            plotMarkers(requests);
 	      }
 
-	      google.maps.event.addDomListener(window, 'load', initialize);
+	      // google.maps.event.addDomListener(window, 'load', initialize);
 
 	      function plotMarkers(array){
-          var category_string = array[0].type_of_service_request;
+          // debugger;
           var curmarkers = [];
+          var infowindow = null;
+          var oldinfowindow = null;
           var mcOptions = {
             gridSize: 50,
             maxZoom: 15,
-            title: category_string + ' cluster - click to zoom'};
-	       $.each(array, function(i, obj) {
+            title: category + ' cluster - click to zoom'};
+	        $.each(array, function(i, obj) {
 					  //use obj.id and obj.name here, for example:
 					  	latlng = new google.maps.LatLng(obj.latitude, obj.longitude);
               var marker = new google.maps.Marker({
                 position: latlng,
-                map: map});
-					  	// console.log(thisLatLng);
-              // createMarker(latlng, map)
+                map: map
+              });
 					  	markers.push(marker);
               curmarkers.push(marker);
+             
+             // debugger;
+
+              var contentString = 
+              '<a href="/requests/' + obj.id + '">' + obj.type_of_service_request + 
+              '</a></h4><p style = "color: black">' + obj.street_address + '</p>';
+              
+	            google.maps.event.addListener(marker, 'click', function() {
+
+	            	infowindow = new google.maps.InfoWindow({
+				      		content: contentString
+				  			});
+
+	            	if (oldinfowindow != null && oldinfowindow.content == infowindow.content){
+	            		oldinfowindow.close();
+	            		infowindow = null;
+	            		oldinfowindow = null;
+	   				     }
+	            	else if (oldinfowindow) {
+	            		oldinfowindow.close();
+	   				     	infowindow.open(map,this);
+	            	}
+	            	else {
+	   				     	infowindow.open(map,this);
+	            	}
+   				     	oldinfowindow = infowindow;
+
+					  	});
 					});
+
           var mc = new MarkerClusterer(map, curmarkers, mcOptions);
           mc_array.push(mc);
-	       	}
-
-	      function createMarker(coords, map, title){
-	        var marker = new google.maps.Marker({
-	          position: coords,
-	          map: map,
-	          title: title
-	        });
-	        markers.push(marker);
 	      }
 
-        // $.each(potholes, function(i, obj) {
-        //   latlng = new google.maps.LatLng(obj.latitude, obj.longitude);
-        //   var marker = new google.maps.Marker({
-        //     position: latlng,
-        //     map: map});
-        //   // console.log(thisLatLng);
-        //   markers.push(marker);
-        // });
-        // var mc = new MarkerClusterer(map, markers, mcOptions);
+        $(document).ready(function(){
+          if(document.getElementById('totally-different-map') != null){
+            initialize()
+            $( "#filter" ).change(function() {
+              clearMarkers();
+              clearClusters();
+              category = this.value;
+              plotMarkers(categories[this.value]);
+            });
+          }
+        })
 
-        // Peter test stuff after here ->
 
-        // $(document).ready(function(){
-        //   if(document.getElementById('totally-different-map') != null){tester()}
-        //   function tester(){
-        //     var markers = [];
-        //     var center = new google.maps.LatLng(41.889797, -87.637756);
-        //     var options = {
-        //       'zoom': 13,
-        //       'center': center,
-        //       'mapTypeId': google.maps.MapTypeId.ROADMAP
-        //     };
-
-        //     var map = new google.maps.Map(document.getElementById("totally-different-map"), options);
-
-        //     var mcOptions = {
-        //       gridSize: 50,
-        //       maxZoom: 15,
-        //       title: 'Pothole cluster - click to zoom'};
-        //     $.each(potholes, function(i, obj) {
-        //       latlng = new google.maps.LatLng(obj.latitude, obj.longitude);
-        //       var marker = new google.maps.Marker({
-        //         position: latlng,
-        //         map: map});
-        //       // console.log(thisLatLng);
-        //       markers.push(marker);
-        //     });
-        //     var mc = new MarkerClusterer(map, markers, mcOptions);
-        //   }
-        // });
-
-        // end of Peter test stuff
 
     	</script>
 
   </head>
   <body>
     <div id="totally-different-map"></div>
+    <div class="map-list-toggle">
+      <div class="btn"><%= link_to("List View", all_requests_path) %></div>
+      <div class="btn"><%= link_to("Map View", map_requests_path) %></div>
+    </div>
   </body>
 </html>
 

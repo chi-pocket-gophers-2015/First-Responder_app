@@ -19,17 +19,17 @@
   <div class="contact-info">
         <!-- <button>Enter your Contact Info</button> -->
     <div class="form-group">
-      <%= text_field_tag(:first_name, nil, class: "form-control", value: user.first_name, placeholder: "First Name") %>
+      <%= text_field_tag(:first_name, nil, class: "form-control", value: user.first_name, maxlength: "50", placeholder: "First Name") %>
     </div>
     <div class="form-group">
-      <%= text_field_tag(:last_name, nil, class: "form-control", value: user.last_name, placeholder: "Last Name") %>
+      <%= text_field_tag(:last_name, nil, class: "form-control", value: user.last_name, maxlength: "50", placeholder: "Last Name") %>
     </div>
     <div class="form-group">
-      <%= telephone_field_tag(:phone, nil, class: "form-control", value: user.phone, placeholder: "Phone") %>
+      <%= telephone_field_tag(:phone, nil, class: "form-control", value: user.phone, maxlength: "50", placeholder: "Phone") %>
     </div>
     <div class="form-group">
       <p class="help-block">Enter an email to track your request</p>
-      <%= email_field_tag(:email, nil, class: "form-control", value: user.email, placeholder: "Email") %>
+      <%= email_field_tag(:email, nil, class: "form-control", value: user.email, maxlength: "50", placeholder: "Email") %>
     </div>
   </div>
 </div>

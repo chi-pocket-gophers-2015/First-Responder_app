@@ -5,10 +5,26 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 html, .container-fluid {
-  background-color: #343838;
+  /*background-color: #343838;*/
+  background-color: #B3DDF2;
   color: #FAFAFA;
   font-family: 'Arimo', sans-serif;
+
 }
+
+.frontpage {
+  font-size:1.75em;
+  font-family: serif;
+}
+
+.the {
+  font-style: italic
+}
+
+#request-show-map {
+    width: 100%;
+    height: 200px;
+    }
 
 * {
   font-size: 15px;
@@ -19,23 +35,32 @@ h1 {
 }
 
 h2 {
-  font-size: 1.3em;
+  font-size: 1.2em;
 }
 
 .btn, .btn-lg, .btn-default {
-  background-color: #C7C7C7;
+  /*background-color: #C7C7C7;*/
+  /*background-color: #343838;*/
+  background-color: white;
 }
 
 a:link, a:visited {
-  color: #00DFFC;
+  /*color: #00DFFC;*/
+  color: #FF0000;
 }
 
 a:hover {
-  color: #FF348E;
+  /*color: #FF348E;*/
+  color: #FF0000;
+}
+
+#locate-message {
+  color:black;
 }
 
 #new-report-request h1 {
-  text-align: center
+  text-align: center;
+  color: #343838 ;
 }
 
 #new-report-header {
@@ -55,7 +80,7 @@ div.request-select input {
   padding: 0 auto;
 }
 
-#map-canvas {
+#map-canvas, #totally-different-map {
   width: 500px;
   height: 350px;
   background-color: #CCC;
@@ -63,6 +88,7 @@ div.request-select input {
   width: 100%;
   margin-top: 5%;
   margin-bottom: 5%;
+  border: 1px solid #343838;
 }
 
 #map-header-text {
@@ -73,14 +99,17 @@ div.request-select input {
 
 .centerMarker {
     position: absolute;
-    background:url('http://maps.gstatic.com/mapfiles/markers2/marker.png') no-repeat;
-    top:50%;left:50%;
+    top:53%;left:47.33%;
     z-index:1;
     margin-left: -10px;
     margin-top:-34px;
     height:34px;
     width:20px;
     cursor:pointer;
+    #chicago-star {
+      width: 45px;
+      height: 45px;
+    }
 }
 
 @media (min-width: 768px) {
@@ -94,7 +123,7 @@ div.request-select input {
     font-size: 1.5em;
   }
 
-  #map-canvas {
+  #map-canvas, #totally-different-map {
     height: 700px;
     margin-top: 0;
     margin-bottom: 3%;
@@ -118,11 +147,12 @@ div.request-select input {
     left: -9999px;
   }
   #no-more-tables tr:nth-child(odd) {
-    background-color: white;
+    background-color: #EEEEEE;
     color: #423F3F;
   }
   #no-more-tables tr td:nth-child(1) {
     font-weight: bold;
+    font-size: 1.2em;
   }
 }
 
@@ -147,7 +177,7 @@ div.request-select input {
       color: #ffffff;
   }
   .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
-    background: #33a6cc;
+    background: #B3DDF2;
   }
   .btn-primary:active, .btn-primary.active {
       background: #007299;
@@ -203,13 +233,55 @@ table {
 }
 
 #report-new {
-
 }
 
 .help-block {
   font-family: 'PT Serif', serif;
+  /*color: #ccc;*/
+  color: #343838;
 }
 
 label {
   font-weight: normal;
 }
+
+.index-buttons {
+  margin-bottom: 1.2em;
+}
+
+.welcome-notice {
+  color: #343838;
+}
+
+.welcome-notice h3 {
+  font-size: 1em;
+  background-color: #CC0000;
+  padding: 0.6em 0;
+  color: white;
+}
+
+
+.show-img {
+  display: block;
+  margin: 0 auto;
+}
+
+.show-requests {
+  a {
+    font-size: 1.2em;
+  }
+  span {
+    display: block;
+    font-family: 'PT Serif', serif;
+  }
+}
+
+.btn {
+  border-radius: 0;
+  box-shadow: 0 1px 1px 0 #343838;
+}
+
+#btn-all {
+  height: 40px;
+}
+

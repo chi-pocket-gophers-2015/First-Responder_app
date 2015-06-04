@@ -43,7 +43,7 @@ function initialize() {
       var infowindow = new google.maps.InfoWindow({
         map: map,
         position: pos,
-        content: 'Location found using HTML5.'
+        content: '<p id="locate-message">Location found using HTML5.</p>'
       });
 
       map.setCenter(pos);
@@ -57,6 +57,7 @@ function initialize() {
   // added the above for geo-location
 
   $('<div/>').addClass('centerMarker').appendTo(map.getDiv());
+  $('.centerMarker').html('<img id="chicago-star" src="/images/2.png" />')
 }
 
 function handleNoGeolocation(errorFlag) {
@@ -78,7 +79,7 @@ function handleNoGeolocation(errorFlag) {
 $(document).ready(function(){
   if(document.getElementById("big-map-div") != null) {
     initialize();
-    $(document).on('submit',$('#map-submit-button'),function(event){
+    $(document).on('click','#map-submit-button',function(event){
       event.preventDefault();
       center = map.getCenter();
       codeLatLng(center);
