@@ -81,7 +81,7 @@ a:hover {
 
 div.request-select input {
   width:100%;
-  height: 90px;
+  height: 75px;
   margin: 0 auto;
   padding: 0 auto;
 }
@@ -172,8 +172,7 @@ table {
 }
 
 #report-new {
-  margin-top:10%;
-  margin-bottom:10%;
+  margin-top:0;
 }
 
 .help-block {
@@ -231,11 +230,16 @@ form {
 }
 
 .submit-form {
-  margin-top: -12%;
+  margin-top: 0;
 }
 
 #request-show-page {
   color: #343838;
+  margin-top: -5%;
+}
+
+input[name=commit] {
+  margin-bottom: 5%;
 }
 
 @media (min-width: 769px) {
