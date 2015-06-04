@@ -79,7 +79,7 @@ function handleNoGeolocation(errorFlag) {
 $(document).ready(function(){
   if(document.getElementById("big-map-div") != null) {
     initialize();
-    $(document).on('submit','#map-submit-button',function(event){
+    $(document).on('click','#map-submit-button',function(event){
       event.preventDefault();
       center = map.getCenter();
       codeLatLng(center);

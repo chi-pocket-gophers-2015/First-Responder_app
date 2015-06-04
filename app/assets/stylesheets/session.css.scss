@@ -5,9 +5,20 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 html, .container-fluid {
-  background-color: #343838;
+  /*background-color: #343838;*/
+  background-color: #B3DDF2;
   color: #FAFAFA;
   font-family: 'Arimo', sans-serif;
+
+}
+
+.frontpage {
+  font-size:1.75em;
+  font-family: serif;
+}
+
+.the {
+  font-style: italic
 }
 
 #request-show-map {
@@ -28,15 +39,19 @@ h2 {
 }
 
 .btn, .btn-lg, .btn-default {
-  background-color: #C7C7C7;
+  /*background-color: #C7C7C7;*/
+  /*background-color: #343838;*/
+  background-color: white;
 }
 
 a:link, a:visited {
-  color: #00DFFC;
+  /*color: #00DFFC;*/
+  color: #FF0000;
 }
 
 a:hover {
-  color: #FF348E;
+  /*color: #FF348E;*/
+  color: #FF0000;
 }
 
 #locate-message {
@@ -44,7 +59,8 @@ a:hover {
 }
 
 #new-report-request h1 {
-  text-align: center
+  text-align: center;
+  color: #343838 ;
 }
 
 #new-report-header {
@@ -72,6 +88,7 @@ div.request-select input {
   width: 100%;
   margin-top: 5%;
   margin-bottom: 5%;
+  border: 1px solid #343838;
 }
 
 #map-header-text {
@@ -160,7 +177,7 @@ div.request-select input {
       color: #ffffff;
   }
   .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
-    background: #33a6cc;
+    background: #B3DDF2;
   }
   .btn-primary:active, .btn-primary.active {
       background: #007299;
@@ -220,7 +237,8 @@ table {
 
 .help-block {
   font-family: 'PT Serif', serif;
-  color: #ccc;
+  /*color: #ccc;*/
+  color: #343838;
 }
 
 label {
@@ -231,11 +249,17 @@ label {
   margin-bottom: 1.2em;
 }
 
+.welcome-notice {
+  color: #343838;
+}
+
 .welcome-notice h3 {
   font-size: 1em;
   background-color: #CC0000;
   padding: 0.6em 0;
+  color: white;
 }
+
 
 .show-img {
   display: block;
@@ -252,6 +276,12 @@ label {
   }
 }
 
+.btn {
+  border-radius: 0;
+  box-shadow: 0 1px 1px 0 #343838;
+}
+
 #btn-all {
   height: 40px;
 }
+
