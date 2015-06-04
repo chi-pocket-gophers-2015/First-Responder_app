@@ -1,12 +1,6 @@
 <html>
   <head>
     <br><br>
-    <style>
-      #totally-different-map {
-        width: 500px;
-        height: 400px;
-      }
-    </style>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
 
     <script>
@@ -183,15 +177,15 @@
 	            google.maps.event.addListener(marker, 'click', function() {
 					    infowindow.open(map,marker);
 
-					    
+
 					  });
 					});
-          
+
           var mc = new MarkerClusterer(map, curmarkers, mcOptions);
           mc_array.push(mc);
 	      }
 
-	       
+
 
 
 

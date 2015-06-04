@@ -55,7 +55,7 @@ div.request-select input {
   padding: 0 auto;
 }
 
-#map-canvas {
+#map-canvas, #totally-different-map {
   width: 500px;
   height: 350px;
   background-color: #CCC;
@@ -94,7 +94,7 @@ div.request-select input {
     font-size: 1.5em;
   }
 
-  #map-canvas {
+  #map-canvas, #totally-different-map {
     height: 700px;
     margin-top: 0;
     margin-bottom: 3%;
