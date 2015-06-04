@@ -90,7 +90,9 @@
         markers.push(marker);
         curmarkers.push(marker);
 
-        var contentString = '<h4 style = "color: black">' + obj.type_of_service_request + '</h4><p style = "color: black">' + obj.street_address + '</>';
+        var contentString =
+          '<a href="/requests/' + obj.id + '">' + obj.type_of_service_request +
+          '</a></h4><p style = "color: black">' + obj.street_address + '</p>';
         google.maps.event.addListener(marker, 'click', function() {
           infowindow = new google.maps.InfoWindow({
             content: contentString
