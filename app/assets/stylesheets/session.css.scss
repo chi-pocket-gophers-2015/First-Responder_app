@@ -108,6 +108,10 @@ div.request-select input {
   color: #343838;
 }
 
+.container-fluid {
+
+}
+
 .centerMarker {
     position: absolute;
     top:53%;left:47.33%;
@@ -228,6 +232,10 @@ form {
 
 .submit-form {
   margin-top: -12%;
+}
+
+#request-show-page {
+  color: #343838;
 }
 
 @media (min-width: 769px) {
