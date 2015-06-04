@@ -14,3 +14,5 @@
 
 coverage/
 .env
+
+config/secrets.yml

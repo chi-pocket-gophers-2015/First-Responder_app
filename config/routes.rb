@@ -31,7 +31,12 @@ Rails.application.routes.draw do
   end
 
   resources :users, except: [:edit, :update]
-  resources :sessions, only: [:new, :create, :destroy]
+  resources :sessions, only: [:new, :create, :destroy, :failure]
+  resources :identities
+
+  get "/auth/:provider/callback", to: "sessions#create"
+  get "/auth/failure", to: "sessions#failure"
+  get "/logout", to: "sessions#destroy", :as => "logout"
 
   root to: 'welcome#index'
 

@@ -20,6 +20,11 @@ gem 'aws-sdk', '~> 1.6'
 gem 'will_paginate', '~> 3.0.6'
 gem 'json' # make this json-ruby??
 gem 'ruby'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-identity'
+gem 'bcrypt-ruby'
 
 group :development, :test do
   gem 'byebug'
