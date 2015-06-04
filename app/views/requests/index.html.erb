@@ -49,7 +49,7 @@
       </div>
     <% end %>
   </div>
-  <div class="row">
+  <div class="row" id="all-button">
     <%= form_tag("/requests/all", method: 'get') do %>
       <div class="col-xs-12 request-select">
         <%= submit_tag("All", class: "btn btn-lg btn-default button-city-problem-category", id: "btn-all")%>
