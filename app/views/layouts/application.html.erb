@@ -76,9 +76,30 @@
     var curmarkers = [];
     var infowindow = null;
     var oldinfowindow = null;
+    var clusterStyles = [
+     {
+        textColor: 'white',
+        url: 'https://pbs.twimg.com/profile_images/1370542177/chicago-star-full_normal.png',
+        height: 48,
+        width: 48
+      },
+     {
+      textColor: 'white',
+      url: 'http://www.audibleodyssey.org/wp-content/uploads/2014/01/chicago-star.png',
+      height: 100,
+      width: 100
+    },
+    {
+      textColor: 'white',
+      url: 'https://pbs.twimg.com/profile_images/112815481/chicago-star-full.png',
+      height: 192,
+      width: 192
+    }
+    ];
     var mcOptions = {
       gridSize: 50,
       maxZoom: 15,
+      styles: clusterStyles,
       title: category + ' cluster - click to zoom'};
     $.each(array, function(i, obj) {
       //use obj.id and obj.name here, for example:
