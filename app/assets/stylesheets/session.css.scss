@@ -221,6 +221,8 @@ label {
   margin-bottom:-5%;
   }
 
+
+
 }
 
 .btn {
@@ -254,7 +256,8 @@ input[name=commit] {
 }
 
 .pagination {
-  margin: 10px 0;
+  border-top: 1px solid #888888;
+  margin: 0;
 }
 
 @media (min-width: 769px) {
