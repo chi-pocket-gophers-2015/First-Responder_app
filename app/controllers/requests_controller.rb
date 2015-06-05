@@ -33,18 +33,18 @@ class RequestsController < ApplicationController
   end
 
   def index
-    @requests = Request.all
-    @vehicles = @requests.where(type_of_service_request: "Abandoned Vehicle").where(status: "open")
-    @graffitis = @requests.where(type_of_service_request: "Graffiti Removal").where(status: "open")
-    @potholes = @requests.where(type_of_service_request: "Pothole in Street").where(status: "open")
-    @rodents = @requests.where(type_of_service_request: "Rodent Baiting / Rat Complaint").where(status: "open")
-    @lights = @requests.where(type_of_service_request: "Street Light Out").where(status: "open")
-    @trees = @requests.where(type_of_service_request: "Tree Debris").where(status: "open")
+    @requests = Request.where(status: "open").order(creation_date: :desc)
+    @vehicles = @requests.where(type_of_service_request: "Abandoned Vehicle")
+    @graffitis = @requests.where(type_of_service_request: "Graffiti Removal")
+    @potholes = @requests.where(type_of_service_request: "Pothole in Street")
+    @rodents = @requests.where(type_of_service_request: "Rodent Baiting / Rat Complaint")
+    @lights = @requests.where(type_of_service_request: "Street Light Out")
+    @trees = @requests.where(type_of_service_request: "Tree Debris")
     # @requests = Request.all.order(creation_date: :desc).paginate(page: params[:page], per_page: 5)
   end
 
   def all
-    @requests = Request.all.where(status: "open").paginate(page: params[:page], per_page: 5)
+    @requests = Request.where(status: "open").order(creation_date: :desc).paginate(page: params[:page], per_page: 5)
   end
 
   def show
