@@ -202,7 +202,6 @@ label {
   color: white;
 }
 
-
 .show-img {
   display: block;
   margin: 0 auto;
@@ -252,6 +251,10 @@ form {
 
 input[name=commit] {
   margin-bottom: 5%;
+}
+
+.pagination {
+  margin: 10px 0;
 }
 
 @media (min-width: 769px) {
