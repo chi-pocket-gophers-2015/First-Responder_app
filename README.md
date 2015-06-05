@@ -16,55 +16,55 @@
 #Planning Meeting:
 
 ##Rules/Goals/Agreements
-  *Standup after each cohort stand-up
-  *present new code/tech to the group
-  *ask for help if stuck for 15 minutes
-  *pair on new tech
-  *Trello - keep up to date
-  *Commit at least every 30 minutes (and announce it)
-  *take care of yourself —— sleep!
-  *no questions asked if anyone leaves after 6pm
-  *vote on disagreements - get help if not solved
-  *don’t merge your own code - look at the code before merging
-  *Each feature has it’s own branch
-  *don’t change anyone’s code without asking
-  *when proposing ideas, everyone else has a chance to give input
-  *you can only talk when holding the token
-  *any new tech should be presented to the group
+  *Standup after each cohort stand-up  
+  *present new code/tech to the group  
+  *ask for help if stuck for 15 minutes  
+  *pair on new tech  
+  *Trello - keep up to date  
+  *Commit at least every 30 minutes (and announce it)  
+  *take care of yourself —— sleep!  
+  *no questions asked if anyone leaves after 6pm  
+  *vote on disagreements - get help if not solved  
+  *don’t merge your own code - look at the code before merging  
+  *Each feature has it’s own branch  
+  *don’t change anyone’s code without asking  
+  *when proposing ideas, everyone else has a chance to give input  
+  *you can only talk when holding the token  
+  *any new tech should be presented to the group  
 
 ##Expectations
-  *new technologies
-  *ready/shippable product by Demo Day
-  *mobile-first
-  *looks slick
-  *UX/UI
-  *frequent feedback cycle (ask alums, students, instructors, etc.)
-  *“cross-pollination” (integrate ideas instead of relying on specialists)
+  *new technologies  
+  *ready/shippable product by Demo Day  
+  *mobile-first  
+  *looks slick  
+  *UX/UI  
+  *frequent feedback cycle (ask alums, students, instructors, etc.)  
+  *“cross-pollination” (integrate ideas instead of relying on specialists)  
 
 ##App Idea
-  *non-emergency app
-  *have map, mark things down on map
-  *have selection of things 
-  *click icon
-  *click location on map
-  *e.g. pothole, see smashed windshield, graffiti, fire hydrants
-  *question: what is minimum thing want on list, what is maximum thing before it becomes an emergency?
-other examples: drug deals, evidence of crimes, suspicious activity, downed tree, street-light out, flooding, sewage/bad smells
-  *have an ‘other’ category….update with unforeseen things later
-  *Anyone can mark something down, responders will be city officials? Or will be more like community bulletin-board?
-  *search functionality
-  *list-view and map view?
-  *can toggle options on/off
-  *mobile first
-  *community would prefer to use mobile (only map, to report)
-  *authorities would prefer to use desktop (to view)
-  *threshold of how many reports?
-  *icon gets bigger?
-  *trending algorithm?
-  *User needs account  or no?
-  *what are our core features?
-  *when open app, see things to report?
-  *when open app, see things to view?
+  *non-emergency app  
+  *have map, mark things down on map  
+  *have selection of things   
+  *click icon  
+  *click location on map  
+  *e.g. pothole, see smashed windshield, graffiti, fire hydrants  
+  *question: what is minimum thing want on list, what is maximum thing before it becomes an emergency?  
+other examples: drug deals, evidence of crimes, suspicious activity, downed tree, street-light out, flooding, sewage/bad smells  
+  *have an ‘other’ category….update with unforeseen things later  
+  *Anyone can mark something down, responders will be city officials? Or will be more like community bulletin-board?  
+  *search functionality  
+  *list-view and map view?  
+  *can toggle options on/off  
+  *mobile first  
+  *community would prefer to use mobile (only map, to report)  
+  *authorities would prefer to use desktop (to view)  
+  *threshold of how many reports?  
+  *icon gets bigger?  
+  *trending algorithm?  
+  *User needs account  or no?  
+  *what are our core features?  
+  *when open app, see things to report?  
+  *when open app, see things to view?  
 
 ##What is our MVP? (be done by Sunday 5/31)
   *mobile first
