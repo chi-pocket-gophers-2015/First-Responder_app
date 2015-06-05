@@ -1,11 +1,11 @@
 class RodentsController < ApplicationController
 
   def show
-    @requests = Request.where(type_of_service_request: "Rodent Baiting / Rat Complaint").paginate(page: params[:page], per_page: 6)
+    @requests = Request.where(type_of_service_request: "Rodent Baiting / Rat Complaint").where(status: "open").paginate(page: params[:page], per_page: 5)
   end
 
   def map
-        @requests = Request.all.where(type_of_service_request: "Rodent Baiting / Rat Complaint")
+    @requests = Request.all.where(type_of_service_request: "Rodent Baiting / Rat Complaint").where(status: "open")
   end
 
   def new

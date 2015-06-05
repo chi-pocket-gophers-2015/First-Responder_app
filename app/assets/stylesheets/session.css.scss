@@ -214,6 +214,11 @@ label {
     display: block;
     font-family: 'PT Serif', serif;
   }
+
+  ul, ol {
+  margin-top:0;
+  margin-bottom:0;
+  }
 }
 
 .btn {
