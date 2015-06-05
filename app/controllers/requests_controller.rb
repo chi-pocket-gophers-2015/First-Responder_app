@@ -8,12 +8,12 @@ class RequestsController < ApplicationController
 
   def map
     @requests = Request.all
-    @vehicles = @requests.where(type_of_service_request: "Abandoned Vehicle")
-    @graffitis = @requests.where(type_of_service_request: "Graffiti Removal")
-    @potholes = @requests.where(type_of_service_request: "Pothole in Street")
-    @rodents = @requests.where(type_of_service_request: "Rodent Baiting / Rat Complaint")
-    @lights = @requests.where(type_of_service_request: "Street Light Out")
-    @trees = @requests.where(type_of_service_request: "Tree Debris")
+    @vehicles = @requests.where(type_of_service_request: "Abandoned Vehicle").where(status: "open")
+    @graffitis = @requests.where(type_of_service_request: "Graffiti Removal").where(status: "open")
+    @potholes = @requests.where(type_of_service_request: "Pothole in Street").where(status: "open")
+    @rodents = @requests.where(type_of_service_request: "Rodent Baiting / Rat Complaint").where(status: "open")
+    @lights = @requests.where(type_of_service_request: "Street Light Out").where(status: "open")
+    @trees = @requests.where(type_of_service_request: "Tree Debris").where(status: "open")
   end
 
   def create
@@ -34,12 +34,12 @@ class RequestsController < ApplicationController
 
   def index
     @requests = Request.all
-    @vehicles = Request.where(type_of_service_request: "Abandoned Vehicle")
-    @graffitis = Request.where(type_of_service_request: "Graffiti Removal")
-    @potholes = Request.where(type_of_service_request: "Pothole in Street")
-    @rodents = Request.where(type_of_service_request: "Rodent Baiting / Rat Complaint")
-    @lights = Request.where(type_of_service_request: "Street Light Out")
-    @trees = Request.where(type_of_service_request: "Tree Debris")
+    @vehicles = @requests.where(type_of_service_request: "Abandoned Vehicle").where(status: "open")
+    @graffitis = @requests.where(type_of_service_request: "Graffiti Removal").where(status: "open")
+    @potholes = @requests.where(type_of_service_request: "Pothole in Street").where(status: "open")
+    @rodents = @requests.where(type_of_service_request: "Rodent Baiting / Rat Complaint").where(status: "open")
+    @lights = @requests.where(type_of_service_request: "Street Light Out").where(status: "open")
+    @trees = @requests.where(type_of_service_request: "Tree Debris").where(status: "open")
     # @requests = Request.all.order(creation_date: :desc).paginate(page: params[:page], per_page: 5)
   end
 
