@@ -72,6 +72,7 @@ other examples: drug deals, evidence of crimes, suspicious activity, downed tree
   *geolocation  
   *plot what you saw on map  
   *see a map of your location, click or drag cursor to mark event  
+  *open311 integration  
 
 ##Next Steps (full-features to do after MVP, be done by Friday 6/5)?
   *logic to group events together??  
