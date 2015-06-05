@@ -44,7 +44,7 @@ class RequestsController < ApplicationController
   end
 
   def all
-    @requests = Request.all.paginate(page: params[:page], per_page: 6)
+    @requests = Request.all.where(status: "open").paginate(page: params[:page], per_page: 5)
   end
 
   def show
@@ -54,7 +54,7 @@ class RequestsController < ApplicationController
     service_id = Request.official_city_data(token)['service_request_id']
     @request.update(service_request_number: service_id)
     @record = RequestRecord.find_by_token(token)
-    @record.update(service_id: service_id)
+    @record.update(service_id: service_id) if @record
   end
 
   private
