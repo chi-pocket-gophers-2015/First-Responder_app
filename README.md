@@ -67,45 +67,45 @@ other examples: drug deals, evidence of crimes, suspicious activity, downed tree
   *when open app, see things to view?  
 
 ##What is our MVP? (be done by Sunday 5/31)
-  *mobile first
-  *make a report (by clicking w/ finger) and save to database
-  *geolocation
-  *plot what you saw on map
-  *see a map of your location, click or drag cursor to mark event
+  *mobile first  
+  *make a report (by clicking w/ finger) and save to database  
+  *geolocation  
+  *plot what you saw on map  
+  *see a map of your location, click or drag cursor to mark event  
 
 ##Next Steps (full-features to do after MVP, be done by Friday 6/5)?
-  *logic to group events together??
-  *threshold to filter bad data
-  *see all community’s reports
-  *toggle views on/off
-  *user accounts?
-  *“other” category?
-  *admin can mark report as “closed"
-  *desktop version
+  *logic to group events together??  
+  *threshold to filter bad data  
+  *see all community’s reports  
+  *toggle views on/off  
+  *user accounts?  
+  *“other” category?  
+  *admin can mark report as “closed"  
+  *desktop version  
 
 ##What are our Spikes (new tech)?
-  *mobile, hybrid mobile, angular ionic
-  *maps
-  *PostGIS…..get for free?
-  *CSS: Bootstrap/foundation
+  *mobile, hybrid mobile, angular ionic  
+  *maps  
+  *PostGIS…..get for free?  
+  *CSS: Bootstrap/foundation  
 
 ##What are our Stretch goals?
-  *email to alderman?
-  *auto-send to City of Chicago website
-  *“trending” functionality
-  *heat map/hotspots
-  *camera functionality
+  *email to alderman?  
+  *auto-send to City of Chicago website  
+  *“trending” functionality  
+  *heat map/hotspots  
+  *camera functionality  
 
 ##Research to Do
-  *City of Chicago site (potholes)
-  *block-by-block (reports people are interested in)
-  *field-research?
-  *open-source map APIs
-  *Google maps
+  *City of Chicago site (potholes)  
+  *block-by-block (reports people are interested in)  
+  *field-research?  
+  *open-source map APIs  
+  *Google maps  
 
 ##Advice from Terrier-Tory group
-  *Don’t lock into Google Maps right away
-  *used PostGIS (extension to PostGres)….allows you to do lat/long points in your queries (data is indexed  geographically)
-  *if decide to use PostGIS, best to implement right away (instead of when you’re well into project)
-  *too much specialization as individuals can lead to integration problems; better to be less efficient but work as team
+  *Don’t lock into Google Maps right away  
+  *used PostGIS (extension to PostGres)….allows you to do lat/long points in your queries (data is indexed  geographically)  
+  *if decide to use PostGIS, best to implement right away (instead of when you’re well into project)  
+  *too much specialization as individuals can lead to integration problems; better to be less efficient but work as team  
 
