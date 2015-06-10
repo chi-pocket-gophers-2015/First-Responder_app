@@ -79,9 +79,14 @@ a:hover {
   color:red;
 }
 
+div.welcome-page-buttons a {
+  height:45px;
+  font-size:0.85em;
+}
+
 div.request-select input {
   width:100%;
-  height: 90px;
+  height: 75px;
   margin: 0 auto;
   padding: 0 auto;
 }
@@ -91,8 +96,7 @@ div.request-select input {
 }
 
 #map-canvas, #totally-different-map {
-  width: 500px;
-  height: 350px;
+  height: 250px;
   background-color: #CCC;
   margin: 0 auto;
   width: 100%;
@@ -102,15 +106,12 @@ div.request-select input {
 }
 
 #map-header-text {
-  margin-top: -13%;
+  margin-top: -10%;
   font-weight: bold;
   margin-bottom:2%;
   color: #343838;
 }
 
-.container-fluid {
-
-}
 
 .centerMarker {
     position: absolute;
@@ -145,7 +146,7 @@ div.request-select input {
 
 
 #map-submit-button {
-  height:5em;
+  height:3em;
 }
 
 input.submit{
@@ -173,7 +174,7 @@ table {
 }
 
 #report-new {
-  margin-top:-10%;
+  margin-top:0;
 }
 
 .help-block {
@@ -201,7 +202,6 @@ label {
   color: white;
 }
 
-
 .show-img {
   display: block;
   margin: 0 auto;
@@ -209,12 +209,20 @@ label {
 
 .show-requests {
   a {
-    font-size: 1.2em;
+    font-size: 1em;
   }
   span {
     display: block;
     font-family: 'PT Serif', serif;
   }
+
+  ul, ol {
+  margin-top:0;
+  margin-bottom:-5%;
+  }
+
+
+
 }
 
 .btn {
@@ -231,11 +239,26 @@ form {
 }
 
 .submit-form {
-  margin-top: -12%;
+  margin-top: 0;
 }
 
 #request-show-page {
   color: #343838;
+  margin-top: 0;
+}
+
+#map-view-page {
+  margin-top: -5%;
+}
+
+input[name=commit] {
+  margin-bottom: 5%;
+}
+
+.pagination {
+  border-top: 1px solid #888888;
+  margin-top: 0;
+  margin-bottom: 15%;
 }
 
 @media (min-width: 769px) {
@@ -301,6 +324,7 @@ form {
       text-transform: uppercase;
       white-space:normal;
       text-align: center;
+      font-size:1em;
   }
   .btn:focus, .btn:active:focus, .btn.active:focus {
     outline: 0 none;

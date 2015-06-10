@@ -1,11 +1,11 @@
 class AbandonedVehiclesController < ApplicationController
 
   def show
-    @requests = Request.where(type_of_service_request: "Abandoned Vehicle").paginate(page: params[:page], per_page: 6)
+    @requests = Request.where(type_of_service_request: "Abandoned Vehicle").where(status: "open").paginate(page: params[:page], per_page: 5)
   end
 
   def map
-    @requests = Request.all.where(type_of_service_request: "Abandoned Vehicle")
+    @requests = Request.all.where(type_of_service_request: "Abandoned Vehicle").where(status: "open")
   end
 
   def new

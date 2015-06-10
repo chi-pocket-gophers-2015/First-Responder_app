@@ -1,10 +1,10 @@
 <ol class="show-requests">
   <% requests.each do |request| %>
     <li>
-      <%= link_to(request.street_address, request_path(request.id)) %>
+      <%= link_to(request.street_address, request_path(request)) %>
       <span>reported on
       <%= request.creation_date.strftime("%m/%d/%Y") %></span>
     </li>
   <% end %>
 </ol>
-<%= will_paginate requests, class: 'digg_pagination' %>
+<%= will_paginate requests, class: "digg_pagination", :page_links => false %>

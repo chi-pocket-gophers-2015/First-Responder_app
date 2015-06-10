@@ -8,12 +8,12 @@ class RequestsController < ApplicationController
 
   def map
     @requests = Request.all
-    @vehicles = @requests.where(type_of_service_request: "Abandoned Vehicle")
-    @graffitis = @requests.where(type_of_service_request: "Graffiti Removal")
-    @potholes = @requests.where(type_of_service_request: "Pothole in Street")
-    @rodents = @requests.where(type_of_service_request: "Rodent Baiting / Rat Complaint")
-    @lights = @requests.where(type_of_service_request: "Street Light Out")
-    @trees = @requests.where(type_of_service_request: "Tree Debris")
+    @vehicles = @requests.where(type_of_service_request: "Abandoned Vehicle").where(status: "open")
+    @graffitis = @requests.where(type_of_service_request: "Graffiti Removal").where(status: "open")
+    @potholes = @requests.where(type_of_service_request: "Pothole in Street").where(status: "open")
+    @rodents = @requests.where(type_of_service_request: "Rodent Baiting / Rat Complaint").where(status: "open")
+    @lights = @requests.where(type_of_service_request: "Street Light Out").where(status: "open")
+    @trees = @requests.where(type_of_service_request: "Tree Debris").where(status: "open")
   end
 
   def create
@@ -33,18 +33,18 @@ class RequestsController < ApplicationController
   end
 
   def index
-    @requests = Request.all
-    @vehicles = Request.where(type_of_service_request: "Abandoned Vehicle")
-    @graffitis = Request.where(type_of_service_request: "Graffiti Removal")
-    @potholes = Request.where(type_of_service_request: "Pothole in Street")
-    @rodents = Request.where(type_of_service_request: "Rodent Baiting / Rat Complaint")
-    @lights = Request.where(type_of_service_request: "Street Light Out")
-    @trees = Request.where(type_of_service_request: "Tree Debris")
+    @requests = Request.where(status: "open").order(creation_date: :desc)
+    @vehicles = @requests.where(type_of_service_request: "Abandoned Vehicle")
+    @graffitis = @requests.where(type_of_service_request: "Graffiti Removal")
+    @potholes = @requests.where(type_of_service_request: "Pothole in Street")
+    @rodents = @requests.where(type_of_service_request: "Rodent Baiting / Rat Complaint")
+    @lights = @requests.where(type_of_service_request: "Street Light Out")
+    @trees = @requests.where(type_of_service_request: "Tree Debris")
     # @requests = Request.all.order(creation_date: :desc).paginate(page: params[:page], per_page: 5)
   end
 
   def all
-    @requests = Request.all.paginate(page: params[:page], per_page: 6)
+    @requests = Request.where(status: "open").order(creation_date: :desc).paginate(page: params[:page], per_page: 5)
   end
 
   def show
@@ -54,7 +54,7 @@ class RequestsController < ApplicationController
     service_id = Request.official_city_data(token)['service_request_id']
     @request.update(service_request_number: service_id)
     @record = RequestRecord.find_by_token(token)
-    @record.update(service_id: service_id)
+    @record.update(service_id: service_id) if @record
   end
 
   private

@@ -4,10 +4,10 @@
   <h2>Make official 311 service requests from anywhere</h2>
 </div>
 
-<div>
-  <%= link_to("New Request", new_requests_path, method: 'get', class: "index-buttons btn btn-lg btn-default") %>
-  <%= link_to("Requests List", requests_path, method: 'get', class: "index-buttons btn btn-lg btn-default") %>
-  <%= link_to("Requests Map", map_requests_path, method: 'get', class: "index-buttons btn btn-lg btn-default") %>
+<div class="welcome-page-buttons">
+  <%= link_to("Submit Request", new_requests_path, method: 'get', class: "index-buttons btn btn-lg btn-default") %>
+  <%= link_to("View Requests List", requests_path, method: 'get', class: "index-buttons btn btn-lg btn-default") %>
+  <%= link_to("View Requests Map", map_requests_path, method: 'get', class: "index-buttons btn btn-lg btn-default") %>
 </div>
 
 <div class="welcome-login-links">

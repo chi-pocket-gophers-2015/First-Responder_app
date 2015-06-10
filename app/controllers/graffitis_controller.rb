@@ -1,11 +1,11 @@
 class GraffitisController < ApplicationController
 
   def show
-    @requests = Request.where(type_of_service_request: "Graffiti Removal").paginate(page: params[:page], per_page: 6)
+    @requests = Request.where(type_of_service_request: "Graffiti Removal").where(status: "open").paginate(page: params[:page], per_page: 5)
   end
 
   def map
-    @requests = Request.all.where(type_of_service_request: "Graffiti Removal")
+    @requests = Request.all.where(type_of_service_request: "Graffiti Removal").where(status: "open")
   end
 
   def new
@@ -13,7 +13,6 @@ class GraffitisController < ApplicationController
   end
 
   def create
-
     set_lat_and_lng(params['lat'], params['lng'])
     set_address_and_zip(params['address'], params['zip'])
     @request = Request.new

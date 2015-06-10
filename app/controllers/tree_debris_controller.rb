@@ -1,11 +1,11 @@
 class TreeDebrisController < ApplicationController
 
   def show
-    @requests = Request.where(type_of_service_request: "Tree Debris").paginate(page: params[:page], per_page: 6)
+    @requests = Request.where(type_of_service_request: "Tree Debris").where(status: "open").paginate(page: params[:page], per_page: 5)
   end
 
   def map
-    @requests = Request.all.where(type_of_service_request: "Tree Debris")
+    @requests = Request.all.where(type_of_service_request: "Tree Debris").where(status: "open")
   end
 
   def new
